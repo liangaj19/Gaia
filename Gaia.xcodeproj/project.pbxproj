@@ -1,0 +1,588 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		97A9365D2900AE5300994E0F /* GaiaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A9365C2900AE5300994E0F /* GaiaApp.swift */; };
+		97A9365F2900AE5300994E0F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A9365E2900AE5300994E0F /* ContentView.swift */; };
+		97A936612900AE5500994E0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97A936602900AE5500994E0F /* Assets.xcassets */; };
+		97A936642900AE5500994E0F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97A936632900AE5500994E0F /* Preview Assets.xcassets */; };
+		97A9366E2900AE5500994E0F /* GaiaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A9366D2900AE5500994E0F /* GaiaTests.swift */; };
+		97A936782900AE5500994E0F /* GaiaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A936772900AE5500994E0F /* GaiaUITests.swift */; };
+		97A9367A2900AE5500994E0F /* GaiaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A936792900AE5500994E0F /* GaiaUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		97A9366A2900AE5500994E0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 97A936512900AE5300994E0F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 97A936582900AE5300994E0F;
+			remoteInfo = Gaia;
+		};
+		97A936742900AE5500994E0F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 97A936512900AE5300994E0F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 97A936582900AE5300994E0F;
+			remoteInfo = Gaia;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		97A936592900AE5300994E0F /* Gaia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gaia.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		97A9365C2900AE5300994E0F /* GaiaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaiaApp.swift; sourceTree = "<group>"; };
+		97A9365E2900AE5300994E0F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		97A936602900AE5500994E0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		97A936632900AE5500994E0F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		97A936692900AE5500994E0F /* GaiaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GaiaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		97A9366D2900AE5500994E0F /* GaiaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaiaTests.swift; sourceTree = "<group>"; };
+		97A936732900AE5500994E0F /* GaiaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GaiaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		97A936772900AE5500994E0F /* GaiaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaiaUITests.swift; sourceTree = "<group>"; };
+		97A936792900AE5500994E0F /* GaiaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaiaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		97A936562900AE5300994E0F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		97A936662900AE5500994E0F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		97A936702900AE5500994E0F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		97A936502900AE5200994E0F = {
+			isa = PBXGroup;
+			children = (
+				97A9365B2900AE5300994E0F /* Gaia */,
+				97A9366C2900AE5500994E0F /* GaiaTests */,
+				97A936762900AE5500994E0F /* GaiaUITests */,
+				97A9365A2900AE5300994E0F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		97A9365A2900AE5300994E0F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				97A936592900AE5300994E0F /* Gaia.app */,
+				97A936692900AE5500994E0F /* GaiaTests.xctest */,
+				97A936732900AE5500994E0F /* GaiaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		97A9365B2900AE5300994E0F /* Gaia */ = {
+			isa = PBXGroup;
+			children = (
+				97A9365C2900AE5300994E0F /* GaiaApp.swift */,
+				97A9365E2900AE5300994E0F /* ContentView.swift */,
+				97A936602900AE5500994E0F /* Assets.xcassets */,
+				97A936622900AE5500994E0F /* Preview Content */,
+			);
+			path = Gaia;
+			sourceTree = "<group>";
+		};
+		97A936622900AE5500994E0F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				97A936632900AE5500994E0F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		97A9366C2900AE5500994E0F /* GaiaTests */ = {
+			isa = PBXGroup;
+			children = (
+				97A9366D2900AE5500994E0F /* GaiaTests.swift */,
+			);
+			path = GaiaTests;
+			sourceTree = "<group>";
+		};
+		97A936762900AE5500994E0F /* GaiaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				97A936772900AE5500994E0F /* GaiaUITests.swift */,
+				97A936792900AE5500994E0F /* GaiaUITestsLaunchTests.swift */,
+			);
+			path = GaiaUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		97A936582900AE5300994E0F /* Gaia */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 97A9367D2900AE5500994E0F /* Build configuration list for PBXNativeTarget "Gaia" */;
+			buildPhases = (
+				97A936552900AE5300994E0F /* Sources */,
+				97A936562900AE5300994E0F /* Frameworks */,
+				97A936572900AE5300994E0F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Gaia;
+			productName = Gaia;
+			productReference = 97A936592900AE5300994E0F /* Gaia.app */;
+			productType = "com.apple.product-type.application";
+		};
+		97A936682900AE5500994E0F /* GaiaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 97A936802900AE5500994E0F /* Build configuration list for PBXNativeTarget "GaiaTests" */;
+			buildPhases = (
+				97A936652900AE5500994E0F /* Sources */,
+				97A936662900AE5500994E0F /* Frameworks */,
+				97A936672900AE5500994E0F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				97A9366B2900AE5500994E0F /* PBXTargetDependency */,
+			);
+			name = GaiaTests;
+			productName = GaiaTests;
+			productReference = 97A936692900AE5500994E0F /* GaiaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		97A936722900AE5500994E0F /* GaiaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 97A936832900AE5500994E0F /* Build configuration list for PBXNativeTarget "GaiaUITests" */;
+			buildPhases = (
+				97A9366F2900AE5500994E0F /* Sources */,
+				97A936702900AE5500994E0F /* Frameworks */,
+				97A936712900AE5500994E0F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				97A936752900AE5500994E0F /* PBXTargetDependency */,
+			);
+			name = GaiaUITests;
+			productName = GaiaUITests;
+			productReference = 97A936732900AE5500994E0F /* GaiaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		97A936512900AE5300994E0F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					97A936582900AE5300994E0F = {
+						CreatedOnToolsVersion = 14.0.1;
+					};
+					97A936682900AE5500994E0F = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = 97A936582900AE5300994E0F;
+					};
+					97A936722900AE5500994E0F = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = 97A936582900AE5300994E0F;
+					};
+				};
+			};
+			buildConfigurationList = 97A936542900AE5300994E0F /* Build configuration list for PBXProject "Gaia" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 97A936502900AE5200994E0F;
+			productRefGroup = 97A9365A2900AE5300994E0F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				97A936582900AE5300994E0F /* Gaia */,
+				97A936682900AE5500994E0F /* GaiaTests */,
+				97A936722900AE5500994E0F /* GaiaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		97A936572900AE5300994E0F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97A936642900AE5500994E0F /* Preview Assets.xcassets in Resources */,
+				97A936612900AE5500994E0F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		97A936672900AE5500994E0F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		97A936712900AE5500994E0F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		97A936552900AE5300994E0F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97A9365F2900AE5300994E0F /* ContentView.swift in Sources */,
+				97A9365D2900AE5300994E0F /* GaiaApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		97A936652900AE5500994E0F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97A9366E2900AE5500994E0F /* GaiaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		97A9366F2900AE5500994E0F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97A9367A2900AE5500994E0F /* GaiaUITestsLaunchTests.swift in Sources */,
+				97A936782900AE5500994E0F /* GaiaUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		97A9366B2900AE5500994E0F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 97A936582900AE5300994E0F /* Gaia */;
+			targetProxy = 97A9366A2900AE5500994E0F /* PBXContainerItemProxy */;
+		};
+		97A936752900AE5500994E0F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 97A936582900AE5300994E0F /* Gaia */;
+			targetProxy = 97A936742900AE5500994E0F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		97A9367B2900AE5500994E0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		97A9367C2900AE5500994E0F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		97A9367E2900AE5500994E0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Gaia/Preview Content\"";
+				DEVELOPMENT_TEAM = 8BRD5NA4GT;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JiayuLiang.Gaia;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		97A9367F2900AE5500994E0F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Gaia/Preview Content\"";
+				DEVELOPMENT_TEAM = 8BRD5NA4GT;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JiayuLiang.Gaia;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		97A936812900AE5500994E0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8BRD5NA4GT;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JiayuLiang.GaiaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gaia.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Gaia";
+			};
+			name = Debug;
+		};
+		97A936822900AE5500994E0F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8BRD5NA4GT;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JiayuLiang.GaiaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gaia.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Gaia";
+			};
+			name = Release;
+		};
+		97A936842900AE5500994E0F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8BRD5NA4GT;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JiayuLiang.GaiaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Gaia;
+			};
+			name = Debug;
+		};
+		97A936852900AE5500994E0F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8BRD5NA4GT;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JiayuLiang.GaiaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Gaia;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		97A936542900AE5300994E0F /* Build configuration list for PBXProject "Gaia" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				97A9367B2900AE5500994E0F /* Debug */,
+				97A9367C2900AE5500994E0F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		97A9367D2900AE5500994E0F /* Build configuration list for PBXNativeTarget "Gaia" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				97A9367E2900AE5500994E0F /* Debug */,
+				97A9367F2900AE5500994E0F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		97A936802900AE5500994E0F /* Build configuration list for PBXNativeTarget "GaiaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				97A936812900AE5500994E0F /* Debug */,
+				97A936822900AE5500994E0F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		97A936832900AE5500994E0F /* Build configuration list for PBXNativeTarget "GaiaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				97A936842900AE5500994E0F /* Debug */,
+				97A936852900AE5500994E0F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 97A936512900AE5300994E0F /* Project object */;
+}
