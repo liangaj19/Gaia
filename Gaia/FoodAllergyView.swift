@@ -7,11 +7,17 @@
 
 import SwiftUI
 
+//This file is a view that shows a button called "Add" and will add a blank "name" value into the firebase database when you push it
 struct FoodAllergyView: View {
     @ObservedObject var allergyListViewModel: AllergyListViewModel
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-        Button("Add", action: addAllergy)
+        ZStack{
+            Color.white
+            VStack{
+                Text("Insert Your Allergy:")
+                Button("Add", action: addAllergy)
+            }
+        }
     }
     
     

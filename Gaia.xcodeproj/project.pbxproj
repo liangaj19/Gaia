@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30A748202908A72C00560E8D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A7481F2908A72C00560E8D /* MainView.swift */; };
 		30D91D1A2907492000035F16 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30D91D192907492000035F16 /* GoogleService-Info.plist */; };
 		30D91D1D29074AE900035F16 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 30D91D1C29074AE900035F16 /* FirebaseAuth */; };
 		30D91D1F29074AE900035F16 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 30D91D1E29074AE900035F16 /* FirebaseAuthCombine-Community */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		30A7481F2908A72C00560E8D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		30D91D192907492000035F16 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		30D91D2E29074F7100035F16 /* FoodAllergyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAllergyRepository.swift; sourceTree = "<group>"; };
 		30D91D30290750C300035F16 /* Allergy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Allergy.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				97A9365C2900AE5300994E0F /* GaiaApp.swift */,
+				30A7481F2908A72C00560E8D /* MainView.swift */,
 				97A9365E2900AE5300994E0F /* ContentView.swift */,
 				30D91D3429075EA400035F16 /* FoodAllergyView.swift */,
 				97A936602900AE5500994E0F /* Assets.xcassets */,
@@ -306,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30D91D33290752ED00035F16 /* AllergyListViewModel.swift in Sources */,
+				30A748202908A72C00560E8D /* MainView.swift in Sources */,
 				30D91D31290750C300035F16 /* Allergy.swift in Sources */,
 				30D91D2F29074F7100035F16 /* FoodAllergyRepository.swift in Sources */,
 				30D91D3529075EA400035F16 /* FoodAllergyView.swift in Sources */,
