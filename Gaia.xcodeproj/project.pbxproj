@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30D91D1A2907492000035F16 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30D91D192907492000035F16 /* GoogleService-Info.plist */; };
+		30D91D1D29074AE900035F16 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 30D91D1C29074AE900035F16 /* FirebaseAuth */; };
+		30D91D1F29074AE900035F16 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 30D91D1E29074AE900035F16 /* FirebaseAuthCombine-Community */; };
+		30D91D2129074AE900035F16 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 30D91D2029074AE900035F16 /* FirebaseDatabase */; };
+		30D91D2329074AE900035F16 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 30D91D2229074AE900035F16 /* FirebaseDatabaseSwift */; };
+		30D91D2529074AE900035F16 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 30D91D2429074AE900035F16 /* FirebaseFirestore */; };
+		30D91D2729074AE900035F16 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 30D91D2629074AE900035F16 /* FirebaseFirestoreCombine-Community */; };
+		30D91D2929074AE900035F16 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 30D91D2829074AE900035F16 /* FirebaseFirestoreSwift */; };
+		30D91D2B29074AE900035F16 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 30D91D2A29074AE900035F16 /* FirebaseStorage */; };
+		30D91D2D29074AE900035F16 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 30D91D2C29074AE900035F16 /* FirebaseStorageCombine-Community */; };
+		30D91D2F29074F7100035F16 /* FoodAllergyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D91D2E29074F7100035F16 /* FoodAllergyRepository.swift */; };
+		30D91D31290750C300035F16 /* Allergy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D91D30290750C300035F16 /* Allergy.swift */; };
+		30D91D33290752ED00035F16 /* AllergyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D91D32290752ED00035F16 /* AllergyListViewModel.swift */; };
+		30D91D3529075EA400035F16 /* FoodAllergyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D91D3429075EA400035F16 /* FoodAllergyView.swift */; };
 		97A9365D2900AE5300994E0F /* GaiaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A9365C2900AE5300994E0F /* GaiaApp.swift */; };
 		97A9365F2900AE5300994E0F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A9365E2900AE5300994E0F /* ContentView.swift */; };
 		97A936612900AE5500994E0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97A936602900AE5500994E0F /* Assets.xcassets */; };
@@ -34,6 +48,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		30D91D192907492000035F16 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		30D91D2E29074F7100035F16 /* FoodAllergyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAllergyRepository.swift; sourceTree = "<group>"; };
+		30D91D30290750C300035F16 /* Allergy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Allergy.swift; sourceTree = "<group>"; };
+		30D91D32290752ED00035F16 /* AllergyListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyListViewModel.swift; sourceTree = "<group>"; };
+		30D91D3429075EA400035F16 /* FoodAllergyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAllergyView.swift; sourceTree = "<group>"; };
 		97A936592900AE5300994E0F /* Gaia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gaia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97A9365C2900AE5300994E0F /* GaiaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaiaApp.swift; sourceTree = "<group>"; };
 		97A9365E2900AE5300994E0F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,6 +70,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30D91D2329074AE900035F16 /* FirebaseDatabaseSwift in Frameworks */,
+				30D91D2129074AE900035F16 /* FirebaseDatabase in Frameworks */,
+				30D91D1D29074AE900035F16 /* FirebaseAuth in Frameworks */,
+				30D91D2929074AE900035F16 /* FirebaseFirestoreSwift in Frameworks */,
+				30D91D2729074AE900035F16 /* FirebaseFirestoreCombine-Community in Frameworks */,
+				30D91D2B29074AE900035F16 /* FirebaseStorage in Frameworks */,
+				30D91D2529074AE900035F16 /* FirebaseFirestore in Frameworks */,
+				30D91D2D29074AE900035F16 /* FirebaseStorageCombine-Community in Frameworks */,
+				30D91D1F29074AE900035F16 /* FirebaseAuthCombine-Community in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +102,9 @@
 		97A936502900AE5200994E0F = {
 			isa = PBXGroup;
 			children = (
+				30D91D32290752ED00035F16 /* AllergyListViewModel.swift */,
+				30D91D30290750C300035F16 /* Allergy.swift */,
+				30D91D2E29074F7100035F16 /* FoodAllergyRepository.swift */,
 				97A9365B2900AE5300994E0F /* Gaia */,
 				97A9366C2900AE5500994E0F /* GaiaTests */,
 				97A936762900AE5500994E0F /* GaiaUITests */,
@@ -96,7 +127,9 @@
 			children = (
 				97A9365C2900AE5300994E0F /* GaiaApp.swift */,
 				97A9365E2900AE5300994E0F /* ContentView.swift */,
+				30D91D3429075EA400035F16 /* FoodAllergyView.swift */,
 				97A936602900AE5500994E0F /* Assets.xcassets */,
+				30D91D192907492000035F16 /* GoogleService-Info.plist */,
 				97A936622900AE5500994E0F /* Preview Content */,
 			);
 			path = Gaia;
@@ -143,6 +176,17 @@
 			dependencies = (
 			);
 			name = Gaia;
+			packageProductDependencies = (
+				30D91D1C29074AE900035F16 /* FirebaseAuth */,
+				30D91D1E29074AE900035F16 /* FirebaseAuthCombine-Community */,
+				30D91D2029074AE900035F16 /* FirebaseDatabase */,
+				30D91D2229074AE900035F16 /* FirebaseDatabaseSwift */,
+				30D91D2429074AE900035F16 /* FirebaseFirestore */,
+				30D91D2629074AE900035F16 /* FirebaseFirestoreCombine-Community */,
+				30D91D2829074AE900035F16 /* FirebaseFirestoreSwift */,
+				30D91D2A29074AE900035F16 /* FirebaseStorage */,
+				30D91D2C29074AE900035F16 /* FirebaseStorageCombine-Community */,
+			);
 			productName = Gaia;
 			productReference = 97A936592900AE5300994E0F /* Gaia.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +259,9 @@
 				Base,
 			);
 			mainGroup = 97A936502900AE5200994E0F;
+			packageReferences = (
+				30D91D1B29074AE800035F16 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 97A9365A2900AE5300994E0F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -233,6 +280,7 @@
 			files = (
 				97A936642900AE5500994E0F /* Preview Assets.xcassets in Resources */,
 				97A936612900AE5500994E0F /* Assets.xcassets in Resources */,
+				30D91D1A2907492000035F16 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +305,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30D91D33290752ED00035F16 /* AllergyListViewModel.swift in Sources */,
+				30D91D31290750C300035F16 /* Allergy.swift in Sources */,
+				30D91D2F29074F7100035F16 /* FoodAllergyRepository.swift in Sources */,
+				30D91D3529075EA400035F16 /* FoodAllergyView.swift in Sources */,
 				97A9365F2900AE5300994E0F /* ContentView.swift in Sources */,
 				97A9365D2900AE5300994E0F /* GaiaApp.swift in Sources */,
 			);
@@ -583,6 +635,65 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		30D91D1B29074AE800035F16 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		30D91D1C29074AE900035F16 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30D91D1B29074AE800035F16 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		30D91D1E29074AE900035F16 /* FirebaseAuthCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30D91D1B29074AE800035F16 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAuthCombine-Community";
+		};
+		30D91D2029074AE900035F16 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30D91D1B29074AE800035F16 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		30D91D2229074AE900035F16 /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30D91D1B29074AE800035F16 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		30D91D2429074AE900035F16 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30D91D1B29074AE800035F16 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		30D91D2629074AE900035F16 /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30D91D1B29074AE800035F16 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
+		};
+		30D91D2829074AE900035F16 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30D91D1B29074AE800035F16 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		30D91D2A29074AE900035F16 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30D91D1B29074AE800035F16 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		30D91D2C29074AE900035F16 /* FirebaseStorageCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30D91D1B29074AE800035F16 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseStorageCombine-Community";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 97A936512900AE5300994E0F /* Project object */;
 }
