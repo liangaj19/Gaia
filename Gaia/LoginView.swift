@@ -15,21 +15,23 @@ struct LoginView: View {
     
     var body: some View {
         ZStack {
-            VStack {
-                Text("Login")
-                TextField("Username", text: $username)
-                    .autocapitalization(.none)
-                    .padding(.all)
-                    .frame(width: 300, height: 50, alignment: .center)
-                    .background(Color.gray)
-                    .cornerRadius(10)
-                TextField("Password", text: $password)
-                    .autocapitalization(.none)
-                    .padding(.all)
-                    .frame(width: 300, height: 50, alignment: .center)
-                    .background(Color.gray)
-                    .cornerRadius(10)
-                Text("Not a user yet?")
+            NavigationStack {
+                VStack {
+                    Text("Login")
+                    TextField("Username", text: $username)
+                        .autocapitalization(.none)
+                        .padding(.all)
+                        .frame(width: 300, height: 50, alignment: .center)
+                        .background(Color.gray)
+                        .cornerRadius(10)
+                    TextField("Password", text: $password)
+                        .autocapitalization(.none)
+                        .padding(.all)
+                        .frame(width: 300, height: 50, alignment: .center)
+                        .background(Color.gray)
+                        .cornerRadius(10)
+                    Text("Not a user yet?")
+                }
             }
         }
     }
