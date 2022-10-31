@@ -19,8 +19,8 @@ struct MainView: View {
                 }
             FoodAllergyView(allergyListViewModel: AllergyListViewModel())
                 .tabItem {
-                    Image(systemName:"trash.circle.fill")
-                    Text("Trash")
+                    Image(systemName:"barcode.viewfinder")
+                    Text("Scan")
                 }
             ProfileView()
                 .tabItem {
