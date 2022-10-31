@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  SearchView.swift
 //  Gaia
 //
 //  Created by Amy Liang on 10/19/22.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 //This file creates a view with a z stack that has a button which transfers the user to the food allwegy view
-struct ContentView: View {
+struct SearchView: View {
     var body: some View {
         NavigationStack {
             ZStack{
@@ -27,8 +27,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        SearchView()
     }
 }

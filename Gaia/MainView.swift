@@ -12,15 +12,20 @@ import SwiftUI
 struct MainView: View {
     var body: some View {
         TabView{
-            ContentView()
+            SearchView()
                 .tabItem {
-                    Image(systemName:"house")
-                    Text("Home")
+                    Image(systemName:"magnifyingglass.circle")
+                    Text("Search")
                 }
             FoodAllergyView(allergyListViewModel: AllergyListViewModel())
                 .tabItem {
                     Image(systemName:"trash.circle.fill")
                     Text("Trash")
+                }
+            ProfileView()
+                .tabItem {
+                    Image(systemName:"person.crop.circle")
+                    Text("Profile")
                 }
         }
     }
