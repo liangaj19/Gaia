@@ -13,7 +13,9 @@ struct WelcomeView: View {
             VStack {
                 Text("Welcome")
                     .padding(.all)
-                Text("Our icon will go here.")
+                Image("icon")
+                    .resizable()
+                    .frame(width:300, height: 300, alignment: .center)
             }
         }
     }
