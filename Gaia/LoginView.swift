@@ -59,7 +59,7 @@ struct LoginView: View {
                         
                         //use as guest button
                         NavigationLink {
-                            SearchView()
+                            MainView()
                         } label: {
                             Text("Continue as guest")
                         }

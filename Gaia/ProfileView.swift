@@ -11,7 +11,28 @@ struct ProfileView: View {
     var body: some View {
         ZStack {
             VStack {
-                
+                ScrollView {
+                    ZStack {
+                        Rectangle()
+                            .foregroundColor(Color.green)
+                            .frame(maxWidth: .infinity, maxHeight: 280)
+                            .ignoresSafeArea(.all)
+                        
+                        Image("samplePFP")
+                            .resizable()
+                            .frame(width:180, height: 180, alignment: .center)
+                            .clipShape(Circle())
+                            .padding()
+                            .overlay(
+                                Circle()
+                                    .stroke(Color.gray, lineWidth: 3)
+                                    .frame(width: 180, height: 180, alignment: .center)
+                            )
+                            .offset(y:100)
+                        
+                    }
+                }
+                .ignoresSafeArea(.all)
             }
         }
     }
