@@ -18,7 +18,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
   }
 }
 
-
 @main
 struct GaiaApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate

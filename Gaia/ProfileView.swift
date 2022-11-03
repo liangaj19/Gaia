@@ -12,6 +12,8 @@ struct ProfileView: View {
         ZStack {
             VStack {
                 ScrollView {
+                    
+                    // banner and pfp
                     ZStack {
                         Rectangle()
                             .foregroundColor(Color.green)
@@ -29,8 +31,38 @@ struct ProfileView: View {
                                     .frame(width: 180, height: 180, alignment: .center)
                             )
                             .offset(y:100)
+                    }
+                    
+                    // information
+                    VStack {
+                        
+                        // edit profile button
+                        HStack {
+                            Spacer()
+                                .frame(width: 220)
+                            
+                            NavigationLink(destination: CreateView(), label: {
+                                Text("Edit Profile")
+                                    .foregroundColor(Color.white)
+                                    .padding(.vertical, 10)
+                                    .padding(.horizontal)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 40)
+                                            .stroke(Color.white, lineWidth: 2.8)
+                                    )
+                                    .cornerRadius(40)
+                            })
+                            .offset(y:-195)
+                        }
+                        
+                        // rest of the information in profile
+                        Text("Ian Vargas")
+                        
+                        
                         
                     }
+                    .offset(y:40)
+                    
                 }
                 .ignoresSafeArea(.all)
             }
