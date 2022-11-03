@@ -22,6 +22,7 @@
 		30D91D31290750C300035F16 /* Allergy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D91D30290750C300035F16 /* Allergy.swift */; };
 		30D91D33290752ED00035F16 /* AllergyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D91D32290752ED00035F16 /* AllergyListViewModel.swift */; };
 		30D91D3529075EA400035F16 /* FoodAllergyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D91D3429075EA400035F16 /* FoodAllergyView.swift */; };
+		971F7D182913325D002FB6A1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F7D172913325D002FB6A1 /* ContentView.swift */; };
 		97278ADB29105BC6001492B1 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97278ADA29105BC6001492B1 /* ProfileView.swift */; };
 		97278ADE29105F11001492B1 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97278ADD29105F11001492B1 /* WelcomeView.swift */; };
 		97278AE029105F1D001492B1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97278ADF29105F1D001492B1 /* LoginView.swift */; };
@@ -59,6 +60,7 @@
 		30D91D30290750C300035F16 /* Allergy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Allergy.swift; sourceTree = "<group>"; };
 		30D91D32290752ED00035F16 /* AllergyListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyListViewModel.swift; sourceTree = "<group>"; };
 		30D91D3429075EA400035F16 /* FoodAllergyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAllergyView.swift; sourceTree = "<group>"; };
+		971F7D172913325D002FB6A1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		97278ADA29105BC6001492B1 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		97278ADD29105F11001492B1 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		97278ADF29105F1D001492B1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -136,13 +138,14 @@
 			isa = PBXGroup;
 			children = (
 				97A9365C2900AE5300994E0F /* GaiaApp.swift */,
+				971F7D172913325D002FB6A1 /* ContentView.swift */,
+				97278ADD29105F11001492B1 /* WelcomeView.swift */,
+				97278ADF29105F1D001492B1 /* LoginView.swift */,
+				97278AE1291063C9001492B1 /* CreateView.swift */,
 				30A7481F2908A72C00560E8D /* MainView.swift */,
 				97A9365E2900AE5300994E0F /* SearchView.swift */,
 				30D91D3429075EA400035F16 /* FoodAllergyView.swift */,
 				97278ADA29105BC6001492B1 /* ProfileView.swift */,
-				97278ADD29105F11001492B1 /* WelcomeView.swift */,
-				97278ADF29105F1D001492B1 /* LoginView.swift */,
-				97278AE1291063C9001492B1 /* CreateView.swift */,
 				97A936602900AE5500994E0F /* Assets.xcassets */,
 				30D91D192907492000035F16 /* GoogleService-Info.plist */,
 				97A936622900AE5500994E0F /* Preview Content */,
@@ -322,6 +325,7 @@
 			files = (
 				97278AE2291063C9001492B1 /* CreateView.swift in Sources */,
 				97278ADB29105BC6001492B1 /* ProfileView.swift in Sources */,
+				971F7D182913325D002FB6A1 /* ContentView.swift in Sources */,
 				30D91D33290752ED00035F16 /* AllergyListViewModel.swift in Sources */,
 				30A748202908A72C00560E8D /* MainView.swift in Sources */,
 				30D91D31290750C300035F16 /* Allergy.swift in Sources */,
@@ -492,6 +496,8 @@
 				DEVELOPMENT_TEAM = 8BRD5NA4GT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = EpiFoods;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -521,6 +527,8 @@
 				DEVELOPMENT_TEAM = 8BRD5NA4GT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = EpiFoods;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

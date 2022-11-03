@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 //Creates the bottom tab buttons for our app
 struct MainView: View {
     var body: some View {
