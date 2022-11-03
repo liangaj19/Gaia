@@ -32,7 +32,7 @@ struct WelcomeView: View {
                 }
                 // Editing the whole screen and making it disappear after this first time
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color.red)
+                .background(Color.green)
                 .onAppear(perform: {
                     UserDefaults.standard.welcomeScreenShown = true
                 })
