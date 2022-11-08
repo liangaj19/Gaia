@@ -22,7 +22,7 @@ extension UserDefaults {
 struct ContentView: View {
     var body: some View {
         if UserDefaults.standard.welcomeScreenShown {
-            MainView()
+            LoginView()
         } else {
             WelcomeView()
         }

@@ -6,21 +6,28 @@
 //
 
 import SwiftUI
-
+import Firebase
 
 struct LoginView: View {
     
-    @State private var username: String = ""
+    @State private var email: String = ""
     @State private var password: String = ""
+    @State private var isUserLoggedIn: Bool = false
     
     var body: some View {
         ZStack {
             NavigationStack {
                 VStack {
+                    Image("icon")
+                        .resizable()
+                        .frame(width: 180, height: 180, alignment: .center)
+                    
                     Text("Login")
+                        .bold()
+                        .font(.system(size: 30))
                     
                     //enter username
-                    TextField("Username", text: $username)
+                    TextField("Email", text: $email)
                         .autocapitalization(.none)
                         .padding(.all)
                         .frame(width: 300, height: 50, alignment: .center)
@@ -35,8 +42,21 @@ struct LoginView: View {
                         .background(Color.gray)
                         .cornerRadius(10)
                     
-                    Spacer()
-                        .frame(height: 50)
+                    //login button
+                    Button {
+                        login()
+                    } label: {
+                        Text("Log In")
+                            .frame(width: 275, height: 30, alignment: .center)
+                            .foregroundColor(Color.white)
+                            .padding()
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 40)
+                                    .stroke(Color.blue, lineWidth: 3)
+                            )
+                            .background(Color.black)
+                            .cornerRadius(40)
+                    }
                     
                     Group {
                         Text("Not a user yet?")
@@ -64,11 +84,23 @@ struct LoginView: View {
                             Text("Continue as guest")
                         }
                     }
-                    .offset(y:200)
+                    .offset(y:0)
                 }
             }
         }
     }
+    /* idk how this works yet so
+     * imma just put it here for now
+     */
+    func login() {
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            if error != nil {
+                print(error!.localizedDescription)
+            }
+        }
+    }
+     
+    
 }
 
 

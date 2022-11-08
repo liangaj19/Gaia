@@ -16,32 +16,64 @@ struct WelcomeView: View {
     
     var body: some View {
         /*
-         * if the welcome screen showed for 3 seconds,
+         * if the welcome screen showed for 4 seconds,
          * it'll go to the login view
          */
         if isActive {
             LoginView()
         } else {
             VStack {
+                
+                VStack (spacing: 0) {
+                    Image("justIcon")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 280, height: 280, alignment: .center)
+                        .offset(y:30)
+                    
+                    Image("logo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 200, height: 200, alignment: .center)
+                        .offset(y: -100)
+                }
+                .offset(y:15)
+                 
+                
+                /*
+                 * another option for welcome
                 VStack {
-                    Text("Welcome")
-                        .padding(.all)
+                    
                     Image("icon")
                         .resizable()
-                        .frame(width:300, height: 300, alignment: .center)
+                        .scaledToFit()
+                        .frame(width: 280, height: 280, alignment: .center)
+                        .offset(y:0)
+                    
+                    Text("Eat safe with just a scan.")
+                        .font(.system(size: 20, weight: .bold, design: .rounded))
+                        .offset(y: -40)
+                    
                 }
+                .offset(y: -20)
+                 */
+                
                 // Editing the whole screen and making it disappear after this first time
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color.green)
+                .background(Color.white)
                 .onAppear(perform: {
                     UserDefaults.standard.welcomeScreenShown = true
                 })
             }
+            // so the welcome screen only shows for 3 seconds
+            
             .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 20.0) {
                     self.isActive = true
                 }
+                UserDefaults.standard.welcomeScreenShown = false
             }
+             
         }
     }
 }
