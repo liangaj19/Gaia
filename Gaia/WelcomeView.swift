@@ -16,56 +16,57 @@ struct WelcomeView: View {
     
     var body: some View {
         /*
-         * if the welcome screen showed for 4 seconds,
+         * if the welcome screen showed for 3 seconds,
          * it'll go to the login view
          */
         if isActive {
-            LoginView()
+            MainView()
         } else {
             ZStack {
-                
                 // circles in the background
-                // pink circles
-                Circle()
-                    .foregroundColor(Color("lightPink"))
-                    .frame(width: 240, height: 240)
-                    .offset(x: -170, y: 390)
-                
-                // pearly purple
-                Circle()
-                    .foregroundColor(Color("pearlyPurple"))
-                    .frame(width: 100, height: 100)
-                    .offset(x: -200, y: 120)
-                Circle()
-                    .foregroundColor(Color("pearlyPurple"))
-                    .frame(width: 240, height: 240)
-                    .offset(x: 190, y: -480)
-                
-                // blue circles
-                Circle()
-                    .foregroundColor(Color("beauBlue"))
-                    .frame(width: 220, height: 220)
-                    .offset(x: 220, y: 150)
-                Circle()
-                    .foregroundColor(Color("beauBlue"))
-                    .frame(width: 190, height: 190)
-                    .offset(x: -220, y: -320)
-                
-                // green circles
-                Circle()
-                    .foregroundColor(Color("matcha"))
-                    .frame(width: 115, height: 120)
-                    .offset(x: 100, y: 420)
-                Circle()
-                    .foregroundColor(Color("matcha"))
-                    .frame(width: 100, height: 100)
-                    .offset(x: 200, y: -180)
-                
-                // yellow circle
-                Circle()
-                    .foregroundColor(Color("lightYellow"))
-                    .frame(width: 115, height: 115)
-                    .offset(x: -220, y: -100)
+                Group {
+                    // pink circles
+                    Circle()
+                        .foregroundColor(Color("lightPink"))
+                        .frame(width: 240, height: 240)
+                        .offset(x: -170, y: 390)
+                    
+                    // pearly purple
+                    Circle()
+                        .foregroundColor(Color("pearlyPurple"))
+                        .frame(width: 100, height: 100)
+                        .offset(x: -200, y: 120)
+                    Circle()
+                        .foregroundColor(Color("pearlyPurple"))
+                        .frame(width: 240, height: 240)
+                        .offset(x: 190, y: -480)
+                    
+                    // blue circles
+                    Circle()
+                        .foregroundColor(Color("beauBlue"))
+                        .frame(width: 220, height: 220)
+                        .offset(x: 220, y: 150)
+                    Circle()
+                        .foregroundColor(Color("beauBlue"))
+                        .frame(width: 190, height: 190)
+                        .offset(x: -220, y: -320)
+                    
+                    // green circles
+                    Circle()
+                        .foregroundColor(Color("matcha"))
+                        .frame(width: 115, height: 120)
+                        .offset(x: 100, y: 420)
+                    Circle()
+                        .foregroundColor(Color("matcha"))
+                        .frame(width: 100, height: 100)
+                        .offset(x: 200, y: -180)
+                    
+                    // yellow circle
+                    Circle()
+                        .foregroundColor(Color("lightYellow"))
+                        .frame(width: 115, height: 115)
+                        .offset(x: -220, y: -100)
+                }
                 
                 VStack {
                     
@@ -112,14 +113,14 @@ struct WelcomeView: View {
                 }
             }
             // so the welcome screen only shows for 3 seconds
-            /*
+            
             .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 20.0) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                     self.isActive = true
                 }
                 UserDefaults.standard.welcomeScreenShown = false
             }
-             */
+             
         }
     }
 }

@@ -83,6 +83,7 @@ struct LoginView: View {
                         } label: {
                             Text("Continue as guest")
                         }
+                        .navigationTitle("")
                     }
                     .offset(y:0)
                 }
