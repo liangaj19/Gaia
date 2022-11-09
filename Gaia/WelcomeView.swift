@@ -71,38 +71,19 @@ struct WelcomeView: View {
                 VStack {
                     
                     VStack (spacing: 0) {
-                        Image("justIcon")
+                        Image("smallIcon")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 280, height: 280, alignment: .center)
+                            .frame(width: 290, height: 290, alignment: .center)
                             .offset(y:30)
                         
                         Image("logo")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 200, height: 200, alignment: .center)
-                            .offset(y: -100)
+                            .offset(y: -120)
                     }
                     .offset(y:15)
-                     
-                    
-                    /*
-                     * another option for welcome
-                    VStack {
-                        
-                        Image("icon")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 280, height: 280, alignment: .center)
-                            .offset(y:0)
-                        
-                        Text("Eat safe with just a scan.")
-                            .font(.system(size: 20, weight: .bold, design: .rounded))
-                            .offset(y: -40)
-                        
-                    }
-                    .offset(y: -20)
-                     */
                     
                     // Editing the whole screen and making it disappear after this first time
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -113,14 +94,14 @@ struct WelcomeView: View {
                 }
             }
             // so the welcome screen only shows for 3 seconds
-            
+            /*
             .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 20.0) {
                     self.isActive = true
                 }
                 UserDefaults.standard.welcomeScreenShown = false
             }
-             
+             */
         }
     }
 }

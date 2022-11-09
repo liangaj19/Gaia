@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ProfileView: View {
+    
+    @State private var username: String = "Guest"
+    
     var body: some View {
         ZStack {
             VStack {
@@ -16,21 +19,29 @@ struct ProfileView: View {
                     // banner and pfp
                     ZStack {
                         Rectangle()
-                            .foregroundColor(Color.green)
-                            .frame(maxWidth: .infinity, maxHeight: 280)
+                            .foregroundColor(Color("matcha"))
+                            .frame(maxWidth: .infinity, maxHeight: 200)
                             .ignoresSafeArea(.all)
                         
-                        Image("samplePFP")
-                            .resizable()
-                            .frame(width:180, height: 180, alignment: .center)
-                            .clipShape(Circle())
-                            .padding()
-                            .overlay(
-                                Circle()
-                                    .stroke(Color.gray, lineWidth: 3)
-                                    .frame(width: 180, height: 180, alignment: .center)
-                            )
-                            .offset(y:100)
+                        HStack {
+                            Image("samplePFP")
+                                .resizable()
+                                .frame(width:140, height: 140, alignment: .center)
+                                .clipShape(Circle())
+                                .padding()
+                                .overlay(
+                                    Circle()
+                                        .stroke(Color.gray, lineWidth: 3)
+                                        .frame(width: 140, height: 140, alignment: .center)
+                                )
+                                .shadow(radius: 10)
+                                .offset(y:90)
+                            
+                            Text(username)
+                                .font(.system(size: 22, weight: .bold))
+                                .frame(minWidth: 170, alignment: .leading)
+                                .offset(y: 120)
+                        }
                     }
                     
                     // information
@@ -41,24 +52,33 @@ struct ProfileView: View {
                             Spacer()
                                 .frame(width: 220)
                             
-                            NavigationLink(destination: CreateView(), label: {
-                                Text("Edit Profile")
-                                    .foregroundColor(Color.white)
-                                    .padding(.vertical, 10)
-                                    .padding(.horizontal)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 40)
-                                            .stroke(Color.white, lineWidth: 2.8)
-                                    )
-                                    .cornerRadius(40)
-                            })
-                            .offset(y:-195)
+                            Menu {
+                                Button(action: {
+                                    //
+                                }) {
+                                    Text("Matchmaker: Call")
+                                }
+                                
+                                Button(action: {
+                                    //
+                                }) {
+                                    Text("Matchmaker: Message")
+                                }
+                                
+                                Button(action: {
+                                    //
+                                }) {
+                                    Text("Create a groupchat")
+                                }
+                            } label: {
+                                Image(systemName: "plus.circle")
+                                    .resizable()
+                                    .frame(width: 80, height: 80)
+                                    .background(Color.white)
+                                    .foregroundColor(Color(red: 0.40784313725490196, green: 0.6235294117647059, blue: 0.2196078431372549))
+                            }
+                            
                         }
-                        
-                        // rest of the information in profile
-                        Text("Ian Vargas")
-                        
-                        
                         
                     }
                     .offset(y:40)
