@@ -25,11 +25,13 @@ struct WelcomeView: View {
             ZStack {
                 
                 // circles in the background
+                // pink circles
                 Circle()
                     .foregroundColor(Color("lightPink"))
                     .frame(width: 240, height: 240)
                     .offset(x: -170, y: 390)
                 
+                // pearly purple
                 Circle()
                     .foregroundColor(Color("pearlyPurple"))
                     .frame(width: 100, height: 100)
@@ -39,26 +41,27 @@ struct WelcomeView: View {
                     .frame(width: 240, height: 240)
                     .offset(x: 190, y: -480)
                 
+                // blue circles
                 Circle()
                     .foregroundColor(Color("beauBlue"))
                     .frame(width: 220, height: 220)
                     .offset(x: 220, y: 150)
-                
-                Circle()
-                    .foregroundColor(Color("matcha"))
-                    .frame(width: 115, height: 120)
-                    .offset(x: 100, y: 420)
-                
-                Circle()
-                    .foregroundColor(Color("matcha"))
-                    .frame(width: 100, height: 100)
-                    .offset(x: 200, y: -180)
-                
                 Circle()
                     .foregroundColor(Color("beauBlue"))
                     .frame(width: 190, height: 190)
                     .offset(x: -220, y: -320)
                 
+                // green circles
+                Circle()
+                    .foregroundColor(Color("matcha"))
+                    .frame(width: 115, height: 120)
+                    .offset(x: 100, y: 420)
+                Circle()
+                    .foregroundColor(Color("matcha"))
+                    .frame(width: 100, height: 100)
+                    .offset(x: 200, y: -180)
+                
+                // yellow circle
                 Circle()
                     .foregroundColor(Color("lightYellow"))
                     .frame(width: 115, height: 115)
