@@ -10,6 +10,16 @@ import FirebaseFirestoreSwift
 
 struct Allergy : Codable, Identifiable {
     @DocumentID var id : String?
+    var imageName: String
     var name : String
     
+}
+
+struct foodIngredientList {
+    
+    static let foodList = [
+        Allergy(id: "1", imageName: "crunch_bar", name: "Crunch Bar"),
+        Allergy(id: "2", imageName: "cola", name: "Coca Cola"),
+        Allergy(id: "3", imageName: "apple", name: "Apple")
+    ]
 }
