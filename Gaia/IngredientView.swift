@@ -9,7 +9,7 @@ import SwiftUI
 
 struct IngredientView: View {
     
-    var food : Allergy
+    var food : FoodItem
     var body: some View {
         VStack(spacing: 20){
             Image(food.imageName)
@@ -40,6 +40,6 @@ struct IngredientView: View {
 
 struct IngredientView_Previews: PreviewProvider {
     static var previews: some View {
-        IngredientView(food: foodIngredientList.foodList.first!)
+        IngredientView(food: FoodItemList.foodList.first!)
     }
 }
