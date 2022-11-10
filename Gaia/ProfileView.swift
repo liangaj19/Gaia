@@ -14,7 +14,7 @@ struct ProfileView: View {
     var body: some View {
         ZStack {
             VStack {
-                ScrollView {
+                ScrollView(.vertical, showsIndicators: false) {
                     
                     // banner and pfp
                     ZStack {
@@ -26,21 +26,21 @@ struct ProfileView: View {
                         HStack {
                             Image("samplePFP")
                                 .resizable()
-                                .frame(width:140, height: 140, alignment: .center)
+                                .frame(width:130, height: 130, alignment: .center)
                                 .clipShape(Circle())
                                 .padding()
                                 .overlay(
                                     Circle()
-                                        .stroke(Color.gray, lineWidth: 3)
-                                        .frame(width: 140, height: 140, alignment: .center)
+                                        .stroke(Color("matcha"), lineWidth: 3)
+                                        .frame(width: 130, height: 130, alignment: .center)
                                 )
                                 .shadow(radius: 10)
                                 .offset(y:90)
                             
                             Text(username)
                                 .font(.system(size: 22, weight: .bold))
-                                .frame(minWidth: 170, alignment: .leading)
-                                .offset(y: 120)
+                                .frame(minWidth: 200, alignment: .leading)
+                                .offset(y: 115)
                         }
                     }
                     
@@ -56,27 +56,22 @@ struct ProfileView: View {
                                 Button(action: {
                                     //
                                 }) {
-                                    Text("Matchmaker: Call")
+                                    Text("Edit profile")
                                 }
                                 
-                                Button(action: {
-                                    //
+                                Button (action: {
+                                    
                                 }) {
-                                    Text("Matchmaker: Message")
-                                }
-                                
-                                Button(action: {
-                                    //
-                                }) {
-                                    Text("Create a groupchat")
+                                    Text("Add an allergen")
                                 }
                             } label: {
-                                Image(systemName: "plus.circle")
+                                Image(systemName: "ellipsis")
                                     .resizable()
-                                    .frame(width: 80, height: 80)
-                                    .background(Color.white)
-                                    .foregroundColor(Color(red: 0.40784313725490196, green: 0.6235294117647059, blue: 0.2196078431372549))
+                                    .scaledToFit()
+                                    .foregroundColor(Color.white)
+                                    .frame(width: 40, height: 80)
                             }
+                            .offset(x: 30, y:-185)
                             
                         }
                         
