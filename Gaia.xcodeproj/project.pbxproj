@@ -20,7 +20,7 @@
 		30D91D2B29074AE900035F16 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 30D91D2A29074AE900035F16 /* FirebaseStorage */; };
 		30D91D2D29074AE900035F16 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 30D91D2C29074AE900035F16 /* FirebaseStorageCombine-Community */; };
 		30D91D2F29074F7100035F16 /* FoodAllergyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D91D2E29074F7100035F16 /* FoodAllergyRepository.swift */; };
-		30D91D31290750C300035F16 /* FoodItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D91D30290750C300035F16 /* FoodItem.swift */; };
+		30D91D31290750C300035F16 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D91D30290750C300035F16 /* Food.swift */; };
 		30D91D33290752ED00035F16 /* AllergyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D91D32290752ED00035F16 /* AllergyListViewModel.swift */; };
 		30D91D3529075EA400035F16 /* FoodAllergyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D91D3429075EA400035F16 /* FoodAllergyView.swift */; };
 		971F7D182913325D002FB6A1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F7D172913325D002FB6A1 /* ContentView.swift */; };
@@ -59,7 +59,7 @@
 		30A7481F2908A72C00560E8D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		30D91D192907492000035F16 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		30D91D2E29074F7100035F16 /* FoodAllergyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAllergyRepository.swift; sourceTree = "<group>"; };
-		30D91D30290750C300035F16 /* FoodItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItem.swift; sourceTree = "<group>"; };
+		30D91D30290750C300035F16 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		30D91D32290752ED00035F16 /* AllergyListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyListViewModel.swift; sourceTree = "<group>"; };
 		30D91D3429075EA400035F16 /* FoodAllergyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAllergyView.swift; sourceTree = "<group>"; };
 		971F7D172913325D002FB6A1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				30D91D32290752ED00035F16 /* AllergyListViewModel.swift */,
-				30D91D30290750C300035F16 /* FoodItem.swift */,
+				30D91D30290750C300035F16 /* Food.swift */,
 				30D91D2E29074F7100035F16 /* FoodAllergyRepository.swift */,
 				97A9365B2900AE5300994E0F /* Gaia */,
 				97A9366C2900AE5500994E0F /* GaiaTests */,
@@ -331,7 +331,7 @@
 				971F7D182913325D002FB6A1 /* ContentView.swift in Sources */,
 				30D91D33290752ED00035F16 /* AllergyListViewModel.swift in Sources */,
 				30A748202908A72C00560E8D /* MainView.swift in Sources */,
-				30D91D31290750C300035F16 /* FoodItem.swift in Sources */,
+				30D91D31290750C300035F16 /* Food.swift in Sources */,
 				97278ADE29105F11001492B1 /* WelcomeView.swift in Sources */,
 				30D91D2F29074F7100035F16 /* FoodAllergyRepository.swift in Sources */,
 				307A5CE3291C9DD200F49285 /* IngredientView.swift in Sources */,

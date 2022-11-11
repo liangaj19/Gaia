@@ -42,7 +42,7 @@ struct FoodAllergyView: View {
     
     private func addAllergy() {
         // 1
-        let allergy = FoodItem(id: "question", imageName: "iName", name: "name")
+        let allergy = Food(id: "question", imageName: "iName", name: "name")
         // 2
         allergyListViewModel.add(allergy)
         // 3

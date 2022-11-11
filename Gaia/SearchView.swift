@@ -12,7 +12,7 @@ struct SearchView: View {
     
     @State var searchText = ""
 
-    var foods: [FoodItem] = FoodItemList.foodList
+    var foods: [Food] = FoodDetail.foodList
     var body: some View {
         NavigationView{
             List(foods, id: \.id){ food in

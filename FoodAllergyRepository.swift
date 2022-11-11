@@ -18,7 +18,7 @@ class FoodAllergyRepository: ObservableObject {
   private let store = Firestore.firestore()
 
   // 5
-  func add(_ allergy: FoodItem) {
+  func add(_ allergy: Food) {
     do {
       // 6
       _ = try store.collection(path).addDocument(from: allergy)
