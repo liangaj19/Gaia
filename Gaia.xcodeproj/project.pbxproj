@@ -140,8 +140,8 @@
 			isa = PBXGroup;
 			children = (
 				97A9365C2900AE5300994E0F /* GaiaApp.swift */,
-				30A7481F2908A72C00560E8D /* MainView.swift */,
 				971F7D172913325D002FB6A1 /* ContentView.swift */,
+				30A7481F2908A72C00560E8D /* MainView.swift */,
 				97278ADD29105F11001492B1 /* WelcomeView.swift */,
 				97278ADF29105F1D001492B1 /* LoginView.swift */,
 				97278AE1291063C9001492B1 /* CreateView.swift */,

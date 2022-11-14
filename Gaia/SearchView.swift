@@ -14,9 +14,13 @@ struct SearchView: View {
 
     var foods: [Food] = FoodDetail.foodList
     var body: some View {
+        
+        
         NavigationView{
             List(foods, id: \.id){ food in
                 NavigationLink(destination: IngredientView(food: food)) {
+                    
+                    
                     HStack(spacing: 30){
                         Image(food.imageName)
                             .resizable()
