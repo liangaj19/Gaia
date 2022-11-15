@@ -20,7 +20,7 @@ struct MainView: View {
                     Text("Search")
                 }
                 .tag(1)
-            FoodAllergyView(allergyListViewModel: AllergyListViewModel())
+            BarcodeView(allergyListViewModel: AllergyListViewModel())
                 .tabItem {
                     Image(systemName:"barcode.viewfinder")
                     Text("Scan")

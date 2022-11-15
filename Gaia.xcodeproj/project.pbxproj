@@ -22,7 +22,7 @@
 		30D91D2F29074F7100035F16 /* FoodAllergyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D91D2E29074F7100035F16 /* FoodAllergyRepository.swift */; };
 		30D91D31290750C300035F16 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D91D30290750C300035F16 /* Food.swift */; };
 		30D91D33290752ED00035F16 /* AllergyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D91D32290752ED00035F16 /* AllergyListViewModel.swift */; };
-		30D91D3529075EA400035F16 /* FoodAllergyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D91D3429075EA400035F16 /* FoodAllergyView.swift */; };
+		30D91D3529075EA400035F16 /* BarcodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D91D3429075EA400035F16 /* BarcodeView.swift */; };
 		971F7D182913325D002FB6A1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F7D172913325D002FB6A1 /* ContentView.swift */; };
 		97278ADB29105BC6001492B1 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97278ADA29105BC6001492B1 /* ProfileView.swift */; };
 		97278ADE29105F11001492B1 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97278ADD29105F11001492B1 /* WelcomeView.swift */; };
@@ -61,7 +61,7 @@
 		30D91D2E29074F7100035F16 /* FoodAllergyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAllergyRepository.swift; sourceTree = "<group>"; };
 		30D91D30290750C300035F16 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		30D91D32290752ED00035F16 /* AllergyListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyListViewModel.swift; sourceTree = "<group>"; };
-		30D91D3429075EA400035F16 /* FoodAllergyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAllergyView.swift; sourceTree = "<group>"; };
+		30D91D3429075EA400035F16 /* BarcodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeView.swift; sourceTree = "<group>"; };
 		971F7D172913325D002FB6A1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		97278ADA29105BC6001492B1 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		97278ADD29105F11001492B1 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 				97278ADF29105F1D001492B1 /* LoginView.swift */,
 				97278AE1291063C9001492B1 /* CreateView.swift */,
 				97A9365E2900AE5300994E0F /* SearchView.swift */,
-				30D91D3429075EA400035F16 /* FoodAllergyView.swift */,
+				30D91D3429075EA400035F16 /* BarcodeView.swift */,
 				307A5CE2291C9DD200F49285 /* IngredientView.swift */,
 				97278ADA29105BC6001492B1 /* ProfileView.swift */,
 				97A936602900AE5500994E0F /* Assets.xcassets */,
@@ -335,7 +335,7 @@
 				97278ADE29105F11001492B1 /* WelcomeView.swift in Sources */,
 				30D91D2F29074F7100035F16 /* FoodAllergyRepository.swift in Sources */,
 				307A5CE3291C9DD200F49285 /* IngredientView.swift in Sources */,
-				30D91D3529075EA400035F16 /* FoodAllergyView.swift in Sources */,
+				30D91D3529075EA400035F16 /* BarcodeView.swift in Sources */,
 				97A9365F2900AE5300994E0F /* SearchView.swift in Sources */,
 				97278AE029105F1D001492B1 /* LoginView.swift in Sources */,
 				97A9365D2900AE5300994E0F /* GaiaApp.swift in Sources */,
