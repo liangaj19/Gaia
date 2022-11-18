@@ -15,7 +15,7 @@ class AllergyListViewModel: ObservableObject {
   @Published var foodAllergyRepository = FoodAllergyRepository()
 
   // 4
-  func add(_ allergy: Allergy) {
+  func add(_ allergy: Food) {
       foodAllergyRepository.add(allergy)
   }
 }

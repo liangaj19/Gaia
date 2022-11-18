@@ -7,26 +7,31 @@
 
 import SwiftUI
 
-
 //Creates the bottom tab buttons for our app
 struct MainView: View {
+    
+    @State private var selection = 2
+    
     var body: some View {
-        TabView{
+        TabView(selection: $selection) {
             SearchView()
                 .tabItem {
                     Image(systemName:"magnifyingglass.circle")
                     Text("Search")
                 }
-            FoodAllergyView(allergyListViewModel: AllergyListViewModel())
+                .tag(1)
+            BarcodeView(allergyListViewModel: AllergyListViewModel())
                 .tabItem {
-                    Image(systemName:"trash.circle.fill")
-                    Text("Trash")
+                    Image(systemName:"barcode.viewfinder")
+                    Text("Scan")
                 }
+                .tag(2)
             ProfileView()
                 .tabItem {
                     Image(systemName:"person.crop.circle")
                     Text("Profile")
                 }
+                .tag(3)
         }
     }
 }
