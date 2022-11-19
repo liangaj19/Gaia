@@ -18,33 +18,12 @@ struct ProfileView: View {
             
             Spacer()
                 .frame(height: 90)
-            HStack {
-                
-                ForEach(ProfileTabModel.allCases, id: \.rawValue) { item in
-                    VStack {
-                        Text(item.title)
-                            .font(.subheadline)
-                            .fontWeight(selectedFilter == item ? .semibold: .regular)
-                            .foregroundColor(selectedFilter == item ? .black : .gray)
-                        
-                        if selectedFilter == item {
-                            Capsule()
-                                .foregroundColor(Color("pearlyPurple"))
-                                .frame(height: 3)
-                        } else {
-                            Capsule()
-                                .foregroundColor(Color(.clear))
-                                .frame(height: 3)
-                        }
-                    }
-                    .onTapGesture {
-                        withAnimation(.easeInOut) {
-                            self.selectedFilter = item
-                        }
-                    }
-                }
-            }
-            .overlay(Divider().offset(y: 16))
+            
+            profileTabs
+            
+            
+            // code here what we want on each screen
+            
             
             Spacer()
         }
@@ -125,6 +104,36 @@ extension ProfileView {
             }
         }
         .frame(height: 100)
+    }
+    
+    var profileTabs : some View {
+        HStack {
+            
+            ForEach(ProfileTabModel.allCases, id: \.rawValue) { item in
+                VStack {
+                    Text(item.title)
+                        .font(.subheadline)
+                        .fontWeight(selectedFilter == item ? .semibold: .regular)
+                        .foregroundColor(selectedFilter == item ? .black : .gray)
+                    
+                    if selectedFilter == item {
+                        Capsule()
+                            .foregroundColor(Color("pearlyPurple"))
+                            .frame(height: 3)
+                    } else {
+                        Capsule()
+                            .foregroundColor(Color(.clear))
+                            .frame(height: 3)
+                    }
+                }
+                .onTapGesture {
+                    withAnimation(.easeInOut) {
+                        self.selectedFilter = item
+                    }
+                }
+            }
+        }
+        .overlay(Divider().offset(y: 16))
     }
     
 }
