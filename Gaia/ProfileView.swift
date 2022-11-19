@@ -11,6 +11,8 @@ struct ProfileView: View {
     
     @State private var username: String = "Guest"
     
+    @State var currentTab = "Allergens"
+    
     var body: some View {
         ZStack {
             VStack {
