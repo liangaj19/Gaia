@@ -35,6 +35,7 @@
 		97A9366E2900AE5500994E0F /* GaiaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A9366D2900AE5500994E0F /* GaiaTests.swift */; };
 		97A936782900AE5500994E0F /* GaiaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A936772900AE5500994E0F /* GaiaUITests.swift */; };
 		97A9367A2900AE5500994E0F /* GaiaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A936792900AE5500994E0F /* GaiaUITestsLaunchTests.swift */; };
+		97FC3EE52929843E002F7261 /* AllergenPickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FC3EE42929843D002F7261 /* AllergenPickView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		97A936732900AE5500994E0F /* GaiaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GaiaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		97A936772900AE5500994E0F /* GaiaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaiaUITests.swift; sourceTree = "<group>"; };
 		97A936792900AE5500994E0F /* GaiaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaiaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		97FC3EE42929843D002F7261 /* AllergenPickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergenPickView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 				97278ADD29105F11001492B1 /* WelcomeView.swift */,
 				97278ADF29105F1D001492B1 /* LoginView.swift */,
 				97278AE1291063C9001492B1 /* CreateView.swift */,
+				97FC3EE42929843D002F7261 /* AllergenPickView.swift */,
 				97A9365E2900AE5300994E0F /* SearchView.swift */,
 				30D91D3429075EA400035F16 /* BarcodeView.swift */,
 				307A5CE2291C9DD200F49285 /* IngredientView.swift */,
@@ -337,6 +340,7 @@
 				307A5CE3291C9DD200F49285 /* IngredientView.swift in Sources */,
 				30D91D3529075EA400035F16 /* BarcodeView.swift in Sources */,
 				97A9365F2900AE5300994E0F /* SearchView.swift in Sources */,
+				97FC3EE52929843E002F7261 /* AllergenPickView.swift in Sources */,
 				97278AE029105F1D001492B1 /* LoginView.swift in Sources */,
 				97A9365D2900AE5300994E0F /* GaiaApp.swift in Sources */,
 			);

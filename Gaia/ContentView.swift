@@ -17,6 +17,15 @@ extension UserDefaults {
             UserDefaults.standard.setValue(newValue, forKey: "welcomeScreenShown")
         }
     }
+    
+    var firstTimeUser: Bool {
+        get {
+            return (UserDefaults.standard.value(forKey: "firstTimeuser") as? Bool) ?? true
+        }
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: "firstTimeUser")
+        }
+    }
 }
 
 struct ContentView: View {

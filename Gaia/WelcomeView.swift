@@ -12,6 +12,9 @@ struct WelcomeView: View {
     @AppStorage("welcomeScreenShown") // UserDefaults
     var welcomeScreenShown: Bool = false
     
+    @AppStorage("firstTimeUser")
+    var firstTimeUser: Bool = true
+    
     @State private var isActive = false
     
     var body: some View {
@@ -19,8 +22,8 @@ struct WelcomeView: View {
          * if the welcome screen showed for 3 seconds,
          * it'll go to the login view
          */
-        if isActive {
-            MainView()
+        if isActive && firstTimeUser == true {
+            AllergenPickView()
         } else {
             ZStack {
                 // circles in the background
