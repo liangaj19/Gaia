@@ -96,7 +96,7 @@ struct WelcomeView: View {
             // so the welcome screen only shows for 3 seconds
             
             .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 20.0) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                     self.isActive = true
                 }
                 UserDefaults.standard.welcomeScreenShown = false
