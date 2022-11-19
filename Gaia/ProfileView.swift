@@ -9,10 +9,24 @@ import SwiftUI
 
 struct ProfileView: View {
     
+    @State private var selectionFilter: ProfileTabModel = .allergens
+    
     var body: some View {
-        VStack {
+        VStack (alignment: .leading) {
             
             headerView
+            
+            Spacer()
+                .frame(height: 90)
+            HStack {
+                
+                ForEach(ProfileTabModel.allCases, id: \.rawValue) { item in
+                    VStack {
+                        Text(item.title)
+                    }
+                }
+                
+            }
             
             Spacer()
         }
