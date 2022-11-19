@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProfileView: View {
     
-    @State private var selectionFilter: ProfileTabModel = .allergens
+    @State private var selectedFilter: ProfileTabModel = .allergens
     
     var body: some View {
         VStack (alignment: .leading) {
@@ -23,10 +23,28 @@ struct ProfileView: View {
                 ForEach(ProfileTabModel.allCases, id: \.rawValue) { item in
                     VStack {
                         Text(item.title)
+                            .font(.subheadline)
+                            .fontWeight(selectedFilter == item ? .semibold: .regular)
+                            .foregroundColor(selectedFilter == item ? .black : .gray)
+                        
+                        if selectedFilter == item {
+                            Capsule()
+                                .foregroundColor(Color("pearlyPurple"))
+                                .frame(height: 3)
+                        } else {
+                            Capsule()
+                                .foregroundColor(Color(.clear))
+                                .frame(height: 3)
+                        }
+                    }
+                    .onTapGesture {
+                        withAnimation(.easeInOut) {
+                            self.selectedFilter = item
+                        }
                     }
                 }
-                
             }
+            .overlay(Divider().offset(y: 16))
             
             Spacer()
         }
