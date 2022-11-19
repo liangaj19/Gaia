@@ -11,24 +11,8 @@ struct ProfileView: View {
     
     var body: some View {
         VStack {
-            ZStack (alignment: .bottomLeading) {
-                //banner
-                Color("pearlyPurple")
-                    .ignoresSafeArea()
-                
-                //profile picture
-                Image("samplePFP")
-                    .resizable()
-                    .clipShape(Circle())
-                    .frame(width: 100, height: 100)
-                    .overlay(
-                        Circle()
-                            .stroke(Color.black)
-                    )
-                    .offset(x: 20, y: 50)
-                    
-            }
-            .frame(height: 100)
+            
+            headerView
             
             Spacer()
         }
@@ -39,4 +23,76 @@ struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileView()
     }
+}
+
+extension ProfileView {
+    
+    // header
+    var headerView: some View {
+        ZStack (alignment: .bottomLeading) {
+            //banner
+            Color("pearlyPurple")
+                .ignoresSafeArea()
+            
+            //options
+            VStack {
+                Menu {
+                    Button(action: {
+                        
+                    }) {
+                        Text("Log In")
+                    }
+                    
+                    Button(action: {
+                        
+                    }) {
+                        Text("Create an Account")
+                    }
+                    
+                    Button(action: {
+                        
+                    }) {
+                        Text("Edit Profile")
+                    }
+                } label: {
+                    Image(systemName: "ellipsis")
+                        .resizable()
+                        .scaledToFit()
+                    // how to make this .trailing? it wont work
+                        .frame(width: 35, height: 30, alignment: .topTrailing)
+                        .foregroundColor(Color.white)
+                }
+                .offset(x: 320, y: -50)
+            }
+            
+            HStack {
+                //profile picture
+                Image("samplePFP")
+                    .resizable()
+                    .clipShape(Circle())
+                    .frame(width: 100, height: 100)
+                    .overlay(
+                        Circle()
+                            .stroke(Color("pearlyPurple"))
+                    )
+                    .shadow(radius: 5)
+                    .offset(x: 20, y: 50)
+                
+                Spacer()
+                    .frame(width: 40)
+                
+                //user's name
+                /* figure out how to connect to firebase
+                 * so that we know how to make the
+                 * username what the user wants
+                 */
+                Text("Guest")
+                    .font(.title2)
+                    .fontWeight(.bold)
+                    .offset(y: 75)
+            }
+        }
+        .frame(height: 100)
+    }
+    
 }
