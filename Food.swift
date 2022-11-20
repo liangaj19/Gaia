@@ -22,3 +22,5 @@ struct FoodDetail {
         Food(id: "3", imageName: "apple", name: "Apple")
     ]
 }
+
+
