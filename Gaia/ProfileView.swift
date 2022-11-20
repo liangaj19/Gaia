@@ -9,78 +9,23 @@ import SwiftUI
 
 struct ProfileView: View {
     
-    @State private var username: String = "Guest"
+    @State private var selectedFilter: ProfileTabModel = .allergens
     
     var body: some View {
-        ZStack {
-            VStack {
-                ScrollView(.vertical, showsIndicators: false) {
-                    
-                    // banner and pfp
-                    ZStack {
-                        Rectangle()
-                            .foregroundColor(Color("matcha"))
-                            .frame(maxWidth: .infinity, maxHeight: 200)
-                            .ignoresSafeArea(.all)
-                        
-                        HStack {
-                            Image("samplePFP")
-                                .resizable()
-                                .frame(width:130, height: 130, alignment: .center)
-                                .clipShape(Circle())
-                                .padding()
-                                .overlay(
-                                    Circle()
-                                        .stroke(Color("matcha"), lineWidth: 3)
-                                        .frame(width: 130, height: 130, alignment: .center)
-                                )
-                                .shadow(radius: 10)
-                                .offset(y:90)
-                            
-                            Text(username)
-                                .font(.system(size: 22, weight: .bold))
-                                .frame(minWidth: 200, alignment: .leading)
-                                .offset(y: 115)
-                        }
-                    }
-                    
-                    // information
-                    VStack {
-                        
-                        // edit profile button
-                        HStack {
-                            Spacer()
-                                .frame(width: 220)
-                            
-                            Menu {
-                                Button(action: {
-                                    //
-                                }) {
-                                    Text("Edit profile")
-                                }
-                                
-                                Button (action: {
-                                    
-                                }) {
-                                    Text("Add an allergen")
-                                }
-                            } label: {
-                                Image(systemName: "ellipsis")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .foregroundColor(Color.white)
-                                    .frame(width: 40, height: 80)
-                            }
-                            .offset(x: 30, y:-185)
-                            
-                        }
-                        
-                    }
-                    .offset(y:40)
-                    
-                }
-                .ignoresSafeArea(.all)
-            }
+        VStack (alignment: .leading) {
+            
+            headerView
+            
+            Spacer()
+                .frame(height: 90)
+            
+            profileTabs
+            
+            
+            // code here what we want on each screen
+            
+            
+            Spacer()
         }
     }
 }
@@ -89,4 +34,106 @@ struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileView()
     }
+}
+
+extension ProfileView {
+    
+    // header
+    var headerView: some View {
+        ZStack (alignment: .bottomLeading) {
+            //banner
+            Color("pearlyPurple")
+                .ignoresSafeArea()
+            
+            //options
+            VStack {
+                Menu {
+                    Button(action: {
+                        
+                    }) {
+                        Text("Log In")
+                    }
+                    
+                    Button(action: {
+                        
+                    }) {
+                        Text("Create an Account")
+                    }
+                    
+                    Button(action: {
+                        
+                    }) {
+                        Text("Edit Profile")
+                    }
+                } label: {
+                    Image(systemName: "ellipsis")
+                        .resizable()
+                        .scaledToFit()
+                    // how to make this .trailing? it wont work
+                        .frame(width: 35, height: 30, alignment: .topTrailing)
+                        .foregroundColor(Color.white)
+                }
+                .offset(x: 320, y: -50)
+            }
+            
+            HStack {
+                //profile picture
+                Image("samplePFP")
+                    .resizable()
+                    .clipShape(Circle())
+                    .frame(width: 100, height: 100)
+                    .overlay(
+                        Circle()
+                            .stroke(Color("pearlyPurple"))
+                    )
+                    .shadow(radius: 5)
+                    .offset(x: 20, y: 50)
+                
+                Spacer()
+                    .frame(width: 40)
+                
+                //user's name
+                /* figure out how to connect to firebase
+                 * so that we know how to make the
+                 * username what the user wants
+                 */
+                Text("Guest")
+                    .font(.title2)
+                    .fontWeight(.bold)
+                    .offset(y: 75)
+            }
+        }
+        .frame(height: 100)
+    }
+    
+    var profileTabs : some View {
+        HStack {
+            
+            ForEach(ProfileTabModel.allCases, id: \.rawValue) { item in
+                VStack {
+                    Text(item.title)
+                        .font(.subheadline)
+                        .fontWeight(selectedFilter == item ? .semibold: .regular)
+                        .foregroundColor(selectedFilter == item ? .black : .gray)
+                    
+                    if selectedFilter == item {
+                        Capsule()
+                            .foregroundColor(Color("pearlyPurple"))
+                            .frame(height: 3)
+                    } else {
+                        Capsule()
+                            .foregroundColor(Color(.clear))
+                            .frame(height: 3)
+                    }
+                }
+                .onTapGesture {
+                    withAnimation(.easeInOut) {
+                        self.selectedFilter = item
+                    }
+                }
+            }
+        }
+        .overlay(Divider().offset(y: 16))
+    }
+    
 }
