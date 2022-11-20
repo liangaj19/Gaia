@@ -8,10 +8,47 @@
 import SwiftUI
 
 struct AllergenPickView: View {
+
+    @State var peanutActive = false
+    @State var dairyActive = false
+    @State var soyActive = false
+    @State var shellfishActive = false
+    
     var body: some View {
         ZStack {
+            
             VStack {
                 Text("Please select or enter your allergens:")
+                    .font(.title)
+                
+                VStack() {
+                    HStack (){
+                        Button {
+                            self.peanutActive.toggle()
+                        } label: {
+                            ToggleButton(buttonText: "Peanut", buttonColor: .purple, active: peanutActive)
+                        }
+                        
+                        Button {
+                            self.dairyActive.toggle()
+                        } label: {
+                            ToggleButton(buttonText: "Dairy", buttonColor: .purple, active: dairyActive)
+                        }
+                    }
+                    HStack (){
+                        Button {
+                            self.soyActive.toggle()
+                        } label: {
+                            ToggleButton(buttonText: "Soy", buttonColor: .purple, active: soyActive)
+                        }
+                        
+                        Button {
+                            self.shellfishActive.toggle()
+                        } label: {
+                            ToggleButton(buttonText: "Shellfish", buttonColor: .purple, active: shellfishActive)
+                        }
+                    }
+                }
             }
         }
         /*
