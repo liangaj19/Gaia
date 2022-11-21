@@ -13,29 +13,44 @@ struct AllergenPickView: View {
     @State var dairyActive = false
     @State var soyActive = false
     @State var shellfishActive = false
+    @State var otherActive: String = ""
     
     var body: some View {
         ZStack {
             
-            VStack {
-                Text("Please select or enter your allergens:")
-                    .font(.title)
+            Image("genericWallpaper")
+                .resizable()
+                .frame(height: 1000)
+            
+            
+            VStack(spacing: 30) {
                 
-                VStack() {
-                    HStack (){
+                Spacer()
+                
+                Image("logo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 400)
+                
+                Text("Please select or enter your allergens:")
+                    .font(.largeTitle)
+                    .fontWeight(.semibold)
+                    .frame(width: 400)
+                
+                VStack(spacing: 30) {
+                    HStack (spacing: 30){
                         Button {
                             self.peanutActive.toggle()
                         } label: {
                             ToggleButton(buttonText: "Peanut", buttonColor: .purple, active: peanutActive)
                         }
-                        
                         Button {
                             self.dairyActive.toggle()
                         } label: {
                             ToggleButton(buttonText: "Dairy", buttonColor: .purple, active: dairyActive)
                         }
                     }
-                    HStack (){
+                    HStack (spacing: 30){
                         Button {
                             self.soyActive.toggle()
                         } label: {
@@ -48,7 +63,22 @@ struct AllergenPickView: View {
                             ToggleButton(buttonText: "Shellfish", buttonColor: .purple, active: shellfishActive)
                         }
                     }
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 10)
+                            .frame(width: 330, height: 60, alignment: .center)
+                            .foregroundColor(Color.purple)
+                            .cornerRadius(10)
+                        TextField("Other", text: $otherActive)
+                            .autocapitalization(.none)
+                            .font(.title)
+                            .padding(.all)
+                            .frame(width: 320, height: 50, alignment: .center)
+                            .background(Color.white)
+                            .cornerRadius(5)
+                    }
+                   
                 }
+                Spacer()
             }
         }
         /*
