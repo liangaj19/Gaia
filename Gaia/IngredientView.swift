@@ -15,14 +15,13 @@ struct IngredientView: View {
             Image(food.imageName)
                 .resizable()
                 .scaledToFit()
-                .frame(height: 70)
+                .frame(width: 500, height: 100)
                 
             Text(food.name)
-                .font(.title2)
+                .font(.title)
                 .fontWeight(.semibold)
                 .lineLimit(2)
                 .multilineTextAlignment(.center)
-                .padding()
             
             HStack{
                 Label("DUMMY ALLERGY", systemImage: "eye.fill") //Replace DUMMY ALLERGY with variable that will allow for a dynamic screen that fits for any food allergy
@@ -33,6 +32,7 @@ struct IngredientView: View {
             Text("REPLACE THIS WITH INGEDIENT LIST")
                 .font(.body)
                 .padding()
+            
             
         }
     }

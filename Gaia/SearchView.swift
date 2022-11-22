@@ -30,6 +30,7 @@ struct SearchView: View {
                             .padding(10)
                             .multilineTextAlignment(.leading)
                         Text(food.name)
+                            .font(.title2)
                             .fontWeight(.semibold)
                             .padding()
                             .multilineTextAlignment(.leading)

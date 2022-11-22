@@ -30,12 +30,13 @@ struct AllergenPickView: View {
                 Image("logo")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 400)
+                    .frame(width: 360)
                 
                 Text("Please select or enter your allergens:")
                     .font(.largeTitle)
+                    .multilineTextAlignment(.center)
                     .fontWeight(.semibold)
-                    .frame(width: 400)
+                    .frame(width: 320)
                 
                 VStack(spacing: 30) {
                     HStack (spacing: 30){
