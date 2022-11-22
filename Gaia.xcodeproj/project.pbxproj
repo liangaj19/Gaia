@@ -38,6 +38,8 @@
 		97A9367A2900AE5500994E0F /* GaiaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A936792900AE5500994E0F /* GaiaUITestsLaunchTests.swift */; };
 		97FC3EE52929843E002F7261 /* AllergenPickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FC3EE42929843D002F7261 /* AllergenPickView.swift */; };
 		97FC3EE929299260002F7261 /* ProfileTabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FC3EE829299260002F7261 /* ProfileTabModel.swift */; };
+		97FC3EEC292D8EC8002F7261 /* AllergenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FC3EEB292D8EC8002F7261 /* AllergenView.swift */; };
+		97FC3EEE292D8ED8002F7261 /* SavedListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FC3EED292D8ED8002F7261 /* SavedListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,8 @@
 		97A936792900AE5500994E0F /* GaiaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaiaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		97FC3EE42929843D002F7261 /* AllergenPickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergenPickView.swift; sourceTree = "<group>"; };
 		97FC3EE829299260002F7261 /* ProfileTabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabModel.swift; sourceTree = "<group>"; };
+		97FC3EEB292D8EC8002F7261 /* AllergenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergenView.swift; sourceTree = "<group>"; };
+		97FC3EED292D8ED8002F7261 /* SavedListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +160,7 @@
 				97A9365E2900AE5300994E0F /* SearchView.swift */,
 				30D91D3429075EA400035F16 /* BarcodeView.swift */,
 				307A5CE2291C9DD200F49285 /* IngredientView.swift */,
+				97FC3EEA292D8EAA002F7261 /* Saved Data for Profile */,
 				97278ADA29105BC6001492B1 /* ProfileView.swift */,
 				97FC3EE829299260002F7261 /* ProfileTabModel.swift */,
 				97A936602900AE5500994E0F /* Assets.xcassets */,
@@ -188,6 +193,15 @@
 				97A936792900AE5500994E0F /* GaiaUITestsLaunchTests.swift */,
 			);
 			path = GaiaUITests;
+			sourceTree = "<group>";
+		};
+		97FC3EEA292D8EAA002F7261 /* Saved Data for Profile */ = {
+			isa = PBXGroup;
+			children = (
+				97FC3EEB292D8EC8002F7261 /* AllergenView.swift */,
+				97FC3EED292D8ED8002F7261 /* SavedListView.swift */,
+			);
+			path = "Saved Data for Profile";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,8 +354,10 @@
 				971F7D182913325D002FB6A1 /* ContentView.swift in Sources */,
 				30D91D33290752ED00035F16 /* AllergyListViewModel.swift in Sources */,
 				30A748202908A72C00560E8D /* MainView.swift in Sources */,
+				97FC3EEC292D8EC8002F7261 /* AllergenView.swift in Sources */,
 				30D91D31290750C300035F16 /* Food.swift in Sources */,
 				97FC3EE929299260002F7261 /* ProfileTabModel.swift in Sources */,
+				97FC3EEE292D8ED8002F7261 /* SavedListView.swift in Sources */,
 				97278ADE29105F11001492B1 /* WelcomeView.swift in Sources */,
 				30D91D2F29074F7100035F16 /* FoodAllergyRepository.swift in Sources */,
 				307A5CE3291C9DD200F49285 /* IngredientView.swift in Sources */,

@@ -21,9 +21,27 @@ struct ProfileView: View {
             
             profileTabs
             
-            
+            if selectedFilter == .allergens {
+                ScrollView {
+                    LazyVStack {
+                        ForEach(0 ... 9, id: \.self) { _ in
+                            AllergenView()
+                                .padding()
+                        }
+                    }
+                }
+            } else {
+                ScrollView {
+                    LazyVStack {
+                        ForEach(0...9, id: \.self) { _ in
+                            SavedListView()
+                                .padding()
+                        }
+                    }
+                }
+            }
             // code here what we want on each screen
-            
+
             
             Spacer()
         }
