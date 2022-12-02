@@ -44,8 +44,10 @@ struct CreateView: View {
                         .frame(height: 30)
                     
                     // create button
+                    // TODO: create button might need to change to navigationlink with button
                     Button {
                         register()
+                        NavigationLink(destination: AllergenPickView()) {}
                     } label: {
                         Text("Create")
                             .bold()
