@@ -111,7 +111,9 @@ extension ProfileView {
                 .ignoresSafeArea()
             
             //options
+            
             VStack {
+                
                 Menu {
                     Button(action: {
                         
@@ -124,7 +126,7 @@ extension ProfileView {
                     }) {
                         Text("Create an Account")
                     }
-                    
+
                     NavigationLink(destination: EditProfileView()) {
                         Button(action: { }) {
                             Text("Edit Profile")

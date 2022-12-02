@@ -22,7 +22,7 @@ struct SearchView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                
+                Divider()
                     TextField("Enter UPC", text: $upcNumber)
                         .modifier(TextFieldClearButton(upcNumber: $upcNumber))
                         .textFieldStyle(.roundedBorder)
@@ -31,7 +31,7 @@ struct SearchView: View {
                             upcEntered.toggle()
                         }
                         .frame(width: 350, alignment: .top)
-                        .padding(.bottom)
+                        .padding()
                         
                     
                 Divider()
@@ -49,9 +49,10 @@ struct SearchView: View {
             .onReceive(networkManager.$foodProduct) { foodProduct in
                 checkIngredients(ingredientsList: foodProduct.ingredients_text, ingredientsAllergensList: foodProduct.allergens_from_ingredients)
             }
+            .navigationTitle("Search")
             
         }
-        .navigationTitle("Search")
+        
     }
     
     

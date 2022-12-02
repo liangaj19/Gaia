@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct SearchedItemIngredientView: View {
+    @Binding var productName: String
+    @Binding var ingredientsList: String
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct SearchedItemIngredientView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchedItemIngredientView()
-    }
-}
+        Text(productName)
+            .font(.system(size: 40))
+            .frame(maxWidth: .infinity)
+        Text(ingredientsList)
+            .padding()
+            .font(.system(size: 30))
+        Spacer()
+    }}
