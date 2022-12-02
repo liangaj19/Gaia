@@ -6,49 +6,98 @@
 //
 
 import SwiftUI
+// 04963406
 
-//This file creates a view with a z stack that has a button which transfers the user to the food allwegy view
 struct SearchView: View {
     
-    private var foodLister = FoodDetail.foodList
-    @State var searchText = ""
-
-    var foods: [Food] = FoodDetail.foodList
+    @ObservedObject var networkManager = NetworkManager()
+    @State var userDefaults = UserDefaults.standard
+    @State var upcNumber = ""
+    @State var searchResultList: [String] = []
+    @State var productAllergenWarningArray: [String] = []
+    @State private var upcEntered = false
+    var searchResults: [String] {
+        return searchResultList
+    }
     var body: some View {
-        
-        NavigationView{
-            List(foods, id: \.id){ food in
-                NavigationLink(destination: IngredientView(food: food)) {
+        NavigationStack {
+            VStack {
+                
+                    TextField("Enter UPC", text: $upcNumber)
+                        .modifier(TextFieldClearButton(upcNumber: $upcNumber))
+                        .textFieldStyle(.roundedBorder)
+                        .onSubmit {
+                            networkManager.fetchData(upcNumber: upcNumber)
+                            upcEntered.toggle()
+                        }
+                        .frame(width: 350, alignment: .top)
+                        .padding(.bottom)
+                        
                     
-                    
-                    HStack(spacing: 30){
-                        Image(food.imageName)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 70, height: 70)
-                            .cornerRadius(4)
-                            .padding(10)
-                            .multilineTextAlignment(.leading)
-                        Text(food.name)
-                            .font(.title2)
-                            .fontWeight(.semibold)
-                            .padding()
-                            .multilineTextAlignment(.leading)
-                            .lineLimit(2)                   //Prevents a long line of characters and limits the output of text lines to the chosen amount
-                            .minimumScaleFactor(0.5)        //Allows the text to shrink up to the allowed ammount if there are too many words to fit with current font
+                Divider()
+                    .frame(alignment: .top)
+                if upcEntered && upcNumber != "" && networkManager.foodProduct.product_name != "" {
+                    List() {
+                        NavigationLink(destination: SearchedItemView(productAllergenWarningArray: $productAllergenWarningArray, ingredientsList: $networkManager.foodProduct.ingredients_text, productName: $networkManager.foodProduct.product_name, upcNumber: $networkManager.foodProduct.code)) {
+                            Text(networkManager.foodProduct.product_name)
+                        }
                     }
-                    
-                    
-                    
+                    .listStyle(PlainListStyle())
                 }
+                Spacer()
             }
-            .navigationTitle("Search")
+            .onReceive(networkManager.$foodProduct) { foodProduct in
+                checkIngredients(ingredientsList: foodProduct.ingredients_text, ingredientsAllergensList: foodProduct.allergens_from_ingredients)
+            }
+            
+        }
+        .navigationTitle("Search")
+    }
+    
+    
+    func checkIngredients(ingredientsList: String, ingredientsAllergensList: String) {
+        let userAllergiesArray = userDefaults.object(forKey:"userAllergies") as? [String] ?? [String]()
+        let userCustomAllergiesArray = userDefaults.object(forKey:"userCustomAllergies") as? [String] ?? [String]()
+
+        // check default allergies
+        for allergy in userAllergiesArray {
+            if ingredientsList.lowercased().contains(allergy.lowercased()) || ingredientsAllergensList.lowercased().contains(allergy.lowercased())  {
+                productAllergenWarningArray.append(allergy)
+            }
+        }
+        
+        // check custom allergies
+        for allergy in userCustomAllergiesArray {
+            if ingredientsList.lowercased().contains(allergy.lowercased()) || ingredientsAllergensList.lowercased().contains(allergy.lowercased())  {
+                productAllergenWarningArray.append(allergy)
+            }
         }
     }
-        
 }
 
-
+struct TextFieldClearButton: ViewModifier {
+    @Binding var upcNumber: String
+    
+    func body(content: Content) -> some View {
+        HStack {
+            TextField("Enter UPC", text: $upcNumber)
+            
+            if !upcNumber.isEmpty {
+                Button(
+                    action: {
+                        self.upcNumber = ""
+                        //self.persons.removeAll()
+                        
+                    },
+                    label: {
+                        Image(systemName: "x.circle")
+                            .foregroundColor(Color(UIColor.opaqueSeparator))
+                    }
+                )
+            }
+        }
+    }
+}
 
 
 

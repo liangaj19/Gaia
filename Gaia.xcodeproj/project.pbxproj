@@ -24,6 +24,10 @@
 		30D91D31290750C300035F16 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D91D30290750C300035F16 /* Food.swift */; };
 		30D91D33290752ED00035F16 /* AllergyListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D91D32290752ED00035F16 /* AllergyListViewModel.swift */; };
 		30D91D3529075EA400035F16 /* BarcodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D91D3429075EA400035F16 /* BarcodeView.swift */; };
+		3F8F7BE7293A72A7009368CB /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F7BE6293A72A6009368CB /* EditProfileView.swift */; };
+		3F8F7BE9293A7B14009368CB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F7BE8293A7B14009368CB /* NetworkManager.swift */; };
+		3F8F7BEB293A7B83009368CB /* SearchedItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F7BEA293A7B83009368CB /* SearchedItemView.swift */; };
+		3F8F7BED293A8846009368CB /* SearchedItemIngredientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F7BEC293A8846009368CB /* SearchedItemIngredientView.swift */; };
 		971F7D182913325D002FB6A1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F7D172913325D002FB6A1 /* ContentView.swift */; };
 		97278ADB29105BC6001492B1 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97278ADA29105BC6001492B1 /* ProfileView.swift */; };
 		97278ADE29105F11001492B1 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97278ADD29105F11001492B1 /* WelcomeView.swift */; };
@@ -68,6 +72,10 @@
 		30D91D30290750C300035F16 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		30D91D32290752ED00035F16 /* AllergyListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyListViewModel.swift; sourceTree = "<group>"; };
 		30D91D3429075EA400035F16 /* BarcodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeView.swift; sourceTree = "<group>"; };
+		3F8F7BE6293A72A6009368CB /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		3F8F7BE8293A7B14009368CB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		3F8F7BEA293A7B83009368CB /* SearchedItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedItemView.swift; sourceTree = "<group>"; };
+		3F8F7BEC293A8846009368CB /* SearchedItemIngredientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedItemIngredientView.swift; sourceTree = "<group>"; };
 		971F7D172913325D002FB6A1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		97278ADA29105BC6001492B1 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		97278ADD29105F11001492B1 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -129,6 +137,7 @@
 				30D91D32290752ED00035F16 /* AllergyListViewModel.swift */,
 				30D91D30290750C300035F16 /* Food.swift */,
 				30D91D2E29074F7100035F16 /* FoodAllergyRepository.swift */,
+				3F8F7BE8293A7B14009368CB /* NetworkManager.swift */,
 				97A9365B2900AE5300994E0F /* Gaia */,
 				97A9366C2900AE5500994E0F /* GaiaTests */,
 				97A936762900AE5500994E0F /* GaiaUITests */,
@@ -158,10 +167,13 @@
 				97FC3EE42929843D002F7261 /* AllergenPickView.swift */,
 				308CF56C2929B66E0021AEDC /* ToggleButton.swift */,
 				97A9365E2900AE5300994E0F /* SearchView.swift */,
+				3F8F7BEA293A7B83009368CB /* SearchedItemView.swift */,
+				3F8F7BEC293A8846009368CB /* SearchedItemIngredientView.swift */,
 				30D91D3429075EA400035F16 /* BarcodeView.swift */,
 				307A5CE2291C9DD200F49285 /* IngredientView.swift */,
 				97FC3EEA292D8EAA002F7261 /* Saved Data for Profile */,
 				97278ADA29105BC6001492B1 /* ProfileView.swift */,
+				3F8F7BE6293A72A6009368CB /* EditProfileView.swift */,
 				97FC3EE829299260002F7261 /* ProfileTabModel.swift */,
 				97A936602900AE5500994E0F /* Assets.xcassets */,
 				30D91D192907492000035F16 /* GoogleService-Info.plist */,
@@ -361,11 +373,15 @@
 				97278ADE29105F11001492B1 /* WelcomeView.swift in Sources */,
 				30D91D2F29074F7100035F16 /* FoodAllergyRepository.swift in Sources */,
 				307A5CE3291C9DD200F49285 /* IngredientView.swift in Sources */,
+				3F8F7BE9293A7B14009368CB /* NetworkManager.swift in Sources */,
 				30D91D3529075EA400035F16 /* BarcodeView.swift in Sources */,
+				3F8F7BE7293A72A7009368CB /* EditProfileView.swift in Sources */,
 				308CF56D2929B66E0021AEDC /* ToggleButton.swift in Sources */,
 				97A9365F2900AE5300994E0F /* SearchView.swift in Sources */,
+				3F8F7BEB293A7B83009368CB /* SearchedItemView.swift in Sources */,
 				97FC3EE52929843E002F7261 /* AllergenPickView.swift in Sources */,
 				97278AE029105F1D001492B1 /* LoginView.swift in Sources */,
+				3F8F7BED293A8846009368CB /* SearchedItemIngredientView.swift in Sources */,
 				97A9365D2900AE5300994E0F /* GaiaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

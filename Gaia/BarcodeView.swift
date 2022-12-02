@@ -44,7 +44,7 @@ struct BarcodeView: View {
     
     private func addAllergy() {
         // 1
-        let allergy = Food(id: "question", imageName: "iName", name: "name")
+        let allergy = OldFood(id: "question", imageName: "iName", name: "name")
         // 2
         allergyListViewModel.add(allergy)
         // 3

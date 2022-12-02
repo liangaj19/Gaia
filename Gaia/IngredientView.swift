@@ -9,7 +9,7 @@ import SwiftUI
 
 struct IngredientView: View {
     
-    var food : Food
+    var food : OldFood
     var body: some View {
         VStack(spacing: 20){
             Image(food.imageName)
