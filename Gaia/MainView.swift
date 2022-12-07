@@ -14,30 +14,37 @@ struct MainView: View {
     
     var body: some View {
         TabView(selection: $selection) {
-            // navstack {
-            SearchView()
-                .tabItem {
-                    Image(systemName:"magnifyingglass.circle")
-                    Text("Search")
-                }
-                .tag(1)
-            // }
-            // navstack {
-            BarcodeView(allergyListViewModel: AllergyListViewModel())
-                .tabItem {
-                    Image(systemName:"barcode.viewfinder")
-                    Text("Scan")
-                }
-                .tag(2)
-            // }
-            // navstack {
-            ProfileView()
-                .tabItem {
-                    Image(systemName:"person.crop.circle")
-                    Text("Profile")
-                }
-                .tag(3)
-        // }
+            
+            // search view
+            NavigationStack {
+                SearchView()
+            }
+            .tabItem {
+                Image(systemName:"magnifyingglass.circle")
+                Text("Search")
+            }
+            .tag(1)
+            
+            // barcode view
+            NavigationStack {
+                BarcodeView(allergyListViewModel: AllergyListViewModel())
+            }
+            .tabItem {
+                Image(systemName:"barcode.viewfinder")
+                Text("Scan")
+            }
+            .tag(2)
+            
+            // profile view
+            NavigationStack {
+                ProfileView()
+            }
+            
+            .tabItem {
+                Image(systemName:"person.crop.circle")
+                Text("Profile")
+            }
+            .tag(3)
         }
     }
 }

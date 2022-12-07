@@ -20,7 +20,7 @@ struct SearchView: View {
         return searchResultList
     }
     var body: some View {
-        NavigationStack {
+        //NavigationStack {
             VStack {
                 Divider()
                     TextField("Enter UPC", text: $upcNumber)
@@ -51,7 +51,6 @@ struct SearchView: View {
             }
             .navigationTitle("Search")
             
-        }
         
     }
     
