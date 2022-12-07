@@ -42,7 +42,8 @@ struct AllergenPickView: View {
                     .foregroundColor(Color.white)
                     .mask(RoundedRectangle(cornerRadius: 30))
                     .ignoresSafeArea()
-                               
+                
+                
                 List() {
                     ForEach($allergyChecklist) {$allergy in
                         Text(allergy.name)
@@ -57,6 +58,7 @@ struct AllergenPickView: View {
                     }
                 }
                 .listStyle(PlainListStyle())
+                
                 Divider()
                 Text("Enter custom allergens here")
                     .font(.system(size: 20))
