@@ -19,12 +19,14 @@ struct SearchedItemView: View {
     var body: some View {
         Text(productName)
             .font(.system(size: 40))
-            //.padding()
+            
             .frame(maxWidth: .infinity)
+            .padding()
         if productAllergenWarningArray.isEmpty {
             Text("This product does not contain any allergens")
-                .padding()
+                
                 .font(.system(size: 30))
+                .padding()
             
         }
         else {

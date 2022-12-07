@@ -12,87 +12,90 @@ struct ProfileView: View {
     @State private var selectedFilter: ProfileTabModel = .allergens
     
     var body: some View {
-        VStack (alignment: .leading) {
-            
-            headerView
-            
-            Spacer()
-                .frame(height: 90)
-            
-            profileTabs
-            
-            if selectedFilter == .allergens {
-                // ScrollView {
-                    List {
-                        let userAllergiesArray = userDefaults.object(forKey:"userAllergies") as? [String] ?? [String]()
-                        let userCustomAllergiesArray = userDefaults.object(forKey:"userCustomAllergies") as? [String] ?? [String]()
-                        VStack {
-                            Text("Allergies")
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .font(.system(size: 25))
-                            //Spacer()
-                                //.frame(height: 10)
-                            Divider()
-                            if userAllergiesArray.isEmpty {
-                                Text("You have no allergies recorded")
+        NavigationStack {
+            VStack (alignment: .leading) {
+                
+                headerView
+                
+                Spacer()
+                    .frame(height: 90)
+                
+                profileTabs
+                
+                if selectedFilter == .allergens {
+                    // ScrollView {
+                        List {
+                            let userAllergiesArray = userDefaults.object(forKey:"userAllergies") as? [String] ?? [String]()
+                            let userCustomAllergiesArray = userDefaults.object(forKey:"userCustomAllergies") as? [String] ?? [String]()
+                            VStack {
+                                Text("Allergies")
                                     .frame(maxWidth: .infinity, alignment: .leading)
-                                    .padding(3)
-                                    .font(.system(size: 20))
-                            }
-                            else {
-                                ForEach(userAllergiesArray, id: \.self) {string in
-                                    Text(string)
+                                    .font(.system(size: 25))
+                                //Spacer()
+                                    //.frame(height: 10)
+                                Divider()
+                                if userAllergiesArray.isEmpty {
+                                    Text("You have no allergies recorded")
+                                        .frame(maxWidth: .infinity, alignment: .leading)
                                         .padding(3)
-                                        .foregroundColor(Color.black)
                                         .font(.system(size: 20))
+                                }
+                                else {
+                                    ForEach(userAllergiesArray, id: \.self) {string in
+                                        Text(string)
+                                            .padding(3)
+                                            .foregroundColor(Color.black)
+                                            .font(.system(size: 20))
+                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                    }
+                                }
+                                
+                                Spacer()
+                                    .frame(height: 20)
+                                
+                                Text("Custom Allergies")
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .font(.system(size: 25))
+                                
+                                //Spacer()
+                                    //.frame(height: 10)
+                                Divider()
+                                
+                                if !userCustomAllergiesArray.isEmpty {
+                                    ForEach(userCustomAllergiesArray, id: \.self) {string in
+                                        Text(string)
+                                            .padding(3)
+                                            .font(.system(size: 20))
+                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                    }
+                                }
+                                else {
+                                    Text("You have no custom allergies")
+                                        .font(.system(size: 20))
+                                        .padding(3)
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                 }
                             }
-                            
-                            Spacer()
-                                .frame(height: 20)
-                            
-                            Text("Custom Allergies")
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .font(.system(size: 25))
-                            
-                            //Spacer()
-                                //.frame(height: 10)
-                            Divider()
-                            
-                            if !userCustomAllergiesArray.isEmpty {
-                                ForEach(userCustomAllergiesArray, id: \.self) {string in
-                                    Text(string)
-                                        .padding(3)
-                                        .font(.system(size: 20))
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                }
+                        } .listStyle(PlainListStyle())
+                        //}
+                } else {
+                    ScrollView {
+                        LazyVStack {
+                            ForEach(0...9, id: \.self) { _ in
+                                SavedListView()
+                                    .padding()
                             }
-                            else {
-                                Text("You have no custom allergies")
-                                    .font(.system(size: 20))
-                                    .padding(3)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                            }
-                        }
-                    } .listStyle(PlainListStyle())
-                    //}
-            } else {
-                ScrollView {
-                    LazyVStack {
-                        ForEach(0...9, id: \.self) { _ in
-                            SavedListView()
-                                .padding()
                         }
                     }
                 }
-            }
-            // code here what we want on each screen
+                // code here what we want on each screen
 
-            
-           Spacer()
+                
+               Spacer()
+            }
         }
-    }
+        
+    } // var body
 }
 
 struct ProfileView_Previews: PreviewProvider {
