@@ -25,58 +25,71 @@ struct AllergenPickView: View {
     @State var userDefaults = UserDefaults.standard
     
     var body: some View {
-        VStack {
-            Text("Pick your allergens")
-                .font(.system(size: 30))
-            
-            Divider()
-           
-            List() {
-                ForEach($allergyChecklist) {$allergy in
-                    Text(allergy.name)
-                        .onTapGesture {
-                            allergy.isChecked.toggle()
-                        }
-                        
-                        .listRowBackground(allergy.isChecked ? Color(UIColor.lightGray) : Color.clear)
-                        .padding(5)
-                        .font(.system(size: 20))
-                        
+        ZStack (alignment: .topLeading){
+
+            VStack {
+                // Color("pearlyPurple")
+                
+                Text("Select your allergens")
+                    .font(.system(size: 30))
+                    .fontWeight(.bold)
+                    .padding(.top, 100)
+                    .padding(.bottom, 60)
+                    .padding(.leading, 40)
+                    .padding(.trailing, 100)
+                    .frame(maxWidth: .infinity, alignment:.leading)
+                    .background(Color("pearlyPurple"))
+                    .foregroundColor(Color.white)
+                    .mask(RoundedRectangle(cornerRadius: 30))
+                    .ignoresSafeArea()
+                               
+                List() {
+                    ForEach($allergyChecklist) {$allergy in
+                        Text(allergy.name)
+                            .onTapGesture {
+                                allergy.isChecked.toggle()
+                            }
+                            
+                            .listRowBackground(allergy.isChecked ? Color(UIColor.lightGray) : Color.clear)
+                            .padding(5)
+                            .font(.system(size: 20))
+                            
+                    }
                 }
-            }
-            .listStyle(PlainListStyle())
-            Divider()
-            Text("Enter custom allergens here")
-                .font(.system(size: 20))
-            
-            Text("Example: Bananas, Apples")
-                .font(.system(size: 15))
-            
-            TextField("Other", text: $customAllergyInput)
-                .autocapitalization(.none)
+                .listStyle(PlainListStyle())
+                Divider()
+                Text("Enter custom allergens here")
+                    .font(.system(size: 20))
+                
+                Text("Example: Bananas, Apples")
+                    .font(.system(size: 15))
+                
+                TextField("Other", text: $customAllergyInput)
+                    .autocapitalization(.none)
+                    .padding(.all)
+                    .frame(width: 350, height: 50, alignment: .center)
+                    .background(Color(UIColor.lightGray))
+                    .cornerRadius(10)
+                
+                Button {
+                    addAllergiesToAllergyList()
+                } label: {
+                    Text("Finish")
+                }
                 .padding(.all)
-                .frame(width: 350, height: 50, alignment: .center)
-                .background(Color(UIColor.lightGray))
+                .background(Color.black)
                 .cornerRadius(10)
-            
-            Button {
-                addAllergiesToAllergyList()
-            } label: {
-                Text("Finish")
             }
-            .padding(.all)
-            .background(Color.black)
-            .cornerRadius(10)
-        }
-        
-        /*
-         * actually should change this to onAction
-         * when they press the button to go into the app
-         * to make sure they actually picked
-         */
-        .onAppear(perform: {
-            UserDefaults.standard.welcomeScreenShown = true
+            
+            /*
+             * actually should change this to onAction
+             * when they press the button to go into the app
+             * to make sure they actually picked
+             */
+            .onAppear(perform: {
+                UserDefaults.standard.welcomeScreenShown = true
         })
+        }
     }
     
     func addAllergiesToAllergyList() {
