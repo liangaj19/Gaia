@@ -3,8 +3,12 @@ import VisionKit
 
 struct BarcodeView: View {
     
+    @ObservedObject var networkManager = NetworkManager()
     @EnvironmentObject var vm: AppViewModel
+    @StateObject var avm = CoreDataAllergenViewModel()
     @State var upcNumber: String = ""
+    @State var userAllergyStringArray: [String] = []
+    @State var productAllergenWarningArray: [String] = []
     
     var body: some View {
         switch vm.dataScannerAccessStatus {
@@ -52,13 +56,13 @@ struct BarcodeView: View {
     
     private var headerView: some View {
         VStack {
-            HStack {
+            /*HStack {
                 Picker("Scan Type", selection: $vm.scanType) {
                     Text("Barcode").tag(ScanType.barcode)
                 }.pickerStyle(.segmented)
                 
                 Toggle("Scan multiple", isOn: $vm.recognizesMultipleItems)
-            }.padding(.top)
+            }.padding(.top)*/
             
             Text(vm.headerText).padding(.top)
         }.padding(.horizontal)
@@ -73,8 +77,11 @@ struct BarcodeView: View {
                         ForEach(vm.recognizedItems) { item in
                             switch item {
                             case .barcode(let barcode):
-                                NavigationLink(destination: AllergenPickView()) {
+                                NavigationLink(destination: SearchedItemView(productAllergenWarningArray: $productAllergenWarningArray, ingredientsList: $networkManager.foodProduct.ingredients_text, productName: $networkManager.foodProduct.product_name, upcNumber: $networkManager.foodProduct.code)) {
                                     Text(barcode.payloadStringValue ?? "Unknown barcode")
+                                }
+                                .onAppear {
+                                    networkManager.fetchData(upcNumber: barcode.payloadStringValue ?? "")
                                 }
                                 
                                 //if let barcodeInput = barcode.payloadStringValue {
@@ -92,7 +99,26 @@ struct BarcodeView: View {
                     .padding()
                 }
             }
+            .onReceive(networkManager.$foodProduct) { foodProduct in
+                checkIngredients(ingredientsList: foodProduct.ingredients_text, ingredientsAllergensList: foodProduct.allergens_from_ingredients)
+            }
         }
+    }
+    
+    func checkIngredients(ingredientsList: String, ingredientsAllergensList: String) {
+        //avm.addAllergen(allergenName: "Caffeine")
+        for allergy in avm.savedAllergens {
+            
+            userAllergyStringArray.append(allergy.allergenName ?? "")
+        }
+
+        // check default allergies
+        for allergy in userAllergyStringArray {
+            if (ingredientsList.lowercased().contains(allergy.lowercased()) || ingredientsAllergensList.lowercased().contains(allergy.lowercased())) && !productAllergenWarningArray.contains(allergy)  {
+                productAllergenWarningArray.append(allergy)
+            }
+        }
+        // check custom allergies
     }
 }
 
