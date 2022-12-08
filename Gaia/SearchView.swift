@@ -59,13 +59,15 @@ struct SearchView: View {
     
     
     func checkIngredients(ingredientsList: String, ingredientsAllergensList: String) {
+        //avm.addAllergen(allergenName: "Caffeine")
         for allergy in avm.savedAllergens {
+            
             userAllergyStringArray.append(allergy.allergenName ?? "")
         }
 
         // check default allergies
         for allergy in userAllergyStringArray {
-            if ingredientsList.lowercased().contains(allergy.lowercased()) || ingredientsAllergensList.lowercased().contains(allergy.lowercased())  {
+            if (ingredientsList.lowercased().contains(allergy.lowercased()) || ingredientsAllergensList.lowercased().contains(allergy.lowercased())) && !productAllergenWarningArray.contains(allergy)  {
                 productAllergenWarningArray.append(allergy)
             }
         }
