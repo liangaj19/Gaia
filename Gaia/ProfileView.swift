@@ -15,7 +15,7 @@ struct ProfileView: View {
     @StateObject var sivm = CoreDataSavedItemViewModel()
     
     var body: some View {
-        NavigationStack {
+        //NavigationStack {
             VStack (alignment: .leading) {
                 
                 headerView
@@ -28,14 +28,14 @@ struct ProfileView: View {
                 if selectedFilter == .allergens {
                     // ScrollView {
                     VStack {
-                        Text("Allergies (swipe to delete)")
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .font(.system(size: 25))
-                            .padding()
+                        //Text("Allergies (swipe to delete)")
+                            //.frame(maxWidth: .infinity, alignment: .leading)
+                            //.font(.system(size: 25))
+                            //.padding()
                         
                         //Spacer()
                         //.frame(height: 10)
-                        Divider()
+                        //Divider()
                         if avm.savedAllergens.isEmpty {
                             Text("You have no allergies recorded")
                                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -105,7 +105,7 @@ struct ProfileView: View {
                 Spacer()
             }
             
-        }
+        //}
     } // var body
 }
 
@@ -125,10 +125,10 @@ extension ProfileView {
             
             //options
             
-            VStack {
+            //VStack {
                 
-                Menu {
-                    Button(action: {
+                //Menu {
+                    /*Button(action: {
                         
                     }) {
                         Text("Log In")
@@ -138,25 +138,23 @@ extension ProfileView {
                         
                     }) {
                         Text("Create an Account")
-                    }
+                    }*/
                     
-                    NavigationLink(destination: EditProfileView()) {
-                        Text("edit")
-                    }
-                    /*NavigationLink(destination: EditProfileView()) {
-                     Text("Edit Profile")
-                     }
-                     .buttonStyle(DefaultButtonStyle())*/
-                } label: {
-                    Image(systemName: "ellipsis")
+                    //NavigationLink(destination: EditProfileView()) {
+                        //Text("edit")
+                    //}
+                    //.buttonStyle(DefaultButtonStyle())
+                
+                //} label: {
+                    /*Image(systemName: "ellipsis")
                         .resizable()
                         .scaledToFit()
                     // how to make this .trailing? it wont work
                         .frame(width: 35, height: 30, alignment: .topTrailing)
                         .foregroundColor(Color.white)
                 }
-                .offset(x: 320, y: -50)
-            }
+                .offset(x: 320, y: -50)*/
+            //}
             
             HStack {
                 //profile picture
@@ -179,11 +177,35 @@ extension ProfileView {
                  * so that we know how to make the
                  * username what the user wants
                  */
-                Text("Guest")
+                Text("Your Profile")
                     .font(.title2)
                     .fontWeight(.bold)
                     .offset(y: 75)
             }
+            
+            
+            HStack {
+                Spacer()
+                VStack {
+                    NavigationLink(destination: EditProfileView()) {
+                        Text("Add allergens")
+                    }
+                    .buttonStyle(DefaultButtonStyle())
+                    
+                    .padding(10)
+                    
+                    //.overlay(
+                        //RoundedRectangle(cornerRadius: 30)
+                            //.stroke(Color.black, lineWidth: 2)
+                    //)
+                    //.foregroundColor(Color.black)
+                    Spacer()
+                        .frame(height: 20)
+                }
+                Spacer()
+                    .frame(width: 15)
+            }
+            
         }
         .frame(height: 100)
     }

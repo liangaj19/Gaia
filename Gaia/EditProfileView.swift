@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct EditProfileView: View {
     @Environment(\.dismiss) var dismiss
@@ -81,13 +82,23 @@ struct EditProfileView: View {
                     Alert(title: Text("Your allergen preferences have been updated"), dismissButton: .default(Text("OK"), action: {dismiss()}))
                 }
                 Spacer()
+                    .frame(height: 10)
+                Spacer()
+                //Spacer()
                 
 
             }
+            .adaptsToKeyboard()
+            
+            
         } // ZStack
         .ignoresSafeArea()
         .toolbar(.hidden, for: .tabBar)
+        
+        
     }
+    
+    
     func addAllergiesToAllergyList() {
         for allergy in avm.savedAllergens {
             userAllergyStringArray.append(allergy.allergenName ?? "")
@@ -107,6 +118,47 @@ struct EditProfileView: View {
         }
     }
 }
+
+//import SwiftUI
+
+
+struct AdaptsToKeyboard: ViewModifier {
+    @State var currentHeight: CGFloat = 0
+    
+    func body(content: Content) -> some View {
+        GeometryReader { geometry in
+            //EditProfileView()
+            content
+                .padding(.bottom, self.currentHeight)
+                .onAppear(perform: {
+                    NotificationCenter.Publisher(center: NotificationCenter.default, name: UIResponder.keyboardWillShowNotification)
+                        .merge(with: NotificationCenter.Publisher(center: NotificationCenter.default, name: UIResponder.keyboardWillChangeFrameNotification))
+                        .compactMap { notification in
+                            withAnimation(.easeOut(duration: 0.16)) {
+                                notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect
+                            }
+                    }
+                    .map { rect in
+                        rect.height - geometry.safeAreaInsets.bottom
+                    }
+                    .subscribe(Subscribers.Assign(object: self, keyPath: \.currentHeight))
+                    
+                    NotificationCenter.Publisher(center: NotificationCenter.default, name: UIResponder.keyboardWillHideNotification)
+                        .compactMap { notification in
+                            CGFloat.zero
+                    }
+                    .subscribe(Subscribers.Assign(object: self, keyPath: \.currentHeight))
+                })
+        }
+    }
+}
+
+extension View {
+    func adaptsToKeyboard() -> some View {
+        return modifier(AdaptsToKeyboard())
+    }
+}
+
 struct EditProfileView_Previews: PreviewProvider {
     static var previews: some View {
         EditProfileView()
