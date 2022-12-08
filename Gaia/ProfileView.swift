@@ -49,7 +49,9 @@ struct ProfileView: View {
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                 }
                             }
-                            
+                            NavigationLink(destination: EditProfileView()) {
+                                Text("edit")
+                            }
                             Spacer()
                                 .frame(height: 20)
                             
@@ -105,7 +107,6 @@ struct ProfileView_Previews: PreviewProvider {
 }
 
 extension ProfileView {
-    
     // header
     var headerView: some View {
         ZStack (alignment: .bottomLeading) {
@@ -131,9 +132,7 @@ extension ProfileView {
                     }
 
                     NavigationLink(destination: EditProfileView()) {
-                        Button(action: { }) {
-                            Text("Edit Profile")
-                        }
+                        Text("edit")
                     }
                     /*NavigationLink(destination: EditProfileView()) {
                         Text("Edit Profile")

@@ -27,7 +27,7 @@ struct MainView: View {
             
             // barcode view
             NavigationStack {
-                BarcodeView(allergyListViewModel: AllergyListViewModel())
+                BarcodeView()
             }
             .tabItem {
                 Image(systemName:"barcode.viewfinder")

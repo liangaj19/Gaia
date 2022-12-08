@@ -20,11 +20,15 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct GaiaApp: App {
+    
+    @StateObject private var vm = AppViewModel()
+    
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            WeView()
+                .environmentObject(vm)
         }
     }
 }
