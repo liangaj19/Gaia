@@ -4,6 +4,7 @@ import VisionKit
 struct BarcodeView: View {
     
     @EnvironmentObject var vm: AppViewModel
+    @State var upcNumber: String = ""
     
     var body: some View {
         switch vm.dataScannerAccessStatus {
@@ -21,30 +22,32 @@ struct BarcodeView: View {
     }
     
     private var mainView: some View {
-        DataScannerView(
-            recognizedItems: $vm.recognizedItems,
-            recognizedDataType: vm.recognizedDataType,
-            recognizesMultipleItems: vm.recognizesMultipleItems)
-        .background { Color.gray.opacity(0.3) } // darkness background to give contrast when barcode is available
-        .ignoresSafeArea()
-        .id(vm.dataScannerViewId)
-        .sheet(isPresented: .constant(true)) { // dark space under to show information
-            bottomContainerView
-                .background(.ultraThinMaterial)
-                .presentationDetents([.medium, .fraction(0.25)])
-                .presentationDragIndicator(.visible)
-                .interactiveDismissDisabled()
-                .onAppear {
-                    guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                          let controller = windowScene.windows.first?.rootViewController?.presentedViewController else {
-                        return
+        NavigationStack {
+            DataScannerView(
+                recognizedItems: $vm.recognizedItems,
+                recognizedDataType: vm.recognizedDataType,
+                recognizesMultipleItems: vm.recognizesMultipleItems)
+            .background { Color.gray.opacity(0.3) } // darkness background to give contrast when barcode is available
+            .ignoresSafeArea()
+            .id(vm.dataScannerViewId)
+            //.sheet(isPresented: .constant(true)) { // dark space under to show information
+                bottomContainerView
+                    .background(.ultraThinMaterial)
+                    .presentationDetents([.medium, .fraction(0.25)])
+                    .presentationDragIndicator(.visible)
+                    .interactiveDismissDisabled()
+                    .onAppear {
+                        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                              let controller = windowScene.windows.first?.rootViewController?.presentedViewController else {
+                            return
+                        }
+                        controller.view.backgroundColor = .clear
                     }
-                    controller.view.backgroundColor = .clear
-                }
-        }
-        .onChange(of: vm.scanType) { _ in vm.recognizedItems = [] }
-        .onChange(of: vm.textContentType) { _ in vm.recognizedItems = [] }
+            //}
+            //.onChange(of: vm.scanType) { _ in vm.recognizedItems = [] }
+            //.onChange(of: vm.textContentType) { _ in vm.recognizedItems = [] }
         .onChange(of: vm.recognizesMultipleItems) { _ in vm.recognizedItems = []}
+        }
     }
     
     private var headerView: some View {
@@ -62,24 +65,32 @@ struct BarcodeView: View {
     }
     
     private var bottomContainerView: some View {
-        VStack {
-            headerView
-            ScrollView {
-                LazyVStack(alignment: .leading, spacing: 16) {
-                    ForEach(vm.recognizedItems) { item in
-                        switch item {
-                        case .barcode(let barcode):
-                            Text(barcode.payloadStringValue ?? "Unknown barcode")
-                            
-                        case .text(let text):
-                            Text(text.transcript)
-                            
-                        @unknown default:
-                            Text("Unknown")
+        NavigationStack {
+            VStack {
+                headerView
+                ScrollView {
+                    LazyVStack(alignment: .leading, spacing: 16) {
+                        ForEach(vm.recognizedItems) { item in
+                            switch item {
+                            case .barcode(let barcode):
+                                NavigationLink(destination: AllergenPickView()) {
+                                    Text(barcode.payloadStringValue ?? "Unknown barcode")
+                                }
+                                
+                                //if let barcodeInput = barcode.payloadStringValue {
+                                    //upcNumber = barcodeInput
+                                //}
+                                
+                            case .text(let text):
+                                Text(text.transcript)
+                                
+                            @unknown default:
+                                Text("Unknown")
+                            }
                         }
                     }
+                    .padding()
                 }
-                .padding()
             }
         }
     }
