@@ -30,6 +30,11 @@
 		3F8F7BED293A8846009368CB /* SearchedItemIngredientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F7BEC293A8846009368CB /* SearchedItemIngredientView.swift */; };
 		3FA2319429416BA40015BA8A /* DataScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA2319229416BA40015BA8A /* DataScannerView.swift */; };
 		3FA2319529416BA40015BA8A /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA2319329416BA40015BA8A /* AppViewModel.swift */; };
+		3FA2319A2941C18C0015BA8A /* AllergenContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3FA231982941C18C0015BA8A /* AllergenContainer.xcdatamodeld */; };
+		3FA2319D2941C1C60015BA8A /* SavedItemContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3FA2319B2941C1C60015BA8A /* SavedItemContainer.xcdatamodeld */; };
+		3FA2319F2941C2330015BA8A /* CoreDataAllergenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA2319E2941C2330015BA8A /* CoreDataAllergenViewModel.swift */; };
+		3FA231A12941C2780015BA8A /* CoreDataSavedItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA231A02941C2780015BA8A /* CoreDataSavedItemViewModel.swift */; };
+		3FA231A32941CA410015BA8A /* SavedItemDetailedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA231A22941CA410015BA8A /* SavedItemDetailedView.swift */; };
 		971F7D182913325D002FB6A1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971F7D172913325D002FB6A1 /* ContentView.swift */; };
 		97278ADB29105BC6001492B1 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97278ADA29105BC6001492B1 /* ProfileView.swift */; };
 		97278ADE29105F11001492B1 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97278ADD29105F11001492B1 /* WelcomeView.swift */; };
@@ -81,6 +86,11 @@
 		3FA2319229416BA40015BA8A /* DataScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataScannerView.swift; sourceTree = "<group>"; };
 		3FA2319329416BA40015BA8A /* AppViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		3FA2319629416E970015BA8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3FA231992941C18C0015BA8A /* AllergenContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AllergenContainer.xcdatamodel; sourceTree = "<group>"; };
+		3FA2319C2941C1C60015BA8A /* SavedItemContainer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SavedItemContainer.xcdatamodel; sourceTree = "<group>"; };
+		3FA2319E2941C2330015BA8A /* CoreDataAllergenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataAllergenViewModel.swift; sourceTree = "<group>"; };
+		3FA231A02941C2780015BA8A /* CoreDataSavedItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSavedItemViewModel.swift; sourceTree = "<group>"; };
+		3FA231A22941CA410015BA8A /* SavedItemDetailedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedItemDetailedView.swift; sourceTree = "<group>"; };
 		971F7D172913325D002FB6A1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		97278ADA29105BC6001492B1 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		97278ADD29105F11001492B1 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -146,6 +156,18 @@
 			path = Barcode;
 			sourceTree = "<group>";
 		};
+		3FA231972941BE810015BA8A /* Account Setup */ = {
+			isa = PBXGroup;
+			children = (
+				971F7D172913325D002FB6A1 /* ContentView.swift */,
+				97278ADD29105F11001492B1 /* WelcomeView.swift */,
+				97278ADF29105F1D001492B1 /* LoginView.swift */,
+				97278AE1291063C9001492B1 /* CreateView.swift */,
+				97FC3EE42929843D002F7261 /* AllergenPickView.swift */,
+			);
+			path = "Account Setup";
+			sourceTree = "<group>";
+		};
 		97A936502900AE5200994E0F = {
 			isa = PBXGroup;
 			children = (
@@ -174,14 +196,10 @@
 			isa = PBXGroup;
 			children = (
 				3FA2319629416E970015BA8A /* Info.plist */,
-				3FA2318B294167440015BA8A /* Barcode */,
 				97A9365C2900AE5300994E0F /* GaiaApp.swift */,
-				971F7D172913325D002FB6A1 /* ContentView.swift */,
+				3FA2318B294167440015BA8A /* Barcode */,
+				3FA231972941BE810015BA8A /* Account Setup */,
 				30A7481F2908A72C00560E8D /* MainView.swift */,
-				97278ADD29105F11001492B1 /* WelcomeView.swift */,
-				97278ADF29105F1D001492B1 /* LoginView.swift */,
-				97278AE1291063C9001492B1 /* CreateView.swift */,
-				97FC3EE42929843D002F7261 /* AllergenPickView.swift */,
 				308CF56C2929B66E0021AEDC /* ToggleButton.swift */,
 				97A9365E2900AE5300994E0F /* SearchView.swift */,
 				3F8F7BEA293A7B83009368CB /* SearchedItemView.swift */,
@@ -189,8 +207,13 @@
 				307A5CE2291C9DD200F49285 /* IngredientView.swift */,
 				97FC3EEA292D8EAA002F7261 /* Saved Data for Profile */,
 				97278ADA29105BC6001492B1 /* ProfileView.swift */,
+				3FA231A22941CA410015BA8A /* SavedItemDetailedView.swift */,
 				3F8F7BE6293A72A6009368CB /* EditProfileView.swift */,
 				97FC3EE829299260002F7261 /* ProfileTabModel.swift */,
+				3FA2319E2941C2330015BA8A /* CoreDataAllergenViewModel.swift */,
+				3FA231A02941C2780015BA8A /* CoreDataSavedItemViewModel.swift */,
+				3FA231982941C18C0015BA8A /* AllergenContainer.xcdatamodeld */,
+				3FA2319B2941C1C60015BA8A /* SavedItemContainer.xcdatamodeld */,
 				97A936602900AE5500994E0F /* Assets.xcassets */,
 				30D91D192907492000035F16 /* GoogleService-Info.plist */,
 				97A936622900AE5500994E0F /* Preview Content */,
@@ -377,13 +400,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FA231A32941CA410015BA8A /* SavedItemDetailedView.swift in Sources */,
 				97278AE2291063C9001492B1 /* CreateView.swift in Sources */,
 				97278ADB29105BC6001492B1 /* ProfileView.swift in Sources */,
+				3FA2319D2941C1C60015BA8A /* SavedItemContainer.xcdatamodeld in Sources */,
 				3FA2319529416BA40015BA8A /* AppViewModel.swift in Sources */,
 				971F7D182913325D002FB6A1 /* ContentView.swift in Sources */,
 				30D91D33290752ED00035F16 /* AllergyListViewModel.swift in Sources */,
 				30A748202908A72C00560E8D /* MainView.swift in Sources */,
 				3FA2319429416BA40015BA8A /* DataScannerView.swift in Sources */,
+				3FA231A12941C2780015BA8A /* CoreDataSavedItemViewModel.swift in Sources */,
 				97FC3EEC292D8EC8002F7261 /* AllergenView.swift in Sources */,
 				30D91D31290750C300035F16 /* Food.swift in Sources */,
 				97FC3EE929299260002F7261 /* ProfileTabModel.swift in Sources */,
@@ -393,12 +419,14 @@
 				307A5CE3291C9DD200F49285 /* IngredientView.swift in Sources */,
 				3F8F7BE9293A7B14009368CB /* NetworkManager.swift in Sources */,
 				30D91D3529075EA400035F16 /* BarcodeView.swift in Sources */,
+				3FA2319F2941C2330015BA8A /* CoreDataAllergenViewModel.swift in Sources */,
 				3F8F7BE7293A72A7009368CB /* EditProfileView.swift in Sources */,
 				308CF56D2929B66E0021AEDC /* ToggleButton.swift in Sources */,
 				97A9365F2900AE5300994E0F /* SearchView.swift in Sources */,
 				3F8F7BEB293A7B83009368CB /* SearchedItemView.swift in Sources */,
 				97FC3EE52929843E002F7261 /* AllergenPickView.swift in Sources */,
 				97278AE029105F1D001492B1 /* LoginView.swift in Sources */,
+				3FA2319A2941C18C0015BA8A /* AllergenContainer.xcdatamodeld in Sources */,
 				3F8F7BED293A8846009368CB /* SearchedItemIngredientView.swift in Sources */,
 				97A9365D2900AE5300994E0F /* GaiaApp.swift in Sources */,
 			);
@@ -802,6 +830,29 @@
 			productName = "FirebaseStorageCombine-Community";
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		3FA231982941C18C0015BA8A /* AllergenContainer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3FA231992941C18C0015BA8A /* AllergenContainer.xcdatamodel */,
+			);
+			currentVersion = 3FA231992941C18C0015BA8A /* AllergenContainer.xcdatamodel */;
+			path = AllergenContainer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		3FA2319B2941C1C60015BA8A /* SavedItemContainer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3FA2319C2941C1C60015BA8A /* SavedItemContainer.xcdatamodel */,
+			);
+			currentVersion = 3FA2319C2941C1C60015BA8A /* SavedItemContainer.xcdatamodel */;
+			path = SavedItemContainer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 97A936512900AE5300994E0F /* Project object */;
 }

@@ -26,15 +26,13 @@ struct AllergenPickView: View {
     
     var body: some View {
         ZStack (alignment: .topLeading){
-
             VStack {
                 // Color("pearlyPurple")
-                
                 Text("Select your allergens")
                     .font(.system(size: 30))
                     .fontWeight(.bold)
                     .padding(.top, 100)
-                    .padding(.bottom, 60)
+                    .padding(.bottom, 40)
                     .padding(.leading, 40)
                     .padding(.trailing, 100)
                     .frame(maxWidth: .infinity, alignment:.leading)
@@ -50,7 +48,6 @@ struct AllergenPickView: View {
                             .onTapGesture {
                                 allergy.isChecked.toggle()
                             }
-                            
                             .listRowBackground(allergy.isChecked ? Color(UIColor.lightGray) : Color.clear)
                             .padding(5)
                             .font(.system(size: 20))
@@ -58,6 +55,8 @@ struct AllergenPickView: View {
                     }
                 }
                 .listStyle(PlainListStyle())
+                .frame(maxWidth: .infinity, maxHeight: 3000, alignment: .center)
+                .offset(y: -50)
                 
                 Divider()
                 Text("Enter custom allergens here")
@@ -81,6 +80,7 @@ struct AllergenPickView: View {
                 .padding(.all)
                 .background(Color.black)
                 .cornerRadius(10)
+                
             }
             
             /*
@@ -90,6 +90,7 @@ struct AllergenPickView: View {
              */
             .onAppear(perform: {
                 UserDefaults.standard.welcomeScreenShown = true
+                
         })
         }
     }

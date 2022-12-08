@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct ProfileView: View {
-    @State var userDefaults = UserDefaults.standard
+    //@State var userDefaults = UserDefaults.standard
     @State private var selectedFilter: ProfileTabModel = .allergens
+    
+    @StateObject var avm = CoreDataAllergenViewModel()
+    @StateObject var sivm = CoreDataSavedItemViewModel()
     
     var body: some View {
         NavigationStack {
@@ -24,70 +27,76 @@ struct ProfileView: View {
                 
                 if selectedFilter == .allergens {
                     // ScrollView {
-                    List {
-                        let userAllergiesArray = userDefaults.object(forKey:"userAllergies") as? [String] ?? [String]()
-                        let userCustomAllergiesArray = userDefaults.object(forKey:"userCustomAllergies") as? [String] ?? [String]()
-                        VStack {
-                            Text("Allergies")
+                    VStack {
+                        Text("Allergies (swipe to delete)")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .font(.system(size: 25))
+                            .padding()
+                        
+                        //Spacer()
+                        //.frame(height: 10)
+                        Divider()
+                        if avm.savedAllergens.isEmpty {
+                            Text("You have no allergies recorded")
                                 .frame(maxWidth: .infinity, alignment: .leading)
-                                .font(.system(size: 25))
-                            //Spacer()
-                            //.frame(height: 10)
-                            Divider()
-                            if userAllergiesArray.isEmpty {
-                                Text("You have no allergies recorded")
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .padding(3)
-                                    .font(.system(size: 20))
-                            }
-                            else {
-                                ForEach(userAllergiesArray, id: \.self) {string in
-                                    Text(string)
-                                        .padding(3)
-                                        .foregroundColor(Color.black)
-                                        .font(.system(size: 20))
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                }
-                            }
-                            NavigationLink(destination: EditProfileView()) {
-                                Text("edit")
-                            }
-                            Spacer()
-                                .frame(height: 20)
-                            
-                            Text("Custom Allergies")
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .font(.system(size: 25))
-                            
-                            //Spacer()
-                            //.frame(height: 10)
-                            Divider()
-                            
-                            if !userCustomAllergiesArray.isEmpty {
-                                ForEach(userCustomAllergiesArray, id: \.self) {string in
-                                    Text(string)
-                                        .padding(3)
-                                        .font(.system(size: 20))
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                }
-                            }
-                            else {
-                                Text("You have no custom allergies")
-                                    .font(.system(size: 20))
-                                    .padding(3)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                            }
+                                .padding()
+                                .font(.system(size: 23))
                         }
-                    } .listStyle(PlainListStyle())
+                        else {
+                            List {
+                                ForEach(avm.savedAllergens) { item in
+                                    Text(item.allergenName ?? "")
+                                        .font(.system(size: 23))
+                                }
+                                .onDelete(perform: avm.deleteAllegen)
+                                
+                                
+                                //.padding()
+                                //.toolbar {
+                                //EditButton()
+                            }
+                            .listStyle(PlainListStyle())
+                            //.padding()
+                        }
+                        
+                        //NavigationLink(destination: EditProfileView()) {
+                        //Text("edit")
+                        //}
+                        Spacer()
+                            .frame(height: 20)
+                        
+                        
+                        //Spacer()
+                        //.frame(height: 10)
+                        //Divider()
+                    }
+                    //.padding()
                     //}
                 } else {
-                    ScrollView {
-                        LazyVStack {
-                            ForEach(0...9, id: \.self) { _ in
-                                SavedListView()
-                                    .padding()
+                    if sivm.savedItems.isEmpty {
+                        Text("You have no saved items")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding()
+                            .font(.system(size: 23))
+                    }
+                    else {
+                        List {
+                            ForEach(sivm.savedItems){ item in
+                                NavigationLink(destination: SavedItemDetailedView(productName: item.productName ?? "", ingredients: item.ingredientList ?? "")) {
+                                    Text(item.productName ?? "No name")
+                                }
+                                
                             }
+                            .onDelete(perform: sivm.deleteItem)
+                            
+                            
+                            //
+                            //.toolbar {
+                            //EditButton()
                         }
+                        .listStyle(PlainListStyle())
+                        .padding()
+                        
                     }
                 }
                 // code here what we want on each screen
@@ -130,14 +139,14 @@ extension ProfileView {
                     }) {
                         Text("Create an Account")
                     }
-
+                    
                     NavigationLink(destination: EditProfileView()) {
                         Text("edit")
                     }
                     /*NavigationLink(destination: EditProfileView()) {
-                        Text("Edit Profile")
-                    }
-                    .buttonStyle(DefaultButtonStyle())*/
+                     Text("Edit Profile")
+                     }
+                     .buttonStyle(DefaultButtonStyle())*/
                 } label: {
                     Image(systemName: "ellipsis")
                         .resizable()

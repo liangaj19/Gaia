@@ -22,28 +22,29 @@ struct LoginView: View {
                         .resizable()
                         .frame(width: 180, height: 180, alignment: .center)
                     
+                    // TODO: change this to welcome/get started
                     Text("Login")
                         .bold()
                         .font(.system(size: 30))
                     
                     //enter username
-                    TextField("Email", text: $email)
+                    /*TextField("Email", text: $email)
                         .autocapitalization(.none)
                         .padding(.all)
                         .frame(width: 300, height: 50, alignment: .center)
                         .background(Color.gray)
-                        .cornerRadius(10)
+                        .cornerRadius(10)*/
                     
                     //enter password
-                    TextField("Password", text: $password)
+                    /*TextField("Password", text: $password)
                         .autocapitalization(.none)
                         .padding(.all)
                         .frame(width: 300, height: 50, alignment: .center)
                         .background(Color.gray)
-                        .cornerRadius(10)
+                        .cornerRadius(10)*/
                     
                     //login button
-                    Button {
+                    /*Button {
                         login()
                     } label: {
                         Text("Log In")
@@ -56,13 +57,13 @@ struct LoginView: View {
                             )
                             .background(Color.black)
                             .cornerRadius(40)
-                    }
+                    }*/
                     
-                    Group {
-                        Text("Not a user yet?")
+                    //Group {
+                        //Text("Not a user yet?")
                         
                         //create an account button
-                        NavigationLink {
+                        /*NavigationLink {
                             CreateView()
                         } label: {
                             Text("Create an account")
@@ -75,7 +76,7 @@ struct LoginView: View {
                                 )
                                 .background(Color.black)
                                 .cornerRadius(40)
-                        }
+                        }*/
                         
                         //use as guest button
                         NavigationLink {
@@ -85,21 +86,21 @@ struct LoginView: View {
                         }
                         .navigationTitle("")
                     }
-                    .offset(y:0)
-                }
+                    //.offset(y:0)
+                //}
             }
         }
     }
     /* idk how this works yet so
      * imma just put it here for now
      */
-    func login() {
+    /*func login() {
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
             if error != nil {
                 print(error!.localizedDescription)
             }
         }
-    }
+    }*/
      
     
 }
