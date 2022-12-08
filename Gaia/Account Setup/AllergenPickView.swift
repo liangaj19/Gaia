@@ -22,11 +22,11 @@ struct AllergenPickView: View {
     @State private var userAllergyList: [String] = []
     @State private var customAllergyList: [String] = []
     
-    @State var userDefaults = UserDefaults.standard
+    @StateObject var avm = CoreDataAllergenViewModel()
     
     var body: some View {
         ZStack (alignment: .topLeading){
-            VStack {
+            VStack(spacing: 0) {
                 // Color("pearlyPurple")
                 Text("Select your allergens")
                     .font(.system(size: 30))
@@ -39,7 +39,7 @@ struct AllergenPickView: View {
                     .background(Color("pearlyPurple"))
                     .foregroundColor(Color.white)
                     .mask(RoundedRectangle(cornerRadius: 30))
-                    .ignoresSafeArea()
+                    //.ignoresSafeArea()
                 
                 
                 List() {
@@ -55,15 +55,17 @@ struct AllergenPickView: View {
                     }
                 }
                 .listStyle(PlainListStyle())
-                .frame(maxWidth: .infinity, maxHeight: 3000, alignment: .center)
-                .offset(y: -50)
                 
                 Divider()
+                    .padding(10)
+
                 Text("Enter custom allergens here")
                     .font(.system(size: 20))
+                    .padding(5)
                 
                 Text("Example: Bananas, Apples")
                     .font(.system(size: 15))
+                    .padding(10)
                 
                 TextField("Other", text: $customAllergyInput)
                     .autocapitalization(.none)
@@ -71,7 +73,7 @@ struct AllergenPickView: View {
                     .frame(width: 350, height: 50, alignment: .center)
                     .background(Color(UIColor.lightGray))
                     .cornerRadius(10)
-                
+                Spacer()
                 Button {
                     addAllergiesToAllergyList()
                 } label: {
@@ -80,6 +82,7 @@ struct AllergenPickView: View {
                 .padding(.all)
                 .background(Color.black)
                 .cornerRadius(10)
+                Spacer()
                 
             }
             
@@ -90,28 +93,26 @@ struct AllergenPickView: View {
              */
             .onAppear(perform: {
                 UserDefaults.standard.welcomeScreenShown = true
-                
         })
         }
+        .ignoresSafeArea()
     }
     
     func addAllergiesToAllergyList() {
         for allergy in allergyChecklist {
             if allergy.isChecked {
-                userAllergyList.append(allergy.name)
+                avm.addAllergen(allergenName: allergy.name)
             }
+            
         }
         
         if customAllergyInput != "" {
             let customAllergyArray: [String] = customAllergyInput.components(separatedBy: ", ")
             
             for allergy in customAllergyArray {
-                customAllergyList.append(allergy)
+                avm.addAllergen(allergenName: allergy)
             }
         }
-        
-        userDefaults.set(userAllergyList, forKey: "userAllergies")
-        userDefaults.set(customAllergyList, forKey: "userCustomAllergies")
     }
 }
 
