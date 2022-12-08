@@ -20,13 +20,13 @@ struct AllergenPickView: View {
     
     // arrays to save into userdefaults
     @State private var userAllergyList: [String] = []
-    @State private var customAllergyList: [String] = []
+    //@State private var customAllergyList: [String] = []
     
     @StateObject var avm = CoreDataAllergenViewModel()
     
     var body: some View {
         ZStack (alignment: .topLeading){
-            VStack(spacing: 0) {
+            VStack() {
                 // Color("pearlyPurple")
                 Text("Select your allergens")
                     .font(.system(size: 30))
@@ -57,7 +57,7 @@ struct AllergenPickView: View {
                 .listStyle(PlainListStyle())
                 
                 Divider()
-                    .padding(10)
+                    //.padding()
 
                 Text("Enter custom allergens here")
                     .font(.system(size: 20))
@@ -65,7 +65,7 @@ struct AllergenPickView: View {
                 
                 Text("Example: Bananas, Apples")
                     .font(.system(size: 15))
-                    .padding(10)
+                    //.padding(5)
                 
                 TextField("Other", text: $customAllergyInput)
                     .autocapitalization(.none)
@@ -73,7 +73,7 @@ struct AllergenPickView: View {
                     .frame(width: 350, height: 50, alignment: .center)
                     .background(Color(UIColor.lightGray))
                     .cornerRadius(10)
-                Spacer()
+                //Spacer()
                 Button {
                     addAllergiesToAllergyList()
                 } label: {

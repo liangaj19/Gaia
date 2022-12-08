@@ -78,7 +78,8 @@ struct BarcodeView: View {
                             switch item {
                             case .barcode(let barcode):
                                 NavigationLink(destination: SearchedItemView(productAllergenWarningArray: $productAllergenWarningArray, ingredientsList: $networkManager.foodProduct.ingredients_text, productName: $networkManager.foodProduct.product_name, upcNumber: $networkManager.foodProduct.code)) {
-                                    Text(barcode.payloadStringValue ?? "Unknown barcode")
+                                    Text(barcode.payloadStringValue ?? "")
+                                        .frame(maxWidth: .infinity, alignment: .center)
                                 }
                                 .onAppear {
                                     networkManager.fetchData(upcNumber: barcode.payloadStringValue ?? "")

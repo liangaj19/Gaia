@@ -15,64 +15,86 @@ struct EditProfileView: View {
     @State private var userAllergyList: [String] = []
     @State private var customAllergyList: [String] = []
     @State private var showingAlert = false
+    @StateObject var avm = CoreDataAllergenViewModel()
+    @State var userAllergyStringArray:[String] = []
     
-    @State var userDefaults = UserDefaults.standard
+    //@State var userDefaults = UserDefaults.standard
     var body: some View {
-        VStack {
-            Text("Pick your allergens")
-
-                .font(.system(size: 30))
-            Divider()
-            List() {
-                ForEach($allergyChecklist) {$allergy in
-                    Text(allergy.name)
-                        .onTapGesture {
-                            allergy.isChecked.toggle()
-                        }
-                        
-                        .listRowBackground(allergy.isChecked ? Color(UIColor.lightGray) : Color.clear)
-                        .padding(5)
-                        .font(.system(size: 20))
-                        
-                }
-            }
-            .listStyle(PlainListStyle())
-            Divider()
-            Text("Enter custom allergens here")
-                .font(.system(size: 20))
-            Text("Example: Bananas, Apples")
-                .font(.system(size: 15))
-            
-            TextField("Other", text: $customAllergyInput)
-                .autocapitalization(.none)
-                .padding(.all)
-                .frame(width: 350, height: 50, alignment: .center)
-                .background(Color(UIColor.lightGray))
-                .cornerRadius(10)
+        ZStack(alignment: .topLeading) {
+            VStack {
+                Text("Select your allergens")
+                    .font(.system(size: 30))
+                    .fontWeight(.bold)
+                    .padding(.top, 100)
+                    .padding(.bottom, 40)
+                    .padding(.leading, 40)
+                    .padding(.trailing, 100)
+                    .frame(maxWidth: .infinity, alignment:.leading)
+                    .background(Color("pearlyPurple"))
+                    .foregroundColor(Color.white)
+                    .mask(RoundedRectangle(cornerRadius: 30))
+                    //.ignoresSafeArea()
                 
-            
-            Button {
-                addAllergiesToAllergyList()
-                showingAlert = true
-            } label: {
-                Text("Finish")
-            }
-            .padding(.all)
-            .background(Color.black)
-            .cornerRadius(10)
-            .alert(isPresented: $showingAlert) {
-                Alert(title: Text("Your allergen preferences have been updated"), dismissButton: .default(Text("OK") // NEED NAVSTACK for this
-                                                                                                //, action: {dismiss()}
-                                                                                                         ))
-            }
-            
+                
+                List() {
+                    ForEach($allergyChecklist) {$allergy in
+                        Text(allergy.name)
+                            .onTapGesture {
+                                allergy.isChecked.toggle()
+                            }
+                            
+                            .listRowBackground(allergy.isChecked ? Color(UIColor.lightGray) : Color.clear)
+                            .padding(5)
+                            .font(.system(size: 20))
+                            
+                    }
+                }
+                .listStyle(PlainListStyle())
+                
+                Divider()
+                
+                Text("Enter custom allergens here")
+                    .font(.system(size: 20))
+                    .padding(5)
+                
+                Text("Example: Bananas, Apples")
+                    .font(.system(size: 15))
+                
+                TextField("Other", text: $customAllergyInput)
+                    .autocapitalization(.none)
+                    .padding(.all)
+                    .frame(width: 350, height: 50, alignment: .center)
+                    .background(Color(UIColor.lightGray))
+                    .cornerRadius(10)
+                    
+                
+                Button {
+                    addAllergiesToAllergyList()
+                    showingAlert = true
+                } label: {
+                    Text("Finish")
+                }
+                .padding(.all)
+                .background(Color.black)
+                .cornerRadius(10)
+                .alert(isPresented: $showingAlert) {
+                    Alert(title: Text("Your allergen preferences have been updated"), dismissButton: .default(Text("OK"), action: {dismiss()}))
+                }
+                Spacer()
+                
 
-        } // VStack
+            }
+        } // ZStack
+        .ignoresSafeArea()
+        .toolbar(.hidden, for: .tabBar)
     }
     func addAllergiesToAllergyList() {
+        for allergy in avm.savedAllergens {
+            userAllergyStringArray.append(allergy.allergenName ?? "")
+        }
         for allergy in allergyChecklist {
-            if allergy.isChecked {
-                userAllergyList.append(allergy.name)
+            if allergy.isChecked && !userAllergyStringArray.contains(allergy.name){
+                avm.addAllergen(allergenName: allergy.name)
             }
         }
         
@@ -80,12 +102,9 @@ struct EditProfileView: View {
             let customAllergyArray: [String] = customAllergyInput.components(separatedBy: ", ")
             
             for allergy in customAllergyArray {
-                customAllergyList.append(allergy)
+                avm.addAllergen(allergenName: allergy)
             }
         }
-        
-        userDefaults.set(userAllergyList, forKey: "userAllergies")
-        userDefaults.set(customAllergyList, forKey: "userCustomAllergies")
     }
 }
 struct EditProfileView_Previews: PreviewProvider {

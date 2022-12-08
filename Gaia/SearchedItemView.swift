@@ -12,6 +12,8 @@ struct SearchedItemView: View {
     @Binding var ingredientsList: String
     @Binding var productName: String
     @Binding var upcNumber: String
+    @State private var itemHasBeenSavedBefore = false
+    @State private var savedItemNameStringArray: [String] = []
     var body: some View {
         Text(productName)
             .font(.system(size: 40))
@@ -45,20 +47,34 @@ struct SearchedItemView: View {
         }
         .alert(isPresented: $showingAlert) {
             //Alert(title: Text("Your allergen preferences have been updated"), dismissButton: .default(Text("OK"), action: dismiss()))
-            Alert(title: Text("This item has been saved"),
+            
+            //allergy.isChecked ? Color(UIColor.lightGray) : Color.clear
+            
+            Alert(title: itemHasBeenSavedBefore ? Text("This item has already been saved") : Text("This item has been saved"),
                   dismissButton: Alert.Button.default(Text("OK")
-                  //action: {
-                    //dismiss()
-                  //}
-                  //)
-            ))
+                                                      //action: {
+                                                      //dismiss()
+                                                      //}
+                                                      //)
+                                                     ))
+            
         }
 
         
     }
     
     func addItemToSavedItemsList() {
-        sivm.addItem(productName: productName, ingredients: ingredientsList)
+        for savedItem in sivm.savedItems {
+            savedItemNameStringArray.append(savedItem.productName ?? "")
+        }
+        
+        if !savedItemNameStringArray.contains(productName){
+            sivm.addItem(productName: productName, ingredients: ingredientsList)
+        }
+        else {
+            itemHasBeenSavedBefore.toggle()
+        }
+        
     }
 }
 
