@@ -25,7 +25,7 @@ struct MainView: View {
             }
             .tag(1)
             
-            // barcode view
+            /*// barcode view
             NavigationStack {
                 BarcodeView()
             }
@@ -33,7 +33,7 @@ struct MainView: View {
                 Image(systemName:"barcode.viewfinder")
                 Text("Scan")
             }
-            .tag(2)
+            .tag(2)*/
             
             // profile view
             NavigationStack {

@@ -11,11 +11,14 @@ import SwiftUI
 struct SearchView: View {
     
     @ObservedObject var networkManager = NetworkManager()
-    @State var userDefaults = UserDefaults.standard
+    //@State var userDefaults = UserDefaults.standard
     @State var upcNumber = ""
     @State var searchResultList: [String] = []
     @State var productAllergenWarningArray: [String] = []
     @State private var upcEntered = false
+    
+    @StateObject var avm = CoreDataAllergenViewModel()
+    @State var userAllergyStringArray:[String] = []
     var searchResults: [String] {
         return searchResultList
     }
@@ -56,22 +59,17 @@ struct SearchView: View {
     
     
     func checkIngredients(ingredientsList: String, ingredientsAllergensList: String) {
-        let userAllergiesArray = userDefaults.object(forKey:"userAllergies") as? [String] ?? [String]()
-        let userCustomAllergiesArray = userDefaults.object(forKey:"userCustomAllergies") as? [String] ?? [String]()
+        for allergy in avm.savedAllergens {
+            userAllergyStringArray.append(allergy.allergenName ?? "")
+        }
 
         // check default allergies
-        for allergy in userAllergiesArray {
+        for allergy in userAllergyStringArray {
             if ingredientsList.lowercased().contains(allergy.lowercased()) || ingredientsAllergensList.lowercased().contains(allergy.lowercased())  {
                 productAllergenWarningArray.append(allergy)
             }
         }
-        
         // check custom allergies
-        for allergy in userCustomAllergiesArray {
-            if ingredientsList.lowercased().contains(allergy.lowercased()) || ingredientsAllergensList.lowercased().contains(allergy.lowercased())  {
-                productAllergenWarningArray.append(allergy)
-            }
-        }
     }
 }
 
