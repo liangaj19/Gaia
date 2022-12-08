@@ -27,7 +27,7 @@ struct GaiaApp: App {
     
     var body: some Scene {
         WindowGroup {
-            WeView()
+            WelcomeView()
                 .environmentObject(vm)
         }
     }
