@@ -22,8 +22,10 @@ struct WelcomeView: View {
          * if the welcome screen showed for 3 seconds,
          * it'll go to the login view
          */
-        if isActive && firstTimeUser == true {
+        if isActive == true && firstTimeUser == true {
             AllergenPickView()
+        } else if isActive == true && firstTimeUser == false {
+            MainView()
         } else {
             ZStack {
                 // circles in the background
@@ -97,7 +99,6 @@ struct WelcomeView: View {
                 }
             }
             // so the welcome screen only shows for 3 seconds
-            
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                     self.isActive = true
