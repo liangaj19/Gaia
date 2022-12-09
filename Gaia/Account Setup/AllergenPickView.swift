@@ -47,7 +47,7 @@ struct AllergenPickView: View {
                             .onTapGesture {
                                 allergy.isChecked.toggle()
                             }
-                            .listRowBackground(allergy.isChecked ? Color(UIColor.lightGray) : Color.clear)
+                            .listRowBackground(allergy.isChecked ? Color("palePurple") : Color.clear)
                             .padding(5)
                             .font(.system(size: 20))
                             
@@ -55,8 +55,12 @@ struct AllergenPickView: View {
                 }
                 .listStyle(PlainListStyle())
                 
-                Divider()
-                    //.padding()
+                Rectangle()
+                    .frame(height: 1.5)
+                    .foregroundColor(Color("pearlyPurple"))
+                
+                Spacer()
+                    .frame(height: 15)
 
                 Text("Enter custom allergens here")
                     .font(.system(size: 20))
@@ -64,18 +68,20 @@ struct AllergenPickView: View {
                 
                 Text("Example: Bananas, Apples")
                     .font(.system(size: 15))
-                    //.padding(5)
+                    .padding(5)
                 
                 TextField("Other", text: $customAllergyInput)
                     .autocapitalization(.none)
                     .padding(.all, 10)
                     .overlay(
                             RoundedRectangle(cornerRadius: 14)
-                                .stroke(Color.black, lineWidth: 2)
+                                .stroke(Color.black, lineWidth: 1.5)
                         )
                     .frame(width: 350, height: 30, alignment: .center)
                     //.background(Color("pearlyPurple"))
                 
+                Spacer()
+                    .frame(height: 20)
                 
                 Button {
                     addAllergiesToAllergyList()
@@ -85,8 +91,9 @@ struct AllergenPickView: View {
                 }
                 .padding(.all)
                 .foregroundColor(Color.white)
-                .background(Color.black)
-                .cornerRadius(10)
+                .frame(width: 170)
+                .background(Color("pearlyPurple"))
+                .cornerRadius(40)
                 
                 Spacer()
                     .frame(height: 25)
