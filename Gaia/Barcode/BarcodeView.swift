@@ -104,10 +104,14 @@ struct BarcodeView: View {
                 checkIngredients(ingredientsList: foodProduct.ingredients_text, ingredientsAllergensList: foodProduct.allergens_from_ingredients)
             }
         }
+        
+        // no function
+        .onAppear {
+            avm.fetchAllergen()
+        }
     }
     
     func checkIngredients(ingredientsList: String, ingredientsAllergensList: String) {
-        //avm.addAllergen(allergenName: "Caffeine")
         for allergy in avm.savedAllergens {
             
             userAllergyStringArray.append(allergy.allergenName ?? "")

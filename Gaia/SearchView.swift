@@ -53,6 +53,13 @@ struct SearchView: View {
                 checkIngredients(ingredientsList: foodProduct.ingredients_text, ingredientsAllergensList: foodProduct.allergens_from_ingredients)
             }
             .navigationTitle("Search")
+            .onAppear {
+                upcNumber = ""
+                upcEntered = false
+                avm.fetchAllergen()
+
+            }
+            
             
         
     }

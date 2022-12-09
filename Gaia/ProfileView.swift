@@ -200,7 +200,7 @@ extension ProfileView {
                         Text("Add allergens")
                     }
                     .buttonStyle(DefaultButtonStyle())
-                    
+                    .foregroundColor(.white)
                     .padding(10)
                     
                     //.overlay(
