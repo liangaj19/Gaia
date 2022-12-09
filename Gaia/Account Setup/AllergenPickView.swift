@@ -41,7 +41,6 @@ struct AllergenPickView: View {
                     .mask(RoundedRectangle(cornerRadius: 30))
                     //.ignoresSafeArea()
                 
-                
                 List() {
                     ForEach($allergyChecklist) {$allergy in
                         Text(allergy.name)
@@ -73,9 +72,11 @@ struct AllergenPickView: View {
                     .frame(width: 350, height: 50, alignment: .center)
                     .background(Color(UIColor.lightGray))
                     .cornerRadius(10)
-                //Spacer()
+                
+                
                 Button {
                     addAllergiesToAllergyList()
+                    UserDefaults.standard.firstTimeUser = false
                 } label: {
                     Text("Finish")
                 }
@@ -84,16 +85,9 @@ struct AllergenPickView: View {
                 .cornerRadius(10)
                 Spacer()
                 
-            } .adaptsToKeyboard()
+            }
+            .adaptsToKeyboard()
             
-            /*
-             * actually should change this to onAction
-             * when they press the button to go into the app
-             * to make sure they actually picked
-             */
-            .onAppear(perform: {
-                UserDefaults.standard.welcomeScreenShown = true
-        })
         }
         .ignoresSafeArea()
     }
