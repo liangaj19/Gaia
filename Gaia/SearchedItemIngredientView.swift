@@ -11,11 +11,16 @@ struct SearchedItemIngredientView: View {
     @Binding var productName: String
     @Binding var ingredientsList: String
     var body: some View {
-        Text(productName)
-            .font(.system(size: 40))
-            .frame(maxWidth: .infinity)
-        Text(ingredientsList)
-            .padding()
-            .font(.system(size: 30))
-        Spacer()
-    }}
+        VStack(){
+            Text(productName)
+                .font(.system(size: 45))
+                .frame(maxWidth: .infinity)
+                .multilineTextAlignment(.center)
+                .padding()
+            Text(ingredientsList)
+                .padding()
+                .font(.system(size: 20))
+                .foregroundColor(Color.black)
+            Spacer()
+        }
+}}
