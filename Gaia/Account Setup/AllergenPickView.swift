@@ -68,10 +68,13 @@ struct AllergenPickView: View {
                 
                 TextField("Other", text: $customAllergyInput)
                     .autocapitalization(.none)
-                    .padding(.all)
-                    .frame(width: 350, height: 50, alignment: .center)
-                    .background(Color(UIColor.lightGray))
-                    .cornerRadius(10)
+                    .padding(.all, 10)
+                    .overlay(
+                            RoundedRectangle(cornerRadius: 14)
+                                .stroke(Color.black, lineWidth: 2)
+                        )
+                    .frame(width: 350, height: 30, alignment: .center)
+                    //.background(Color("pearlyPurple"))
                 
                 
                 Button {
@@ -81,9 +84,12 @@ struct AllergenPickView: View {
                     Text("Finish")
                 }
                 .padding(.all)
+                .foregroundColor(Color.white)
                 .background(Color.black)
                 .cornerRadius(10)
+                
                 Spacer()
+                    .frame(height: 25)
                 
             }
             .adaptsToKeyboard()
