@@ -84,7 +84,7 @@ struct AllergenPickView: View {
                 .cornerRadius(10)
                 Spacer()
                 
-            }
+            } .adaptsToKeyboard()
             
             /*
              * actually should change this to onAction

@@ -61,7 +61,6 @@ struct SearchView: View {
     func checkIngredients(ingredientsList: String, ingredientsAllergensList: String) {
         //avm.addAllergen(allergenName: "Caffeine")
         for allergy in avm.savedAllergens {
-            
             userAllergyStringArray.append(allergy.allergenName ?? "")
         }
 

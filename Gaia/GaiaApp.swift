@@ -27,7 +27,7 @@ struct GaiaApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainView()
+            WelcomeView()
                 .environmentObject(vm)
                 .task {
                     await vm.requestDataScannerAccessStatus()  // first time user launch app and asks for datascanner access

@@ -56,6 +56,7 @@ struct ProfileView: View {
                                 //EditButton()
                             }
                             .listStyle(PlainListStyle())
+                            
                             //.padding()
                         }
                         
@@ -82,9 +83,12 @@ struct ProfileView: View {
                     else {
                         List {
                             ForEach(sivm.savedItems){ item in
-                                NavigationLink(destination: SavedItemDetailedView(productName: item.productName ?? "", ingredients: item.ingredientList ?? "")) {
-                                    Text(item.productName ?? "No name")
-                                }
+                                
+                                    NavigationLink(destination: SavedItemDetailedView(productName: item.productName ?? "", ingredients: item.ingredientList ?? "")) {
+                                        
+                                            Text(item.productName ?? "No name")
+                                    }
+                                
                                 
                             }
                             .onDelete(perform: sivm.deleteItem)
@@ -104,6 +108,11 @@ struct ProfileView: View {
                 
                 Spacer()
             }
+            .onAppear {
+                //avm = CoreDataAllergenViewModel()
+                avm.fetchAllergen()
+                sivm.fetchSavedItems()
+            } //vstack
             
         //}
     } // var body
