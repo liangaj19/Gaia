@@ -15,50 +15,61 @@ struct SearchedItemView: View {
     @State private var itemHasBeenSavedBefore = false
     @State private var savedItemNameStringArray: [String] = []
     var body: some View {
-        Text(productName)
-            .font(.system(size: 40))
-            .frame(maxWidth: .infinity, alignment: .leading)
-        if productAllergenWarningArray.isEmpty {
-            Text("This product does not contain any allergens")
-        }
-        else {
-            Text("This product contains: ")
-                .padding(3)
-                .foregroundColor(Color.black)
-                .font(.system(size: 30))
-                .frame(maxWidth: .infinity, alignment: .leading)
-            ForEach(productAllergenWarningArray, id: \.self) {string in
-                Text(string)
-                    .padding(3)
+        ZStack {
+              VStack{
+                Text(productName)
+                  .font(.system(size:50))
+                  .fontWeight(.bold)
+                  .frame(maxWidth: .infinity, alignment: .center)
+                if productAllergenWarningArray.isEmpty {
+                  Text("This product does not contain any allergens")
+                    .font(.system(size: 30))
+                    .fontWeight(.light)
+                    .frame(width: 300)
+                }
+                else {
+                  Text("This product contains: ")
+                    .padding(30)
                     .foregroundColor(Color.black)
-                    .font(.system(size: 30, weight: .semibold, design: .default))
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .font(.system(size: 30))
+                    .fontWeight(.light)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                  ForEach(productAllergenWarningArray, id: \.self) {string in
+                    Text(string)
+                      .padding(30)
+                      .foregroundColor(Color.black)
+                      .font(.system(size: 35, weight: .semibold, design: .default))
+                      .fontWeight(.bold)
+                      .frame(maxWidth: .infinity, alignment: .leading)
+                  }
+                }
+                NavigationLink(destination: SearchedItemIngredientsView(productName: $productName, ingredientsList: $ingredientsList)) {
+                  Text("see all ingredients")
+                    .padding(5)
+                    .font(.system(size: 20, weight: .semibold, design: .default))
+                }
+                .buttonStyle(DefaultButtonStyle())
+                Button {
+                  addItemToSavedItemsList()
+                  showingAlert = true
+                } label: {
+                  Text("Save Item")
+                    .fontWeight(.semibold)
+                    .font(.system(size: 20, weight: .semibold, design: .default))
+                }
+                .alert(isPresented: $showingAlert) {
+                  //Alert(title: Text("Your allergen preferences have been updated"), dismissButton: .default(Text("OK"), action: dismiss()))
+                  //allergy.isChecked ? Color(UIColor.lightGray) : Color.clear
+                  Alert(title: itemHasBeenSavedBefore ? Text("This item has already been saved") : Text("This item has been saved"),
+                     dismissButton: Alert.Button.default(Text("OK")
+                                       //action: {
+                                       //dismiss()
+                                       //}
+                                       //)
+                                       ))
+                }
+              }
             }
-        }
-        NavigationLink(destination: SearchedItemIngredientsView(productName: $productName, ingredientsList: $ingredientsList)) {
-            Text("see all ingredients")
-        }
-        .buttonStyle(DefaultButtonStyle())
-        Button {
-            addItemToSavedItemsList()
-            showingAlert = true
-        } label: {
-            Text("Save Item")
-        }
-        .alert(isPresented: $showingAlert) {
-            //Alert(title: Text("Your allergen preferences have been updated"), dismissButton: .default(Text("OK"), action: dismiss()))
-            
-            //allergy.isChecked ? Color(UIColor.lightGray) : Color.clear
-            
-            Alert(title: itemHasBeenSavedBefore ? Text("This item has already been saved") : Text("This item has been saved"),
-                  dismissButton: Alert.Button.default(Text("OK")
-                                                      //action: {
-                                                      //dismiss()
-                                                      //}
-                                                      //)
-                                                     ))
-            
-        }
 
         
     }
