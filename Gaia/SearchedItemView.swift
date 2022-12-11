@@ -12,11 +12,14 @@ struct SearchedItemView: View {
     @Binding var ingredientsList: String
     @Binding var productName: String
     @Binding var upcNumber: String
+    @Binding var imageURL: String
     @State private var itemHasBeenSavedBefore = false
     @State private var savedItemNameStringArray: [String] = []
+    
     var body: some View {
         ScrollView {
             VStack {
+                    
                 Text(productName)
                     .font(.system(size: 50))
                     .fontWeight(.bold)
@@ -29,6 +32,8 @@ struct SearchedItemView: View {
                     .background(Color("pearlyPurple"))
                     .foregroundColor(Color.white)
                     .mask(RoundedRectangle(cornerRadius: 30))
+                AsyncImage(url: URL(string: imageURL))
+                    .scaledToFit()
                 if productAllergenWarningArray.isEmpty {
                     Text("This product does not contain any allergens")
                         .font(.system(size: 30))

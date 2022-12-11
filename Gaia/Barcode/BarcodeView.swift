@@ -77,7 +77,7 @@ struct BarcodeView: View {
                         ForEach(vm.recognizedItems) { item in
                             switch item {
                             case .barcode(let barcode):
-                                NavigationLink(destination: SearchedItemView(productAllergenWarningArray: $productAllergenWarningArray, ingredientsList: $networkManager.foodProduct.ingredients_text, productName: $networkManager.foodProduct.product_name, upcNumber: $networkManager.foodProduct.code)) {
+                                NavigationLink(destination: SearchedItemView(productAllergenWarningArray: $productAllergenWarningArray, ingredientsList: $networkManager.foodProduct.ingredients_text, productName: $networkManager.foodProduct.product_name, upcNumber: $networkManager.foodProduct.code, imageURL: $networkManager.foodProduct.image_url)) {
                                     Text(barcode.payloadStringValue ?? "")
                                         .frame(maxWidth: .infinity, alignment: .center)
                                 }

@@ -58,7 +58,7 @@ struct SearchView: View {
                     .frame(alignment: .top)
                 if upcEntered && upcNumber != "" && networkManager.foodProduct.product_name != "" {
                     List() {
-                        NavigationLink(destination: SearchedItemView(productAllergenWarningArray: $productAllergenWarningArray, ingredientsList: $networkManager.foodProduct.ingredients_text, productName: $networkManager.foodProduct.product_name, upcNumber: $networkManager.foodProduct.code)) {
+                        NavigationLink(destination: SearchedItemView(productAllergenWarningArray: $productAllergenWarningArray, ingredientsList: $networkManager.foodProduct.ingredients_text, productName: $networkManager.foodProduct.product_name, upcNumber: $networkManager.foodProduct.code, imageURL: $networkManager.foodProduct.image_url)) {
                             Text(networkManager.foodProduct.product_name)
                         }
                     }
@@ -70,7 +70,6 @@ struct SearchView: View {
                 checkIngredients(ingredientsList: foodProduct.ingredients_text, ingredientsAllergensList: foodProduct.allergens_from_ingredients)
             }
             .ignoresSafeArea()
-            .navigationTitle("Search")
             .onAppear {
                 upcNumber = ""
                 upcEntered = false
