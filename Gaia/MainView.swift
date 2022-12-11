@@ -46,6 +46,7 @@ struct MainView: View {
             }
             .tag(3)
         }
+        .accentColor(Color("pearlyPurple"))
     }
 }
 

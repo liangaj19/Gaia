@@ -25,17 +25,34 @@ struct SearchView: View {
     var body: some View {
         //NavigationStack {
             VStack {
+                
+                Text("Search for a food item")
+                                .font(.system(size: 30))
+                                .fontWeight(.bold)
+                                .padding(.top, 100)
+                                .padding(.bottom, 40)
+                                .padding(.leading, 40)
+                                .padding(.trailing, 100)
+                                .frame(maxWidth: .infinity, alignment:.leading)
+                                .background(Color("pearlyPurple"))
+                                .foregroundColor(Color.white)
+                                .mask(RoundedRectangle(cornerRadius: 30))
+                
                 Divider()
-                    TextField("Enter UPC", text: $upcNumber)
+                HStack {
+                    Image(systemName: "magnifyingglass")
+                        .padding(.leading)
+                    
+                    TextField("Enter UPC number", text: $upcNumber)
                         .modifier(TextFieldClearButton(upcNumber: $upcNumber))
                         .textFieldStyle(.roundedBorder)
                         .onSubmit {
                             networkManager.fetchData(upcNumber: upcNumber)
                             upcEntered.toggle()
                         }
-                        .frame(width: 350, alignment: .top)
+                        .frame(maxWidth: .infinity, alignment: .top)
                         .padding()
-                        
+                }
                     
                 Divider()
                     .frame(alignment: .top)
@@ -52,7 +69,15 @@ struct SearchView: View {
             .onReceive(networkManager.$foodProduct) { foodProduct in
                 checkIngredients(ingredientsList: foodProduct.ingredients_text, ingredientsAllergensList: foodProduct.allergens_from_ingredients)
             }
+            .ignoresSafeArea()
             .navigationTitle("Search")
+            .onAppear {
+                upcNumber = ""
+                upcEntered = false
+                avm.fetchAllergen()
+
+            }
+            
             
         
     }
@@ -79,7 +104,7 @@ struct TextFieldClearButton: ViewModifier {
     
     func body(content: Content) -> some View {
         HStack {
-            TextField("Enter UPC", text: $upcNumber)
+            TextField("Enter UPC number", text: $upcNumber)
             
             if !upcNumber.isEmpty {
                 Button(

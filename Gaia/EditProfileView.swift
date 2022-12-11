@@ -44,7 +44,7 @@ struct EditProfileView: View {
                                 allergy.isChecked.toggle()
                             }
                             
-                            .listRowBackground(allergy.isChecked ? Color(UIColor.lightGray) : Color.clear)
+                            .listRowBackground(allergy.isChecked ? Color("palePurple") : Color.clear)
                             .padding(5)
                             .font(.system(size: 20))
                             
@@ -52,38 +52,51 @@ struct EditProfileView: View {
                 }
                 .listStyle(PlainListStyle())
                 
-                Divider()
-                
-                Text("Enter custom allergens here")
-                    .font(.system(size: 20))
-                    .padding(5)
-                
-                Text("Example: Bananas, Apples")
-                    .font(.system(size: 15))
-                
-                TextField("Other", text: $customAllergyInput)
-                    .autocapitalization(.none)
-                    .padding(.all)
-                    .frame(width: 350, height: 50, alignment: .center)
-                    .background(Color(UIColor.lightGray))
-                    .cornerRadius(10)
+                Group {
+                    Rectangle()
+                        .frame(height: 1.5)
+                        .foregroundColor(Color("pearlyPurple"))
                     
-                
-                Button {
-                    addAllergiesToAllergyList()
-                    showingAlert = true
-                } label: {
-                    Text("Finish")
+                    Spacer()
+                        .frame(height: 15)
+                    
+                    Text("Enter custom allergens here")
+                        .font(.system(size: 20))
+                        .padding(5)
+                    
+                    Text("Example: Bananas, Apples")
+                        .font(.system(size: 15))
+                    
+                    TextField("Other", text: $customAllergyInput)
+                        .autocapitalization(.none)
+                        .padding(.all, 10)
+                        .overlay(
+                                RoundedRectangle(cornerRadius: 14)
+                                    .stroke(Color.black, lineWidth: 1.5)
+                            )
+                        .frame(width: 350, height: 30, alignment: .center)
+                        
+                    Spacer()
+                        .frame(height: 20)
+                    
+                    Button {
+                        addAllergiesToAllergyList()
+                        showingAlert = true
+                    } label: {
+                        Text("Finish")
+                    }
+                    .padding(.all)
+                    .foregroundColor(Color.white)
+                    .frame(width: 170)
+                    .background(Color("pearlyPurple"))
+                    .cornerRadius(40)
+                    .alert(isPresented: $showingAlert) {
+                        Alert(title: Text("Your allergen preferences have been updated"), dismissButton: .default(Text("OK"), action: {dismiss()}))
+                    }
+                    Spacer()
+                        .frame(height: 10)
+                    Spacer()
                 }
-                .padding(.all)
-                .background(Color.black)
-                .cornerRadius(10)
-                .alert(isPresented: $showingAlert) {
-                    Alert(title: Text("Your allergen preferences have been updated"), dismissButton: .default(Text("OK"), action: {dismiss()}))
-                }
-                Spacer()
-                    .frame(height: 10)
-                Spacer()
                 //Spacer()
                 
 
