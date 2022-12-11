@@ -7,7 +7,7 @@
 
 import Foundation
 class NetworkManager: ObservableObject {
-    @Published var foodProduct = Product(code: "", ingredients_text: "", product_name: "", allergens_from_ingredients: "")
+    @Published var foodProduct = Product(code: "", ingredients_text: "", product_name: "", allergens_from_ingredients: "", image_url: "")
     
     // 04963406
     
