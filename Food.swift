@@ -24,6 +24,8 @@ struct FoodDetail {
     ]
 }
 
+// OLD STUFF ABOVE, DO NOT INTERACT WITH IT
+
 struct Food: Codable {
     let product: Product
     
@@ -34,7 +36,7 @@ struct Product: Codable {
     var ingredients_text: String
     var product_name: String
     var allergens_from_ingredients: String
-    
+    var image_url: String
 }
 
 // NEW STUFF: DON'T DELETE
