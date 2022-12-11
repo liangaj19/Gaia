@@ -62,7 +62,7 @@ class CoreDataAllergenViewModel: ObservableObject{
         saveAllergenData()
     }
     
-    func updateAllergen(item: Allergen){
+    /*func updateAllergen(item: Allergen){
         let currentName = item.allergenName ?? ""
         let newName = currentName + "!"
         item.allergenName = newName
@@ -80,5 +80,5 @@ class CoreDataAllergenViewModel: ObservableObject{
             
         savedAllergens = updatedArray
         saveAllergenData()
-    }
+    }*/
 }

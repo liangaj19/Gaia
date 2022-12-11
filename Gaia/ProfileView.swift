@@ -116,6 +116,12 @@ struct ProfileView: View {
             
         //}
     } // var body
+    /*
+    func removeRows(at offsets: IndexSet) {
+        avm.savedAllergens.remove(atOffsets: offsets)
+        avm.fetchAllergen()
+        sivm.fetchSavedItems()
+    }*/
 }
 
 struct ProfileView_Previews: PreviewProvider {
