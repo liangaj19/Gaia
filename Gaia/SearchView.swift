@@ -58,19 +58,12 @@ struct SearchView: View {
             Divider()
                 .frame(alignment: .top)
             if upcEntered && upcNumber != "" && networkManager.foodProduct.product_name != "" {
-                List() {
-                    //allergy.isChecked ? Color("palePurple") : Color.clear
-                    NavigationLink(destination: SearchedItemView(productAllergenWarningArray: $productAllergenWarningArray, ingredientsList: $networkManager.foodProduct.ingredients_text, productName: $networkManager.foodProduct.product_name, upcNumber: $networkManager.foodProduct.code, imageURL: $networkManager.foodProduct.image_url)) {
-                        Text(networkManager.foodProduct.product_name)
+                    List() {
+                        NavigationLink(destination: SearchedItemView(productAllergenWarningArray: $productAllergenWarningArray, ingredientsList: $networkManager.foodProduct.ingredients_text, productName: $networkManager.foodProduct.product_name, upcNumber: $networkManager.foodProduct.code, imageURL: $networkManager.foodProduct.image_url)) {
+                            Text(networkManager.foodProduct.product_name)
+                        }
                     }
-                }
-                .listStyle(PlainListStyle())
-            }
-            else if upcEntered && upcNumber != "" && networkManager.foodProduct.product_name == "" {
-                List() {
-                    Text("This item doesn't exist")
-                }
-                .listStyle(PlainListStyle())
+                    .listStyle(PlainListStyle())
             }
             Spacer()
         }
