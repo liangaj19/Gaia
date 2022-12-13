@@ -32,8 +32,16 @@ struct SearchedItemView: View {
                     .background(Color("pearlyPurple"))
                     .foregroundColor(Color.white)
                     .mask(RoundedRectangle(cornerRadius: 30))
-                AsyncImage(url: URL(string: imageURL))
-                    .scaledToFit()
+                AsyncImage(url: URL(string: imageURL)) { image in
+                    image
+                        
+                        .resizable()
+                        .scaledToFill()
+                        .padding()
+                } placeholder: {
+                    ProgressView()
+                }
+                    
                 if productAllergenWarningArray.isEmpty {
                     Text("This product does not contain any allergens")
                         .font(.system(size: 30))
@@ -42,27 +50,36 @@ struct SearchedItemView: View {
                 }
                 else {
                     Text("This product contains: ")
-                        .padding(30)
+                        //.padding(.top, 40)
                         .foregroundColor(Color.black)
                         .font(.system(size: 30))
                         //.fontWeight(.light)
                         .frame(maxWidth: .infinity, alignment: .center)
+                    Divider()
                     ForEach(productAllergenWarningArray, id: \.self) {string in
                         Text(string)
                             //.padding(.bottom, 10)
                             .foregroundColor(Color.black)
-                            .font(.system(size: 45, weight: .semibold, design: .default))
-                            .fontWeight(.bold)
+                            //.font(.system(size: 100, weight: .semibold, design: .default))
+                            .font(.system(size: 100))
+                            //.fontWeight(.bold)
                             .frame(maxWidth: .infinity, alignment: .center)
                     }
                 }
+                Divider()
                 Spacer()
+                    .frame(height: 30)
                 NavigationLink(destination: SearchedItemIngredientView(productName: $productName, ingredientsList: $ingredientsList)) {
                     Text("See all ingredients")
-                        .padding(5)
+                        //.padding(5)
                         .font(.system(size: 20, weight: .semibold, design: .default))
                 }
                 .buttonStyle(DefaultButtonStyle())
+                .padding(.all)
+                .foregroundColor(Color.white)
+                .frame(width: 260)
+                .background(Color("pearlyPurple"))
+                .cornerRadius(40)
                 
                 Spacer()
                     .frame(height: 20)
@@ -74,6 +91,11 @@ struct SearchedItemView: View {
                         .fontWeight(.semibold)
                         .font(.system(size: 20, weight: .semibold, design: .default))
                 } // label: button
+                .padding(.all)
+                .foregroundColor(Color.white)
+                .frame(width: 170)
+                .background(Color("pearlyPurple"))
+                .cornerRadius(40)
                 .alert(isPresented: $showingAlert) {
                     //Alert(title: Text("Your allergen preferences have been updated"), dismissButton: .default(Text("OK"), action: dismiss()))
                     

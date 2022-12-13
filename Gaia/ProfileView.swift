@@ -16,112 +16,112 @@ struct ProfileView: View {
     
     var body: some View {
         //NavigationStack {
-            VStack (alignment: .leading) {
-                
-                headerView
-                
-                Spacer()
-                    .frame(height: 90)
-                
-                profileTabs
-                
-                if selectedFilter == .allergens {
-                    // ScrollView {
-                    VStack {
-                        //Text("Allergies (swipe to delete)")
-                            //.frame(maxWidth: .infinity, alignment: .leading)
-                            //.font(.system(size: 25))
-                            //.padding()
-                        
-                        //Spacer()
-                        //.frame(height: 10)
-                        //Divider()
-                        if avm.savedAllergens.isEmpty {
-                            Text("You have no allergies recorded")
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding()
-                                .font(.system(size: 23))
-                        }
-                        else {
-                            List {
-                                ForEach(avm.savedAllergens) { item in
-                                    Text(item.allergenName ?? "")
-                                        .font(.system(size: 23))
-                                }
-                                .onDelete(perform: avm.deleteAllegen)
-                                
-                                
-                                //.padding()
-                                //.toolbar {
-                                //EditButton()
-                            }
-                            .listStyle(PlainListStyle())
-                            
-                            //.padding()
-                        }
-                        
-                        //NavigationLink(destination: EditProfileView()) {
-                        //Text("edit")
-                        //}
-                        Spacer()
-                            .frame(height: 20)
-                        
-                        
-                        //Spacer()
-                        //.frame(height: 10)
-                        //Divider()
-                    }
+        VStack (alignment: .leading) {
+            
+            headerView
+            
+            Spacer()
+                .frame(height: 90)
+            
+            profileTabs
+            
+            if selectedFilter == .allergens {
+                // ScrollView {
+                VStack {
+                    //Text("Allergies (swipe to delete)")
+                    //.frame(maxWidth: .infinity, alignment: .leading)
+                    //.font(.system(size: 25))
                     //.padding()
-                    //}
-                } else {
-                    if sivm.savedItems.isEmpty {
-                        Text("You have no saved items")
+                    
+                    //Spacer()
+                    //.frame(height: 10)
+                    //Divider()
+                    if avm.savedAllergens.isEmpty {
+                        Text("You have no allergies recorded")
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding()
                             .font(.system(size: 23))
                     }
                     else {
                         List {
-                            ForEach(sivm.savedItems){ item in
-                                
-                                    NavigationLink(destination: SavedItemDetailedView(productName: item.productName ?? "", ingredients: item.ingredientList ?? "")) {
-                                        
-                                            Text(item.productName ?? "No name")
-                                    }
-                                
-                                
+                            ForEach(avm.savedAllergens) { item in
+                                Text(item.allergenName ?? "")
+                                    .font(.system(size: 23))
                             }
-                            .onDelete(perform: sivm.deleteItem)
+                            .onDelete(perform: avm.deleteAllegen)
                             
                             
-                            //
+                            //.padding()
                             //.toolbar {
                             //EditButton()
                         }
                         .listStyle(PlainListStyle())
-                        .padding()
                         
+                        //.padding()
                     }
+                    
+                    //NavigationLink(destination: EditProfileView()) {
+                    //Text("edit")
+                    //}
+                    Spacer()
+                        .frame(height: 20)
+                    
+                    
+                    //Spacer()
+                    //.frame(height: 10)
+                    //Divider()
                 }
-                // code here what we want on each screen
-                
-                
-                Spacer()
+                //.padding()
+                //}
+            } else {
+                if sivm.savedItems.isEmpty {
+                    Text("You have no saved items")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding()
+                        .font(.system(size: 23))
+                }
+                else {
+                    List {
+                        ForEach(sivm.savedItems){ item in
+                            
+                            NavigationLink(destination: SavedItemDetailedView(productName: item.productName ?? "", ingredients: item.ingredientList ?? "")) {
+                                
+                                Text(item.productName ?? "No name")
+                            }
+                            
+                            
+                        }
+                        .onDelete(perform: sivm.deleteItem)
+                        
+                        
+                        //
+                        //.toolbar {
+                        //EditButton()
+                    }
+                    .listStyle(PlainListStyle())
+                    .padding()
+                    
+                }
             }
-            .onAppear {
-                //avm = CoreDataAllergenViewModel()
-                avm.fetchAllergen()
-                sivm.fetchSavedItems()
-            } //vstack
+            // code here what we want on each screen
             
+            
+            Spacer()
+        }
+        .onAppear {
+            //avm = CoreDataAllergenViewModel()
+            avm.fetchAllergen()
+            sivm.fetchSavedItems()
+        } //vstack
+        
         //}
     } // var body
     /*
-    func removeRows(at offsets: IndexSet) {
-        avm.savedAllergens.remove(atOffsets: offsets)
-        avm.fetchAllergen()
-        sivm.fetchSavedItems()
-    }*/
+     func removeRows(at offsets: IndexSet) {
+     avm.savedAllergens.remove(atOffsets: offsets)
+     avm.fetchAllergen()
+     sivm.fetchSavedItems()
+     }*/
 }
 
 struct ProfileView_Previews: PreviewProvider {
@@ -141,39 +141,39 @@ extension ProfileView {
             //options
             
             //VStack {
-                
-                //Menu {
-                    /*Button(action: {
-                        
-                    }) {
-                        Text("Log In")
-                    }
-                    
-                    Button(action: {
-                        
-                    }) {
-                        Text("Create an Account")
-                    }*/
-                    
-                    //NavigationLink(destination: EditProfileView()) {
-                        //Text("edit")
-                    //}
-                    //.buttonStyle(DefaultButtonStyle())
-                
-                //} label: {
-                    /*Image(systemName: "ellipsis")
-                        .resizable()
-                        .scaledToFit()
-                    // how to make this .trailing? it wont work
-                        .frame(width: 35, height: 30, alignment: .topTrailing)
-                        .foregroundColor(Color.white)
-                }
-                .offset(x: 320, y: -50)*/
+            
+            //Menu {
+            /*Button(action: {
+             
+             }) {
+             Text("Log In")
+             }
+             
+             Button(action: {
+             
+             }) {
+             Text("Create an Account")
+             }*/
+            
+            //NavigationLink(destination: EditProfileView()) {
+            //Text("edit")
+            //}
+            //.buttonStyle(DefaultButtonStyle())
+            
+            //} label: {
+            /*Image(systemName: "ellipsis")
+             .resizable()
+             .scaledToFit()
+             // how to make this .trailing? it wont work
+             .frame(width: 35, height: 30, alignment: .topTrailing)
+             .foregroundColor(Color.white)
+             }
+             .offset(x: 320, y: -50)*/
             //}
             
             HStack {
                 //profile picture
-                Image("samplePFP")
+                Image("epiFoodsLogo")
                     .resizable()
                     .clipShape(Circle())
                     .frame(width: 100, height: 100)
@@ -209,11 +209,13 @@ extension ProfileView {
                     .foregroundColor(.white)
                     .padding(10)
                     
-                    //.overlay(
-                        //RoundedRectangle(cornerRadius: 30)
-                            //.stroke(Color.black, lineWidth: 2)
-                    //)
-                    //.foregroundColor(Color.black)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 30)
+                        
+                            .stroke(Color.white, lineWidth: 2)
+                        //.padding()
+                    )
+                    
                     Spacer()
                         .frame(height: 20)
                 }
