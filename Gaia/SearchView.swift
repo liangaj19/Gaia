@@ -25,10 +25,6 @@ struct SearchView: View {
     var body: some View {
         //NavigationStack {
         ZStack {
-            Image("magnifyingGlass")
-                .resizable()
-                .scaledToFit()
-                .opacity(0.1)
             VStack {
                 
                 Text("UPC Search")

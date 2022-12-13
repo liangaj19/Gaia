@@ -29,7 +29,7 @@ struct EditProfileView: View {
                     .padding(.top, 100)
                     .padding(.bottom, 40)
                     .padding(.leading, 40)
-                    .padding(.trailing, 50)
+                    .padding(.trailing, 40)
                     .frame(maxWidth: .infinity, alignment:.center)
                     .background(Color("pearlyPurple"))
                     .foregroundColor(Color.white)
