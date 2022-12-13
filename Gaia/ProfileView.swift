@@ -173,7 +173,7 @@ extension ProfileView {
             
             HStack {
                 //profile picture
-                Image("samplePFP")
+                Image("epiFoodsLogo")
                     .resizable()
                     .clipShape(Circle())
                     .frame(width: 100, height: 100)
