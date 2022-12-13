@@ -146,6 +146,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3070341C2948D78D002E3853 /* Misc Code */ = {
+			isa = PBXGroup;
+			children = (
+				307A5CE2291C9DD200F49285 /* IngredientView.swift */,
+				308CF56C2929B66E0021AEDC /* ToggleButton.swift */,
+			);
+			path = "Misc Code";
+			sourceTree = "<group>";
+		};
 		3FA2318B294167440015BA8A /* Barcode */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,16 +204,15 @@
 		97A9365B2900AE5300994E0F /* Gaia */ = {
 			isa = PBXGroup;
 			children = (
+				3070341C2948D78D002E3853 /* Misc Code */,
 				3FA2319629416E970015BA8A /* Info.plist */,
 				97A9365C2900AE5300994E0F /* GaiaApp.swift */,
 				3FA2318B294167440015BA8A /* Barcode */,
 				3FA231972941BE810015BA8A /* Account Setup */,
 				30A7481F2908A72C00560E8D /* MainView.swift */,
-				308CF56C2929B66E0021AEDC /* ToggleButton.swift */,
 				97A9365E2900AE5300994E0F /* SearchView.swift */,
 				3F8F7BEA293A7B83009368CB /* SearchedItemView.swift */,
 				3F8F7BEC293A8846009368CB /* SearchedItemIngredientView.swift */,
-				307A5CE2291C9DD200F49285 /* IngredientView.swift */,
 				97FC3EEA292D8EAA002F7261 /* Saved Data for Profile */,
 				97278ADA29105BC6001492B1 /* ProfileView.swift */,
 				3FA231A22941CA410015BA8A /* SavedItemDetailedView.swift */,
