@@ -12,6 +12,12 @@ class NetworkManager: ObservableObject {
     // 04963406
     
     func fetchData(upcNumber: String) {
+        self.foodProduct.code = ""
+        self.foodProduct.ingredients_text = ""
+        self.foodProduct.product_name = ""
+        self.foodProduct.allergens_from_ingredients = ""
+        self.foodProduct.image_url = ""
+
         if let url = URL(string: "https://world.openfoodfacts.org/api/v2/product/\(upcNumber)") {
             let session = URLSession(configuration: .default)
             

@@ -24,59 +24,67 @@ struct SearchView: View {
     }
     var body: some View {
         //NavigationStack {
-            VStack {
+        VStack {
+            
+            Text("Search for a food item")
+                .font(.system(size: 30))
+                .fontWeight(.bold)
+                .padding(.top, 100)
+                .padding(.bottom, 40)
+                .padding(.leading, 40)
+                .padding(.trailing, 100)
+                .frame(maxWidth: .infinity, alignment:.leading)
+                .background(Color("pearlyPurple"))
+                .foregroundColor(Color.white)
+                .mask(RoundedRectangle(cornerRadius: 30))
+            
+            Divider()
+            HStack {
+                Image(systemName: "magnifyingglass")
+                    .padding(.leading)
                 
-                Text("Search for a food item")
-                                .font(.system(size: 30))
-                                .fontWeight(.bold)
-                                .padding(.top, 100)
-                                .padding(.bottom, 40)
-                                .padding(.leading, 40)
-                                .padding(.trailing, 100)
-                                .frame(maxWidth: .infinity, alignment:.leading)
-                                .background(Color("pearlyPurple"))
-                                .foregroundColor(Color.white)
-                                .mask(RoundedRectangle(cornerRadius: 30))
-                
-                Divider()
-                HStack {
-                    Image(systemName: "magnifyingglass")
-                        .padding(.leading)
-                    
-                    TextField("Enter UPC number", text: $upcNumber)
-                        .modifier(TextFieldClearButton(upcNumber: $upcNumber))
-                        .textFieldStyle(.roundedBorder)
-                        .onSubmit {
-                            networkManager.fetchData(upcNumber: upcNumber)
-                            upcEntered.toggle()
-                        }
-                        .frame(maxWidth: .infinity, alignment: .top)
-                        .padding()
-                }
-                    
-                Divider()
-                    .frame(alignment: .top)
-                if upcEntered && upcNumber != "" && networkManager.foodProduct.product_name != "" {
-                    List() {
-                        NavigationLink(destination: SearchedItemView(productAllergenWarningArray: $productAllergenWarningArray, ingredientsList: $networkManager.foodProduct.ingredients_text, productName: $networkManager.foodProduct.product_name, upcNumber: $networkManager.foodProduct.code, imageURL: $networkManager.foodProduct.image_url)) {
-                            Text(networkManager.foodProduct.product_name)
-                        }
+                TextField("Enter UPC number", text: $upcNumber)
+                    .modifier(TextFieldClearButton(upcNumber: $upcNumber, upcEntered: $upcEntered))
+                    .textFieldStyle(.roundedBorder)
+                    .onSubmit {
+                        networkManager.fetchData(upcNumber: upcNumber)
+                        upcEntered = true
                     }
-                    .listStyle(PlainListStyle())
+                    .frame(maxWidth: .infinity, alignment: .top)
+                    .padding()
+                
+            }
+            
+            Divider()
+                .frame(alignment: .top)
+            if upcEntered && upcNumber != "" && networkManager.foodProduct.product_name != "" {
+                List() {
+                    //allergy.isChecked ? Color("palePurple") : Color.clear
+                    NavigationLink(destination: SearchedItemView(productAllergenWarningArray: $productAllergenWarningArray, ingredientsList: $networkManager.foodProduct.ingredients_text, productName: $networkManager.foodProduct.product_name, upcNumber: $networkManager.foodProduct.code, imageURL: $networkManager.foodProduct.image_url)) {
+                        Text(networkManager.foodProduct.product_name)
+                    }
                 }
-                Spacer()
+                .listStyle(PlainListStyle())
             }
-            .onReceive(networkManager.$foodProduct) { foodProduct in
-                checkIngredients(ingredientsList: foodProduct.ingredients_text, ingredientsAllergensList: foodProduct.allergens_from_ingredients)
+            else if upcEntered && upcNumber != "" && networkManager.foodProduct.product_name == "" {
+                List() {
+                    Text("This item doesn't exist")
+                }
+                .listStyle(PlainListStyle())
             }
-            .ignoresSafeArea()
-            .onAppear {
-                upcNumber = ""
-                upcEntered = false
-                avm.fetchAllergen()
-            }
-            
-            
+            Spacer()
+        }
+        .onReceive(networkManager.$foodProduct) { foodProduct in
+            checkIngredients(ingredientsList: foodProduct.ingredients_text, ingredientsAllergensList: foodProduct.allergens_from_ingredients)
+        }
+        .ignoresSafeArea()
+        .onAppear {
+            upcNumber = ""
+            upcEntered = false
+            avm.fetchAllergen()
+        }
+        
+        
         
     }
     
@@ -89,7 +97,7 @@ struct SearchView: View {
         for allergy in avm.savedAllergens {
             userAllergyStringArray.append(allergy.allergenName ?? "")
         }
-
+        
         // check default allergies
         for allergy in userAllergyStringArray {
             if (ingredientsList.lowercased().contains(allergy.lowercased()) || ingredientsAllergensList.lowercased().contains(allergy.lowercased())) && !productAllergenWarningArray.contains(allergy)  {
@@ -102,6 +110,7 @@ struct SearchView: View {
 
 struct TextFieldClearButton: ViewModifier {
     @Binding var upcNumber: String
+    @Binding var upcEntered: Bool
     
     func body(content: Content) -> some View {
         HStack {
@@ -111,6 +120,7 @@ struct TextFieldClearButton: ViewModifier {
                 Button(
                     action: {
                         self.upcNumber = ""
+                        self.upcEntered = false
                         //self.persons.removeAll()
                         
                     },
