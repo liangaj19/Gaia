@@ -24,16 +24,17 @@ struct EditProfileView: View {
         ZStack(alignment: .topLeading) {
             VStack {
                 Text("Select your allergens")
-                    .font(.system(size: 30))
+                    .font(.system(size: 40))
                     .fontWeight(.bold)
                     .padding(.top, 100)
                     .padding(.bottom, 40)
                     .padding(.leading, 40)
-                    .padding(.trailing, 100)
-                    .frame(maxWidth: .infinity, alignment:.leading)
+                    .padding(.trailing, 50)
+                    .frame(maxWidth: .infinity, alignment:.center)
                     .background(Color("pearlyPurple"))
                     .foregroundColor(Color.white)
                     .mask(RoundedRectangle(cornerRadius: 30))
+                    .multilineTextAlignment(.center)
                     //.ignoresSafeArea()
                 
                 

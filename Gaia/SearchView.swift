@@ -24,57 +24,62 @@ struct SearchView: View {
     }
     var body: some View {
         //NavigationStack {
-        VStack {
-            
-            Text("Search for a food item")
-                .font(.system(size: 30))
-                .fontWeight(.bold)
-                .padding(.top, 100)
-                .padding(.bottom, 40)
-                .padding(.leading, 40)
-                .padding(.trailing, 100)
-                .frame(maxWidth: .infinity, alignment:.leading)
-                .background(Color("pearlyPurple"))
-                .foregroundColor(Color.white)
-                .mask(RoundedRectangle(cornerRadius: 30))
-            
-            Divider()
-            HStack {
-                Image(systemName: "magnifyingglass")
-                    .padding(.leading)
+        ZStack {
+            Image("magnifyingGlass")
+                .resizable()
+                .scaledToFit()
+                .opacity(0.1)
+            VStack {
                 
-                TextField("Enter UPC number", text: $upcNumber)
-                    .modifier(TextFieldClearButton(upcNumber: $upcNumber, upcEntered: $upcEntered))
-                    .textFieldStyle(.roundedBorder)
-                    .onSubmit {
-                        networkManager.fetchData(upcNumber: upcNumber)
-                        upcEntered = true
-                    }
-                    .frame(maxWidth: .infinity, alignment: .top)
-                    .padding()
+                Text("UPC Search")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .padding(.top, 100)
+                    .padding(.bottom, 20)
+                    .padding(.leading, 40)
+                    .padding(.trailing, 50)
+                    .frame(maxWidth: .infinity, alignment:.center)
+                    .background(Color("pearlyPurple"))
+                    .foregroundColor(Color.white)
+                    .mask(RoundedRectangle(cornerRadius: 30))
                 
-            }
-            
-            Divider()
-                .frame(alignment: .top)
-            if upcEntered && upcNumber != "" && networkManager.foodProduct.product_name != "" {
-                    List() {
-                        NavigationLink(destination: SearchedItemView(productAllergenWarningArray: $productAllergenWarningArray, ingredientsList: $networkManager.foodProduct.ingredients_text, productName: $networkManager.foodProduct.product_name, upcNumber: $networkManager.foodProduct.code, imageURL: $networkManager.foodProduct.image_url)) {
-                            Text(networkManager.foodProduct.product_name)
+                Divider()
+                HStack {
+                    Image(systemName: "magnifyingglass")
+                        .padding(.leading)
+                    
+                    TextField("Enter UPC number", text: $upcNumber)
+                        .modifier(TextFieldClearButton(upcNumber: $upcNumber, upcEntered: $upcEntered))
+                        .textFieldStyle(.roundedBorder)
+                        .onSubmit {
+                            networkManager.fetchData(upcNumber: upcNumber)
+                            upcEntered = true
                         }
-                    }
-                    .listStyle(PlainListStyle())
+                        .frame(maxWidth: .infinity, alignment: .top)
+                        .padding()
+                    
+                }
+                
+                Divider()
+                if upcEntered && upcNumber != "" && networkManager.foodProduct.product_name != "" {
+                        List() {
+                            NavigationLink(destination: SearchedItemView(productAllergenWarningArray: $productAllergenWarningArray, ingredientsList: $networkManager.foodProduct.ingredients_text, productName: $networkManager.foodProduct.product_name, upcNumber: $networkManager.foodProduct.code, imageURL: $networkManager.foodProduct.image_url)) {
+                                Text(networkManager.foodProduct.product_name)
+                            }
+                        }
+                        .listStyle(PlainListStyle())
+                }
+                Spacer()
             }
-            Spacer()
+            .onReceive(networkManager.$foodProduct) { foodProduct in
+                checkIngredients(ingredientsList: foodProduct.ingredients_text, ingredientsAllergensList: foodProduct.allergens_from_ingredients)
+            }
+            .ignoresSafeArea()
+            .onAppear {
+                upcNumber = ""
+                upcEntered = false
+                avm.fetchAllergen()
         }
-        .onReceive(networkManager.$foodProduct) { foodProduct in
-            checkIngredients(ingredientsList: foodProduct.ingredients_text, ingredientsAllergensList: foodProduct.allergens_from_ingredients)
-        }
-        .ignoresSafeArea()
-        .onAppear {
-            upcNumber = ""
-            upcEntered = false
-            avm.fetchAllergen()
         }
         
         
