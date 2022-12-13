@@ -56,48 +56,52 @@ struct AllergenPickView: View {
                 }
                 .listStyle(PlainListStyle())
                 
-                Rectangle()
-                    .frame(height: 1.5)
-                    .foregroundColor(Color("pearlyPurple"))
-                
-                Spacer()
-                    .frame(height: 15)
+                Group {
+                    Rectangle()
+                        .frame(height: 1.5)
+                        .foregroundColor(Color("pearlyPurple"))
+                    
+                    Spacer()
+                        .frame(height: 15)
 
-                Text("Enter custom allergens here")
-                    .font(.system(size: 20))
-                    .padding(5)
-                
-                Text("Example: Bananas, Apples")
-                    .font(.system(size: 15))
-                    .padding(5)
-                
-                TextField("Other", text: $customAllergyInput)
-                    .autocapitalization(.none)
-                    .padding(.all, 10)
-                    .overlay(
-                            RoundedRectangle(cornerRadius: 14)
-                                .stroke(Color.black, lineWidth: 1.5)
-                        )
-                    .frame(width: 350, height: 30, alignment: .center)
-                    //.background(Color("pearlyPurple"))
-                
-                Spacer()
-                    .frame(height: 20)
-                
-                Button {
-                    addAllergiesToAllergyList()
-                    UserDefaults.standard.firstTimeUser = false
-                } label: {
-                    Text("Finish")
+                    Text("Enter custom allergens here")
+                        .font(.system(size: 20))
+                        .padding(5)
+                    
+                    Text("Example: Bananas, Apples")
+                        .font(.system(size: 15))
+                        .padding(5)
+                    
+                    TextField("Other", text: $customAllergyInput)
+                        .autocapitalization(.none)
+                        .padding(.all, 10)
+                        .overlay(
+                                RoundedRectangle(cornerRadius: 14)
+                                    .stroke(Color.black, lineWidth: 1.5)
+                            )
+                        .frame(width: 350, height: 30, alignment: .center)
+                        //.background(Color("pearlyPurple"))
+                    
+                    Spacer()
+                        .frame(height: 20)
+                    
+                    Button {
+                        addAllergiesToAllergyList()
+                        UserDefaults.standard.firstTimeUser = false
+                    } label: {
+                        Text("Finish")
+                    }
+                    .padding(.all)
+                    .foregroundColor(Color.white)
+                    .frame(width: 170)
+                    .background(Color("pearlyPurple"))
+                    .cornerRadius(40)
+                    
+                    Spacer()
+                        .frame(height: 10)
+                    Spacer()
                 }
-                .padding(.all)
-                .foregroundColor(Color.white)
-                .frame(width: 170)
-                .background(Color("pearlyPurple"))
-                .cornerRadius(40)
                 
-                Spacer()
-                    .frame(height: 25)
                 
             }
             .adaptsToKeyboard()
