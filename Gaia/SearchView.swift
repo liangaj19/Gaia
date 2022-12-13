@@ -74,7 +74,6 @@ struct SearchView: View {
                 upcNumber = ""
                 upcEntered = false
                 avm.fetchAllergen()
-
             }
             
             
@@ -83,7 +82,10 @@ struct SearchView: View {
     
     
     func checkIngredients(ingredientsList: String, ingredientsAllergensList: String) {
-        //avm.addAllergen(allergenName: "Caffeine")
+        
+        userAllergyStringArray = []
+        productAllergenWarningArray = []
+        
         for allergy in avm.savedAllergens {
             userAllergyStringArray.append(allergy.allergenName ?? "")
         }

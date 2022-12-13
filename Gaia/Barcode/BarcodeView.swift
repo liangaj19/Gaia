@@ -112,6 +112,10 @@ struct BarcodeView: View {
     }
     
     func checkIngredients(ingredientsList: String, ingredientsAllergensList: String) {
+        
+        userAllergyStringArray = []
+        productAllergenWarningArray = []
+        
         for allergy in avm.savedAllergens {
             
             userAllergyStringArray.append(allergy.allergenName ?? "")
