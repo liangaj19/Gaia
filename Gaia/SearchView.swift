@@ -25,8 +25,12 @@ struct SearchView: View {
     var body: some View {
         //NavigationStack {
         ZStack {
-            VStack {
-                
+            Rectangle()
+                .ignoresSafeArea()
+                .background(Color("pearlyPurple"))
+                .opacity(0.05)
+            
+            VStack(spacing: 0) {
                 Text("UPC Search")
                     .font(.largeTitle)
                     .fontWeight(.bold)
@@ -52,7 +56,9 @@ struct SearchView: View {
                             upcEntered = true
                         }
                         .frame(maxWidth: .infinity, alignment: .top)
-                        .padding()
+                        .padding(.trailing)
+                        .padding(.top)
+                        .padding(.bottom)
                     
                 }
                 
@@ -64,6 +70,7 @@ struct SearchView: View {
                             }
                         }
                         .listStyle(PlainListStyle())
+                        
                 }
                 Spacer()
             }
