@@ -40,15 +40,17 @@ struct EditProfileView: View {
                 
                 List() {
                     ForEach($allergyChecklist) {$allergy in
-                        Text(allergy.name)
-                            .onTapGesture {
-                                allergy.isChecked.toggle()
-                            }
-                            
-                            .listRowBackground(allergy.isChecked ? Color("palePurple") : Color.clear)
-                            .padding(5)
+                        HStack {
+                            Text(allergy.name)
+                            Spacer()
+                        }
+                        .contentShape(Rectangle())
+                                .onTapGesture {
+                                    allergy.isChecked.toggle()
+                                }
+                                .listRowBackground(allergy.isChecked ? Color("palePurple") : Color.clear)
+                                .padding(5)
                             .font(.system(size: 20))
-                            
                     }
                 }
                 .listStyle(PlainListStyle())
