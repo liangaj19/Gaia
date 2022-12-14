@@ -73,17 +73,24 @@ struct BarcodeView: View {
             VStack {
                 headerView
                 ScrollView {
-                    LazyVStack(alignment: .leading, spacing: 16) {
+                    LazyVStack(alignment: .center, spacing: 16) {
                         ForEach(vm.recognizedItems) { item in
                             switch item {
                             case .barcode(let barcode):
                                 NavigationLink(destination: SearchedItemView(productAllergenWarningArray: $productAllergenWarningArray, ingredientsList: $networkManager.foodProduct.ingredients_text, productName: $networkManager.foodProduct.product_name, upcNumber: $networkManager.foodProduct.code, imageURL: $networkManager.foodProduct.image_url)) {
-                                    Text(barcode.payloadStringValue ?? "")
+                                    Text("Search Item")
                                         .frame(maxWidth: .infinity, alignment: .center)
+                                        .font(.system(size: 30))
                                 }
                                 .onAppear {
                                     networkManager.fetchData(upcNumber: barcode.payloadStringValue ?? "")
                                 }
+                                .buttonStyle(DefaultButtonStyle())
+                                .padding(.all)
+                                .foregroundColor(Color.white)
+                                .frame(width: 300)
+                                .background(Color("pearlyPurple"))
+                                .cornerRadius(40)
                                 
                                 //if let barcodeInput = barcode.payloadStringValue {
                                     //upcNumber = barcodeInput
