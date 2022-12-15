@@ -14,20 +14,18 @@ struct Allergy: Identifiable {
 }
 
 struct AllergenPickView: View {
-
+    // allergy checklist variables
     @State private var allergyChecklist = [Allergy(name: "Milk", isChecked: false),  Allergy(name: "Eggs", isChecked: false),  Allergy(name: "Tree nuts", isChecked: false), Allergy(name: "Peanuts", isChecked: false), Allergy(name: "Shellfish", isChecked: false), Allergy(name: "Wheat", isChecked: false), Allergy(name: "Soy", isChecked: false), Allergy(name: "Fish", isChecked: false), Allergy(name: "Corn", isChecked: false), Allergy(name: "Alcohol", isChecked: false)]
+    
+    // allergy input for text field
     @State private var customAllergyInput: String = ""
     
-    // arrays to save into userdefaults
-    @State private var userAllergyList: [String] = []
-    //@State private var customAllergyList: [String] = []
-    
+    // core data
     @StateObject var avm = CoreDataAllergenViewModel()
     
     var body: some View {
         ZStack (alignment: .topLeading){
             VStack() {
-                // Color("pearlyPurple")
                 Text("Select your allergens")
                     .font(.system(size: 40))
                     .fontWeight(.bold)
@@ -40,18 +38,20 @@ struct AllergenPickView: View {
                     .foregroundColor(Color.white)
                     .mask(RoundedRectangle(cornerRadius: 30))
                     .multilineTextAlignment(.center)
-                    //.ignoresSafeArea()
                 
                 List() {
                     ForEach($allergyChecklist) {$allergy in
-                        Text(allergy.name)
-                            .onTapGesture {
-                                allergy.isChecked.toggle()
-                            }
-                            .listRowBackground(allergy.isChecked ? Color("palePurple") : Color.clear)
-                            .padding(5)
-                            .font(.system(size: 20))
-                            
+                        HStack {
+                            Text(allergy.name)
+                            Spacer()
+                        }
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            allergy.isChecked.toggle()
+                        }
+                        .listRowBackground(allergy.isChecked ? Color("palePurple") : Color.clear)
+                        .padding(5)
+                        .font(.system(size: 20))
                     }
                 }
                 .listStyle(PlainListStyle())
@@ -63,7 +63,7 @@ struct AllergenPickView: View {
                     
                     Spacer()
                         .frame(height: 15)
-
+                    
                     Text("Enter custom allergens here")
                         .font(.system(size: 20))
                         .padding(5)
@@ -76,11 +76,11 @@ struct AllergenPickView: View {
                         .autocapitalization(.none)
                         .padding(.all, 10)
                         .overlay(
-                                RoundedRectangle(cornerRadius: 14)
-                                    .stroke(Color.black, lineWidth: 1.5)
-                            )
+                            RoundedRectangle(cornerRadius: 14)
+                                .stroke(Color.black, lineWidth: 1.5)
+                        )
                         .frame(width: 350, height: 30, alignment: .center)
-                        //.background(Color("pearlyPurple"))
+                    //.background(Color("pearlyPurple"))
                     
                     Spacer()
                         .frame(height: 20)

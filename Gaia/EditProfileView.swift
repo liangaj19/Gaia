@@ -35,7 +35,7 @@ struct EditProfileView: View {
                     .foregroundColor(Color.white)
                     .mask(RoundedRectangle(cornerRadius: 30))
                     .multilineTextAlignment(.center)
-                    //.ignoresSafeArea()
+                //.ignoresSafeArea()
                 
                 
                 List() {
@@ -45,12 +45,12 @@ struct EditProfileView: View {
                             Spacer()
                         }
                         .contentShape(Rectangle())
-                                .onTapGesture {
-                                    allergy.isChecked.toggle()
-                                }
-                                .listRowBackground(allergy.isChecked ? Color("palePurple") : Color.clear)
-                                .padding(5)
-                            .font(.system(size: 20))
+                        .onTapGesture {
+                            allergy.isChecked.toggle()
+                        }
+                        .listRowBackground(allergy.isChecked ? Color("palePurple") : Color.clear)
+                        .padding(5)
+                        .font(.system(size: 20))
                     }
                 }
                 .listStyle(PlainListStyle())
@@ -74,11 +74,11 @@ struct EditProfileView: View {
                         .autocapitalization(.none)
                         .padding(.all, 10)
                         .overlay(
-                                RoundedRectangle(cornerRadius: 14)
-                                    .stroke(Color.black, lineWidth: 1.5)
-                            )
+                            RoundedRectangle(cornerRadius: 14)
+                                .stroke(Color.black, lineWidth: 1.5)
+                        )
                         .frame(width: 350, height: 30, alignment: .center)
-                        
+                    
                     Spacer()
                         .frame(height: 20)
                     
@@ -102,7 +102,7 @@ struct EditProfileView: View {
                 }
                 //Spacer()
                 
-
+                
             }
             .adaptsToKeyboard()
             
@@ -153,17 +153,17 @@ struct AdaptsToKeyboard: ViewModifier {
                             withAnimation(.easeOut(duration: 0.16)) {
                                 notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect
                             }
-                    }
-                    .map { rect in
-                        rect.height - geometry.safeAreaInsets.bottom
-                    }
-                    .subscribe(Subscribers.Assign(object: self, keyPath: \.currentHeight))
+                        }
+                        .map { rect in
+                            rect.height - geometry.safeAreaInsets.bottom
+                        }
+                        .subscribe(Subscribers.Assign(object: self, keyPath: \.currentHeight))
                     
                     NotificationCenter.Publisher(center: NotificationCenter.default, name: UIResponder.keyboardWillHideNotification)
                         .compactMap { notification in
                             CGFloat.zero
-                    }
-                    .subscribe(Subscribers.Assign(object: self, keyPath: \.currentHeight))
+                        }
+                        .subscribe(Subscribers.Assign(object: self, keyPath: \.currentHeight))
                 })
         }
     }
